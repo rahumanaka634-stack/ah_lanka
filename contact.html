@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact AH LANKA — WhatsApp & Showroom Kurunegala</title>
+  <meta name="description" content="Contact AH LANKA. Connect directly on WhatsApp +94 76 632 2352 for vehicle sales, car/van rentals, and Airport CMB meet & greet. Fast human response, zero long forms.">
+  <meta name="keywords" content="Contact AH Lanka, Car sales Kurunegala phone number, AH Lanka WhatsApp number, Car rental contact Colombo">
+
+  <!-- Tailwind CSS & Custom Design System -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body class="text-slate-100 antialiased selection:bg-red-600 selection:text-white">
+
+  <!-- =========================================================================
+       GLOBAL NAVIGATION HEADER
+       ========================================================================= -->
+  <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3.5 group">
+        <img src="images/logo-floating.png" alt="AH LANKA Logo" class="h-12 w-auto object-contain floating-header-logo">
+        <div>
+          <div class="font-extrabold text-xl tracking-wider text-white flex items-center gap-2">
+            AH LANKA
+            <span class="text-[9px] uppercase tracking-widest px-2 py-0.5 rounded-full bg-red-950/90 text-red-400 border border-red-800/40">Official</span>
+          </div>
+          <div class="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Car Sales • Car Rentals & Hires</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold">
+        <a href="index.html" class="text-slate-300 hover:text-white transition-colors py-1">Home</a>
+        <a href="sales.html" class="text-slate-300 hover:text-white transition-colors py-1 flex items-center gap-1.5">
+          <span>🚘</span> Buy a Vehicle
+        </a>
+        <a href="rentals.html" class="text-slate-300 hover:text-white transition-colors py-1 flex items-center gap-1.5">
+          <span>🌴</span> Rent a Vehicle
+        </a>
+        <a href="about.html" class="text-slate-300 hover:text-white transition-colors py-1">About AH Lanka</a>
+        <a href="contact.html" class="text-white hover:text-red-400 transition-colors py-1 border-b-2 border-red-600">Contact</a>
+      </nav>
+
+      <!-- Desktop Header Actions -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'd%20like%20to%20get%20in%20touch." target="_blank" class="btn-whatsapp py-2.5 px-4 text-xs">
+          <span>💬</span> Chat 076 632 2352
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button onclick="toggleMobileNav()" class="lg:hidden p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white" aria-label="Toggle Navigation Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-nav-drawer" class="hidden lg:hidden border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-xl px-6 py-6 space-y-4">
+      <div class="grid grid-cols-2 gap-3 pb-3 border-b border-slate-800">
+        <a href="sales.html" class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-center">
+          <div class="text-lg">🚘</div>
+          <div class="font-bold text-xs text-white mt-1">Buy Vehicle</div>
+        </a>
+        <a href="rentals.html" class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-center">
+          <div class="text-lg">🌴</div>
+          <div class="font-bold text-xs text-white mt-1">Rent Vehicle</div>
+        </a>
+      </div>
+      <div class="flex flex-col space-y-3 font-semibold text-sm">
+        <a href="index.html" class="text-slate-300 hover:text-white py-1">Home</a>
+        <a href="sales.html" class="text-slate-300 hover:text-white py-1">Vehicle Sales Marketplace</a>
+        <a href="rentals.html" class="text-slate-300 hover:text-white py-1">Vehicle Rentals & Chauffeur Hires</a>
+        <a href="about.html" class="text-slate-300 hover:text-white py-1">About AH Lanka</a>
+        <a href="contact.html" class="text-red-400 py-1">Contact Us</a>
+      </div>
+      <div class="pt-4 border-t border-slate-800">
+        <a href="https://wa.me/94766322352" target="_blank" class="w-full btn-whatsapp justify-center py-3 text-xs">
+          <span>💬</span> Chat on WhatsApp (076 632 2352)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-24 sm:pt-28 pb-20">
+
+    <!-- =========================================================================
+         PAGE HERO
+         ========================================================================= -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="relative overflow-hidden glass-panel p-8 sm:p-12 rounded-3xl border-slate-800 bg-gradient-to-r from-slate-950 via-[#131926] to-slate-950">
+        <div class="max-w-3xl space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-800/60 text-xs font-semibold text-emerald-300">
+            <span class="online-dot"></span> Direct WhatsApp Support (+94 76 632 2352)
+          </div>
+          <h1 class="text-3xl sm:text-5xl font-black text-white leading-tight">
+            Let's Talk. Fast, Direct & Effortless.
+          </h1>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            At AH Lanka, we believe in real conversations without bureaucratic barriers. No account logins or long lead forms. Select your inquiry below and start chatting with our operations team in seconds.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         QUICK TOPIC WHATSAPP BUTTONS & LIVE MESSAGE COMPOSER
+         ========================================================================= -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Left: Quick Topic WhatsApp Direct Buttons (5 Cols) -->
+        <div class="lg:col-span-5 space-y-4">
+          <h2 class="text-xl font-bold text-white">Choose Your Inquiry Topic</h2>
+          <p class="text-xs text-slate-400">Clicking any option immediately opens a contextual pre-filled WhatsApp message with AH Lanka.</p>
+
+          <div class="space-y-3 pt-2">
+            
+            <!-- Topic 1 -->
+            <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'm%20interested%20in%20buying%20a%20vehicle%20from%20your%20sales%20inventory.%20Please%20send%20me%20your%20available%20options." target="_blank" class="anti-gravity-card p-4 rounded-2xl glass-panel border-red-900/40 hover:border-red-500 block group transition-all">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-red-600/20 text-red-400 flex items-center justify-center text-xl">🚘</div>
+                  <div>
+                    <div class="font-bold text-white text-sm">Vehicle Sales Inquiry</div>
+                    <div class="text-[11px] text-slate-400">Ask about cars, SUVs, or vans for sale</div>
+                  </div>
+                </div>
+                <span class="text-emerald-400 font-bold text-xs group-hover:translate-x-1 transition-transform">WhatsApp →</span>
+              </div>
+            </a>
+
+            <!-- Topic 2 -->
+            <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'm%20interested%20in%20renting%20a%20vehicle%20for%20my%20journey%20in%20Sri%20Lanka.%20Please%20share%20the%20available%20fleet%20and%20rates." target="_blank" class="anti-gravity-card p-4 rounded-2xl glass-panel border-emerald-900/40 hover:border-emerald-500 block group transition-all">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center text-xl">🌴</div>
+                  <div>
+                    <div class="font-bold text-white text-sm">Vehicle Rental & Chauffeur Hire</div>
+                    <div class="text-[11px] text-slate-400">Tourist fleet, KDH vans & family SUVs</div>
+                  </div>
+                </div>
+                <span class="text-emerald-400 font-bold text-xs group-hover:translate-x-1 transition-transform">WhatsApp →</span>
+              </div>
+            </a>
+
+            <!-- Topic 3 -->
+            <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI%20need%20Airport%20(CMB%20Katunayake)%20pickup%20and%20transportation%20service." target="_blank" class="anti-gravity-card p-4 rounded-2xl glass-panel border-blue-900/40 hover:border-blue-500 block group transition-all">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center text-xl">✈️</div>
+                  <div>
+                    <div class="font-bold text-white text-sm">Airport (CMB) Meet & Greet</div>
+                    <div class="text-[11px] text-slate-400">Katunayake arrival transfers & tour starts</div>
+                  </div>
+                </div>
+                <span class="text-emerald-400 font-bold text-xs group-hover:translate-x-1 transition-transform">WhatsApp →</span>
+              </div>
+            </a>
+
+            <!-- Topic 4 -->
+            <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'd%20like%20general%20information%20about%20your%20services." target="_blank" class="anti-gravity-card p-4 rounded-2xl glass-panel border-purple-900/40 hover:border-purple-500 block group transition-all">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-purple-600/20 text-purple-400 flex items-center justify-center text-xl">💬</div>
+                  <div>
+                    <div class="font-bold text-white text-sm">General Inquiry / Concierge</div>
+                    <div class="text-[11px] text-slate-400">Speak directly with management</div>
+                  </div>
+                </div>
+                <span class="text-emerald-400 font-bold text-xs group-hover:translate-x-1 transition-transform">WhatsApp →</span>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Right: Live WhatsApp Message Composer (7 Cols) -->
+        <div class="lg:col-span-7 glass-panel p-6 sm:p-8 rounded-3xl border-slate-800 space-y-5">
+          <div class="space-y-1">
+            <span class="badge-green">Instant Dispatch</span>
+            <h2 class="text-xl font-bold text-white">Custom Message Composer</h2>
+            <p class="text-xs text-slate-400">Type your details below and preview how your message will appear before sending to WhatsApp.</p>
+          </div>
+
+          <div class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Your Name</label>
+                <input type="text" id="contact-name" oninput="updateCustomContactMessage()" placeholder="e.g. John Smith" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-red-500">
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Primary Interest</label>
+                <select id="contact-topic" onchange="updateCustomContactMessage()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none">
+                  <option value="Vehicle Purchase">Vehicle Purchase (Buy)</option>
+                  <option value="Vehicle Rental (With Driver)">Vehicle Rental (With Driver)</option>
+                  <option value="Vehicle Rental (Self-Drive)">Vehicle Rental (Self-Drive)</option>
+                  <option value="Airport Pickup Transfer">Airport Pickup Transfer</option>
+                  <option value="Other Service">Other Inquiry</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Your Message / Requirement</label>
+              <textarea id="contact-text" oninput="updateCustomContactMessage()" rows="3" placeholder="Tell us your vehicle preference, travel dates, or specific questions..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-red-500"></textarea>
+            </div>
+
+            <!-- Preview Box -->
+            <div class="bg-black/80 border border-slate-800 rounded-xl p-4 space-y-2">
+              <div class="text-[11px] font-mono text-slate-400 flex items-center justify-between">
+                <span>Output to +94 76 632 2352:</span>
+                <span class="text-emerald-400 font-bold">Auto-Encoded</span>
+              </div>
+              <pre id="contact-preview-box" class="text-xs text-emerald-300 font-mono whitespace-pre-wrap leading-relaxed bg-slate-950 p-3 rounded-lg border border-slate-900 min-h-[90px]"></pre>
+            </div>
+
+            <a id="contact-submit-btn" href="#" target="_blank" class="w-full btn-whatsapp justify-center py-3.5 text-sm font-bold shadow-lg">
+              <span>💬</span> OPEN IN WHATSAPP (+94 76 632 2352)
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         OUR OPERATIONAL HUBS & CONTACT DETAILS
+         ========================================================================= -->
+    <section id="hubs" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="text-center max-w-xl mx-auto mb-10 space-y-2">
+        <span class="badge-red">Physical Locations & Reach</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Our Operational Hubs</h2>
+        <p class="text-xs sm:text-sm text-slate-400">Headquartered in Kurunegala with strategic support desks across Sri Lanka.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+        
+        <!-- Hub 1: Kurunegala -->
+        <div class="glass-panel p-6 rounded-2xl border-slate-800 space-y-3">
+          <div class="text-2xl">🏢</div>
+          <h3 class="text-base font-bold text-white">Kurunegala Main Hub</h3>
+          <p class="text-slate-400 leading-relaxed">
+            Main sales showroom, fleet maintenance facility, and executive administrative headquarters.
+          </p>
+          <div class="space-y-1.5 pt-2 border-t border-slate-800 text-slate-300">
+            <div>📍 Kurunegala, North Western Province, Sri Lanka</div>
+            <div>📞 Direct: <a href="tel:+94766322352" class="text-red-400 font-bold">076 632 2352</a></div>
+            <div>🕒 Showroom: Mon - Sat: 8:30 AM - 7:00 PM</div>
+          </div>
+        </div>
+
+        <!-- Hub 2: Katunayake Airport -->
+        <div class="glass-panel p-6 rounded-2xl border-slate-800 space-y-3">
+          <div class="text-2xl">✈️</div>
+          <h3 class="text-base font-bold text-white">Airport Desk (Katunayake CMB)</h3>
+          <p class="text-slate-400 leading-relaxed">
+            Bandaranaike International Airport passenger greetings, flight tracking, and vehicle dispatch point.
+          </p>
+          <div class="space-y-1.5 pt-2 border-t border-slate-800 text-slate-300">
+            <div>📍 Katunayake CMB Arrivals Terminal</div>
+            <div>📞 Meet & Greet Hotline: <span class="text-emerald-400 font-bold">+94 76 632 2352</span></div>
+            <div>🕒 Operating Hours: 24 Hours / 7 Days (Flight Scheduled)</div>
+          </div>
+        </div>
+
+        <!-- Hub 3: Colombo Delivery Desk -->
+        <div class="glass-panel p-6 rounded-2xl border-slate-800 space-y-3">
+          <div class="text-2xl">🏙️</div>
+          <h3 class="text-base font-bold text-white">Colombo Delivery Desk</h3>
+          <p class="text-slate-400 leading-relaxed">
+            Express door-to-door delivery for rental vehicles, hotel drop-offs, and buyer inspection appointments.
+          </p>
+          <div class="space-y-1.5 pt-2 border-t border-slate-800 text-slate-300">
+            <div>📍 Colombo & Greater Western Province</div>
+            <div>📞 Dispatch: <span class="text-emerald-400 font-bold">+94 76 632 2352</span></div>
+            <div>🕒 Service Hours: 7:00 AM - 10:00 PM</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       GLOBAL FOOTER
+       ========================================================================= -->
+  <footer class="border-t border-slate-900 bg-slate-950 pt-16 pb-12 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-900">
+        
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <img src="images/logo-floating.png" alt="AH LANKA Logo" class="h-10 w-auto object-contain">
+            <div>
+              <div class="font-extrabold text-base text-white">AH LANKA</div>
+              <div class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Car Sales • Car Rentals & Hires</div>
+            </div>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+            “Your Vehicle. Your Journey. Your Choice.”<br>
+            Direct communication, verified fleet, islandwide delivery.
+          </p>
+          <div class="text-slate-300 font-mono text-xs">
+            WhatsApp: <a href="https://wa.me/94766322352" class="text-emerald-400 font-bold hover:underline">+94 76 632 2352</a>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="font-bold text-white text-sm">Navigation</div>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="sales.html" class="hover:text-red-400 transition-colors">Vehicles for Sale</a></li>
+            <li><a href="rentals.html" class="hover:text-emerald-400 transition-colors">Vehicle Rentals</a></li>
+            <li><a href="about.html" class="hover:text-white transition-colors">About AH Lanka</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <div class="font-bold text-white text-sm">Services</div>
+          <ul class="space-y-2">
+            <li><a href="sales.html" class="hover:text-slate-300">Car Sales</a></li>
+            <li><a href="rentals.html" class="hover:text-slate-300">Car & SUV Rentals</a></li>
+            <li><a href="rentals.html" class="hover:text-slate-300">Tourist Van Hire</a></li>
+            <li><a href="rentals.html" class="hover:text-slate-300">Airport Transfers</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <div class="font-bold text-white text-sm">Operating Times</div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            WhatsApp Hotline: <span class="text-emerald-400 font-semibold">24/7 Available</span><br>
+            Kurunegala Showroom: Mon-Sat 8:30 AM - 7:00 PM<br>
+            Airport Flight Support: 24/7
+          </p>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div>© 2026 AH LANKA. All Rights Reserved. "Your Vehicle. Your Journey. Your Choice."</div>
+        <div class="flex items-center gap-4">
+          <a href="index.html" class="hover:text-slate-300">Home</a>
+          <a href="sales.html" class="hover:text-slate-300">Sales</a>
+          <a href="rentals.html" class="hover:text-slate-300">Rentals</a>
+          <a href="about.html" class="hover:text-slate-300">About</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       GLOBAL FLOATING WHATSAPP BUTTON
+       ========================================================================= -->
+  <div class="floating-whatsapp-container">
+    <div class="floating-whatsapp-tooltip">
+      <span class="online-dot"></span> Chat with AH Lanka
+    </div>
+    <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'd%20like%20to%20get%20in%20touch." target="_blank" class="floating-whatsapp-btn" aria-label="Chat on WhatsApp (+94 76 632 2352)">
+      <svg class="w-7 h-7 fill-white" viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-1.118-.061-.264-.087-.605-.205-1.04-.393-1.85-.801-3.053-2.678-3.146-2.802-.092-.123-.751-1.002-.751-1.911 0-.909.475-1.356.644-1.542.169-.187.369-.234.492-.234.123 0 .246.002.354.007.113.006.262-.043.411.314.154.37.524 1.278.57 1.371.046.092.077.2.015.324-.061.123-.092.2-.185.308-.092.108-.194.241-.277.324-.092.092-.187.193-.08.378.107.185.478.789 1.025 1.277.705.628 1.3.822 1.485.914.185.093.292.077.4-.046.108-.123.461-.539.585-.724.123-.185.246-.154.415-.092.17.062 1.077.508 1.262.6.185.092.308.138.354.215.046.077.046.446-.098.851z"/>
+        <path d="M12.004 2c-5.518 0-9.998 4.476-10 9.993 0 1.763.459 3.486 1.332 5.002l-1.336 4.887 5.011-1.314c1.464.799 3.119 1.22 4.989 1.222 5.519 0 10.002-4.477 10.002-9.995 0-5.521-4.48-10-10.002-10zm0 18.256c-1.579 0-3.12-.419-4.474-1.213l-.321-.189-2.973.779.793-2.898-.207-.33c-.874-1.391-1.335-3.009-1.334-4.667 0-4.552 3.707-8.257 8.261-8.257 4.551 0 8.255 3.704 8.255 8.257 0 4.554-3.705 8.261-8.256 8.261z"/>
+      </svg>
+    </a>
+  </div>
+
+  <script>
+    function updateCustomContactMessage() {
+      const name = document.getElementById('contact-name').value.trim() || 'Website Visitor';
+      const topic = document.getElementById('contact-topic').value;
+      const note = document.getElementById('contact-text').value.trim();
+
+      const msg = `Hello AH Lanka! 👋\n\nI'm contacting you via your website.\n\n👤 Name: ${name}\n📌 Interest: ${topic}\n${note ? `📝 Note: ${note}\n` : ''}\nPlease connect with me regarding options and assistance. Thank you!`;
+
+      document.getElementById('contact-preview-box').textContent = msg;
+      document.getElementById('contact-submit-btn').href = `https://wa.me/94766322352?text=${encodeURIComponent(msg)}`;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateCustomContactMessage();
+    });
+  </script>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

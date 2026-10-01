@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehicle Rentals & Hires Sri Lanka — AH LANKA | Chauffeur & Self-Drive</title>
+  <meta name="description" content="Rent premium cars, luxury SUVs, KDH vans & tourist buses in Sri Lanka with AH LANKA. With English-speaking chauffeur or self-drive. Free Airport (CMB) meet & greet. WhatsApp: +94 76 632 2352.">
+  <meta name="keywords" content="Car rental Sri Lanka, Rent a car Sri Lanka, Van rental Sri Lanka, Chauffeur car hire Sri Lanka, Airport car rental Colombo, SUV hire Ella">
+
+  <!-- Tailwind CSS & Custom Design System -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body class="text-slate-100 antialiased selection:bg-emerald-500 selection:text-black">
+
+  <!-- =========================================================================
+       GLOBAL NAVIGATION HEADER
+       ========================================================================= -->
+  <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3.5 group">
+        <img src="images/logo-floating.png" alt="AH LANKA Logo" class="h-12 w-auto object-contain floating-header-logo">
+        <div>
+          <div class="font-extrabold text-xl tracking-wider text-white flex items-center gap-2">
+            AH LANKA
+            <span class="text-[9px] uppercase tracking-widest px-2 py-0.5 rounded-full bg-emerald-950/90 text-emerald-400 border border-emerald-800/40">Rentals & Hires</span>
+          </div>
+          <div class="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Car Sales • Car Rentals & Hires</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold">
+        <a href="index.html" class="text-slate-300 hover:text-white transition-colors py-1">Home</a>
+        <a href="sales.html" class="text-slate-300 hover:text-white transition-colors py-1 flex items-center gap-1.5">
+          <span>🚘</span> Buy a Vehicle
+        </a>
+        <a href="rentals.html" class="text-white hover:text-emerald-400 transition-colors py-1 border-b-2 border-emerald-500 flex items-center gap-1.5">
+          <span>🌴</span> Rent a Vehicle
+        </a>
+        <a href="about.html" class="text-slate-300 hover:text-white transition-colors py-1">About AH Lanka</a>
+        <a href="contact.html" class="text-slate-300 hover:text-white transition-colors py-1">Contact</a>
+      </nav>
+
+      <!-- Desktop Header Actions (Currency Switcher & WhatsApp) -->
+      <div class="hidden sm:flex items-center gap-3">
+        <div class="inline-flex rounded-xl bg-slate-900 border border-slate-800 p-1 text-xs font-bold">
+          <button onclick="setCurrency('USD')" data-currency="USD" class="curr-btn px-2.5 py-1 rounded-lg bg-red-600 text-white transition-all">USD</button>
+          <button onclick="setCurrency('LKR')" data-currency="LKR" class="curr-btn px-2.5 py-1 rounded-lg text-slate-400 transition-all">LKR</button>
+          <button onclick="setCurrency('EUR')" data-currency="EUR" class="curr-btn px-2.5 py-1 rounded-lg text-slate-400 transition-all">EUR</button>
+          <button onclick="setCurrency('GBP')" data-currency="GBP" class="curr-btn px-2.5 py-1 rounded-lg text-slate-400 transition-all">GBP</button>
+        </div>
+        <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'm%20interested%20in%20renting%20a%20vehicle%20for%20my%20Sri%20Lanka%20trip." target="_blank" class="btn-whatsapp py-2.5 px-4 text-xs">
+          <span>💬</span> Chat 076 632 2352
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button onclick="toggleMobileNav()" class="lg:hidden p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white" aria-label="Toggle Navigation Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-nav-drawer" class="hidden lg:hidden border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-xl px-6 py-6 space-y-4">
+      <div class="grid grid-cols-2 gap-3 pb-3 border-b border-slate-800">
+        <a href="sales.html" class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-center">
+          <div class="text-lg">🚘</div>
+          <div class="font-bold text-xs text-white mt-1">Buy Vehicle</div>
+        </a>
+        <a href="rentals.html" class="p-3 rounded-xl bg-emerald-950/50 border border-emerald-600/60 text-center">
+          <div class="text-lg">🌴</div>
+          <div class="font-bold text-xs text-white mt-1">Rent Vehicle</div>
+        </a>
+      </div>
+      <div class="flex flex-col space-y-3 font-semibold text-sm">
+        <a href="index.html" class="text-slate-300 hover:text-white py-1">Home</a>
+        <a href="sales.html" class="text-slate-300 hover:text-white py-1">Vehicle Sales Marketplace</a>
+        <a href="rentals.html" class="text-emerald-400 py-1">Vehicle Rentals & Chauffeur Hires</a>
+        <a href="about.html" class="text-slate-300 hover:text-white py-1">About AH Lanka</a>
+        <a href="contact.html" class="text-slate-300 hover:text-white py-1">Contact Us</a>
+      </div>
+      <div class="pt-4 border-t border-slate-800">
+        <a href="https://wa.me/94766322352" target="_blank" class="w-full btn-whatsapp justify-center py-3 text-xs">
+          <span>💬</span> Chat on WhatsApp (076 632 2352)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-24 sm:pt-28 pb-20">
+
+    <!-- =========================================================================
+         PAGE HERO & INTRO
+         ========================================================================= -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="relative overflow-hidden glass-panel p-8 sm:p-12 rounded-3xl border-emerald-900/40 bg-gradient-to-r from-slate-950 via-slate-900 to-[#071912]">
+        <div class="max-w-3xl space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-800/60 text-xs font-semibold text-emerald-300">
+            <span>🌴</span> Sri Lanka Premier Travel & Mobility
+          </div>
+          <h1 class="text-3xl sm:text-5xl font-black text-white leading-tight">
+            Explore Sri Lanka With The Right Vehicle.
+          </h1>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            From seamless airport pickups at Bandaranaike International Airport (CMB) to scenic highland tea trails and southern coastal highways. Choose between seasoned English-speaking chauffeur guides or self-drive freedom.
+          </p>
+        </div>
+
+        <!-- Trust Badges Bar -->
+        <div class="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-semibold text-slate-300">
+          <div class="flex items-center gap-2">
+            <span class="text-emerald-400">✓</span> Free Airport Meet & Greet
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-emerald-400">✓</span> Chauffeur or Self-Drive
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-emerald-400">✓</span> 24/7 Islandwide Support
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-emerald-400">✓</span> Zero Hidden Tourist Fees
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         INTERACTIVE RENTAL REQUIREMENT BUILDER WIZARD
+         ========================================================================= -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="glass-panel p-6 sm:p-10 border-emerald-900/40 relative overflow-hidden bg-gradient-to-br from-slate-900/90 via-[#0a1814] to-slate-950/95">
+        <div class="max-w-3xl mb-8 space-y-2">
+          <span class="badge-green">Fast WhatsApp Booking Flow</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Custom Rental Requirement Builder</h2>
+          <p class="text-slate-300 text-xs sm:text-sm">
+            Configure your journey parameters. Your structured inquiry message will be compiled instantly below with one-tap WhatsApp dispatch.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Controls (7 Cols) -->
+          <div class="lg:col-span-7 space-y-5">
+            
+            <!-- Category -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">1. Vehicle Category</label>
+              <select id="rb-type" onchange="syncRentalBuilder()" class="w-full bg-slate-950/90 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500">
+                <option value="Luxury SUV (Toyota Prado / Mitsubishi Montero)">Luxury SUV (Toyota Prado / Montero) — Mountains & Safaris</option>
+                <option value="Toyota KDH High Roof Luxury Van (14-seater)">Toyota KDH Luxury Van (14-seater) — Groups & Families</option>
+                <option value="Comfort Sedan (Toyota Premio / Axio / Prius)">Comfort Sedan (Premio / Axio / Prius) — Smooth Highway Travel</option>
+                <option value="Mini Coach / 26-Seater Tourist Bus">Mini Coach / 26-Seater Tourist Bus — Large Tour Delegations</option>
+                <option value="Compact City Car (Wagon R / Alto)">Compact City Car (Wagon R / Alto) — Budget Urban Commutes</option>
+              </select>
+            </div>
+
+            <!-- Chauffeur vs Self Drive Mode -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                2. Driver Service Mode
+                <span class="text-emerald-400 text-[11px] font-normal lowercase">(Chauffeurs speak fluent English)</span>
+              </label>
+              <div class="grid grid-cols-2 gap-3">
+                <button type="button" id="rb-driver-btn" onclick="setRentalDriverMode('With English-Speaking Driver')" class="px-4 py-2.5 rounded-xl border border-emerald-500 bg-emerald-950/60 text-emerald-300 font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm">
+                  <span>👨‍✈️</span> With Chauffeur Guide
+                </button>
+                <button type="button" id="rb-self-btn" onclick="setRentalDriverMode('Self-Drive')" class="px-4 py-2.5 rounded-xl border border-slate-700 bg-slate-900/80 text-slate-400 font-medium text-xs flex items-center justify-center gap-1.5 transition-all">
+                  <span>🔑</span> Self-Drive Freedom
+                </button>
+              </div>
+            </div>
+
+            <!-- Dates & Passengers -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Pickup Date</label>
+                <input type="date" id="rb-pickup-date" onchange="syncRentalBuilder()" class="w-full bg-slate-950/90 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none">
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Return Date</label>
+                <input type="date" id="rb-return-date" onchange="syncRentalBuilder()" class="w-full bg-slate-950/90 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none">
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Passengers</label>
+                <select id="rb-passengers" onchange="syncRentalBuilder()" class="w-full bg-slate-950/90 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none">
+                  <option value="1 - 2 Passengers">1 - 2 Passengers</option>
+                  <option value="3 - 4 Passengers" selected>3 - 4 Passengers</option>
+                  <option value="5 - 7 Passengers">5 - 7 Passengers</option>
+                  <option value="8 - 14 Passengers">8 - 14 Passengers</option>
+                  <option value="15+ Group">15+ Group Tour</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Pickup Location & Notes -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Pickup Point</label>
+                <select id="rb-location" onchange="syncRentalBuilder()" class="w-full bg-slate-950/90 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none">
+                  <option value="Bandaranaike Airport (CMB Katunayake)">Airport (CMB Katunayake) — Free Meet & Greet</option>
+                  <option value="Colombo City / Mount Lavinia">Colombo City / Mount Lavinia</option>
+                  <option value="Kandy City">Kandy City</option>
+                  <option value="Kurunegala Main Hub">Kurunegala Main Hub</option>
+                  <option value="Ella / Nuwara Eliya">Ella / Nuwara Eliya</option>
+                  <option value="Mirissa / Galle Coast">Mirissa / Galle Coast</option>
+                  <option value="Other Islandwide Location">Other Custom Islandwide Point</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Flight Number / Special Request</label>
+                <input type="text" id="rb-flight-notes" oninput="syncRentalBuilder()" placeholder="e.g. Flight QR 664 / Need baby safety seat" class="w-full bg-slate-950/90 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none">
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Real-Time Output Preview Pane (5 Cols) -->
+          <div class="lg:col-span-5 bg-black/80 border border-slate-800 rounded-2xl p-5 space-y-4 shadow-xl">
+            <div class="flex items-center justify-between text-xs">
+              <div class="flex items-center gap-2">
+                <span class="online-dot"></span>
+                <span class="font-mono text-slate-300">Live WhatsApp Request Output</span>
+              </div>
+              <span class="text-[10px] text-slate-500 font-mono">Auto-Compiled</span>
+            </div>
+
+            <!-- Live Message Code Box -->
+            <div class="relative">
+              <pre id="rb-message-preview" class="text-xs text-emerald-300 font-mono whitespace-pre-wrap leading-relaxed bg-slate-950 p-4 rounded-xl border border-slate-800 min-h-[170px]"></pre>
+            </div>
+
+            <!-- Direct Submit Button -->
+            <div class="space-y-2 pt-1">
+              <a id="rb-submit-btn" href="#" target="_blank" class="w-full btn-whatsapp justify-center py-3.5 text-sm font-bold shadow-lg">
+                <span>💬</span> SEND TO WHATSAPP (+94 76 632 2352)
+              </a>
+              <div class="text-[11px] text-center text-slate-400">
+                Direct to AH Lanka Operations. Instant response within minutes.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         COMPLETE RENTAL FLEET CATALOG
+         ========================================================================= -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+        <div>
+          <span class="badge-green mb-2">Our Vehicle Fleet</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Explore All Rental Fleet Categories</h2>
+          <p class="text-slate-400 text-sm mt-1">Select any vehicle card to inquire on WhatsApp directly with pre-filled details.</p>
+        </div>
+        <div class="flex items-center gap-2 text-xs text-slate-400">
+          <span>Currency:</span>
+          <div class="inline-flex rounded-xl bg-slate-900 border border-slate-800 p-1 font-bold">
+            <button onclick="setCurrency('USD')" data-currency="USD" class="curr-btn px-2.5 py-1 rounded-lg bg-red-600 text-white transition-all">USD</button>
+            <button onclick="setCurrency('LKR')" data-currency="LKR" class="curr-btn px-2.5 py-1 rounded-lg text-slate-400 transition-all">LKR</button>
+            <button onclick="setCurrency('EUR')" data-currency="EUR" class="curr-btn px-2.5 py-1 rounded-lg text-slate-400 transition-all">EUR</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dynamic Fleet Grid -->
+      <div id="rental-fleet-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered dynamically from AHStore -->
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         INTERNATIONAL TRAVELLER FAQ & LOGISTICS GUIDE
+         ========================================================================= -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="glass-panel p-8 sm:p-12 rounded-3xl border-slate-800 bg-slate-950/80 space-y-8">
+        <div>
+          <span class="badge-glass">Tourist Information</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Driving & Rental Information for Sri Lanka</h2>
+          <p class="text-xs sm:text-sm text-slate-400">Everything foreign visitors need to know before hitting Sri Lankan roads.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-300">
+          
+          <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-2">
+            <div class="text-base font-bold text-white flex items-center gap-2">
+              <span>📄</span> Driving Permits
+            </div>
+            <p class="leading-relaxed text-slate-400">
+              For <strong>Self-Drive</strong>, Sri Lankan law requires an endorsement of your International Driving Permit (IDP) from the Automobile Association of Ceylon (AAC). AH Lanka can assist you with this endorsement in advance!
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-2">
+            <div class="text-base font-bold text-white flex items-center gap-2">
+              <span>✈️</span> Airport Meet & Greet
+            </div>
+            <p class="leading-relaxed text-slate-400">
+              Landing at Katunayake Airport (CMB)? Our driver or representative will meet you at the arrivals hall holding a personalized name placard. We track your flight in real time for delays.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-2">
+            <div class="text-base font-bold text-white flex items-center gap-2">
+              <span>👨‍✈️</span> Chauffeur Credentials
+            </div>
+            <p class="leading-relaxed text-slate-400">
+              All AH Lanka chauffeurs are government-licensed tourist drivers with fluent English, deep island road knowledge, and exceptional safety records.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       GLOBAL FOOTER
+       ========================================================================= -->
+  <footer class="border-t border-slate-900 bg-slate-950 pt-16 pb-12 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-900">
+        
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <img src="images/logo-floating.png" alt="AH LANKA Logo" class="h-10 w-auto object-contain">
+            <div>
+              <div class="font-extrabold text-base text-white">AH LANKA</div>
+              <div class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Car Sales • Car Rentals & Hires</div>
+            </div>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+            “Your Vehicle. Your Journey. Your Choice.”<br>
+            Providing premier tourist rentals, luxury van hires, and chauffeur services across all 9 provinces of Sri Lanka.
+          </p>
+          <div class="text-slate-300 font-mono text-xs">
+            Rental WhatsApp: <a href="https://wa.me/94766322352" class="text-emerald-400 font-bold hover:underline">+94 76 632 2352</a>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="font-bold text-white text-sm">Rental Fleets</div>
+          <ul class="space-y-2">
+            <li><a href="#fleet" class="hover:text-emerald-400 transition-colors">4x4 Luxury SUVs</a></li>
+            <li><a href="#fleet" class="hover:text-emerald-400 transition-colors">Toyota KDH Luxury Vans</a></li>
+            <li><a href="#fleet" class="hover:text-emerald-400 transition-colors">Comfort Sedans</a></li>
+            <li><a href="#fleet" class="hover:text-emerald-400 transition-colors">Tourist Coaches & Buses</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <div class="font-bold text-white text-sm">Company</div>
+          <ul class="space-y-2">
+            <li><a href="about.html" class="hover:text-white transition-colors">About AH Lanka</a></li>
+            <li><a href="sales.html" class="hover:text-red-400 transition-colors">Vehicle Sales Marketplace</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact & Locations</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <div class="font-bold text-white text-sm">Rental Support</div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            WhatsApp Dispatch: <span class="text-emerald-400 font-semibold">24/7 Islandwide</span><br>
+            Airport Desk: 24 Hours / Flights<br>
+            Breakdown Assistance: Islandwide
+          </p>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div>© 2026 AH LANKA. All Rights Reserved. "Your Vehicle. Your Journey. Your Choice."</div>
+        <div class="flex items-center gap-4">
+          <a href="index.html" class="hover:text-slate-300">Home</a>
+          <a href="sales.html" class="hover:text-slate-300">Sales</a>
+          <a href="rentals.html" class="hover:text-slate-300">Rentals</a>
+          <a href="contact.html" class="hover:text-slate-300">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       GLOBAL FLOATING WHATSAPP BUTTON
+       ========================================================================= -->
+  <div class="floating-whatsapp-container">
+    <div class="floating-whatsapp-tooltip">
+      <span class="online-dot"></span> Plan Rental on WhatsApp
+    </div>
+    <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'm%20interested%20in%20renting%20a%20vehicle%20in%20Sri%20Lanka." target="_blank" class="floating-whatsapp-btn" aria-label="Chat on WhatsApp (+94 76 632 2352)">
+      <svg class="w-7 h-7 fill-white" viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-1.118-.061-.264-.087-.605-.205-1.04-.393-1.85-.801-3.053-2.678-3.146-2.802-.092-.123-.751-1.002-.751-1.911 0-.909.475-1.356.644-1.542.169-.187.369-.234.492-.234.123 0 .246.002.354.007.113.006.262-.043.411.314.154.37.524 1.278.57 1.371.046.092.077.2.015.324-.061.123-.092.2-.185.308-.092.108-.194.241-.277.324-.092.092-.187.193-.08.378.107.185.478.789 1.025 1.277.705.628 1.3.822 1.485.914.185.093.292.077.4-.046.108-.123.461-.539.585-.724.123-.185.246-.154.415-.092.17.062 1.077.508 1.262.6.185.092.308.138.354.215.046.077.046.446-.098.851z"/>
+        <path d="M12.004 2c-5.518 0-9.998 4.476-10 9.993 0 1.763.459 3.486 1.332 5.002l-1.336 4.887 5.011-1.314c1.464.799 3.119 1.22 4.989 1.222 5.519 0 10.002-4.477 10.002-9.995 0-5.521-4.48-10-10.002-10zm0 18.256c-1.579 0-3.12-.419-4.474-1.213l-.321-.189-2.973.779.793-2.898-.207-.33c-.874-1.391-1.335-3.009-1.334-4.667 0-4.552 3.707-8.257 8.261-8.257 4.551 0 8.255 3.704 8.255 8.257 0 4.554-3.705 8.261-8.256 8.261z"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- LOAD CENTRALIZED INVENTORY & DYNAMIC FLEET RENDERER -->
+  <script src="js/inventory.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function renderRentalFleet() {
+      const container = document.getElementById('rental-fleet-grid');
+      if (!container) return;
+
+      const fleet = AHStore.getRentals();
+      container.innerHTML = fleet.map(r => {
+        const isAvail = r.status !== 'Booked';
+        const statusBadge = isAvail ? 'badge-green' : 'bg-amber-950/80 text-amber-400 border border-amber-800 text-[10px] font-bold px-2 py-0.5 rounded';
+        const statusText = isAvail ? (r.badge || r.category) : 'Currently on Hire';
+
+        const waMsg = `Hello AH Lanka! 👋\n\nI'm interested in renting:\nVehicle: ${r.name}\nCategory: ${r.category}\n\nPlease let me know availability and rental rates for my travel dates. Thank you!`;
+        const waUrl = `https://wa.me/94766322352?text=${encodeURIComponent(waMsg)}`;
+
+        return `
+          <div class="anti-gravity-card glass-panel rounded-2xl overflow-hidden border-slate-800 flex flex-col justify-between">
+            <div>
+              <div class="relative h-48 overflow-hidden bg-slate-900">
+                <img src="${r.img}" alt="${r.name}" class="w-full h-full object-cover" loading="lazy">
+                <div class="absolute top-2 left-2 ${statusBadge} text-[10px]">${statusText}</div>
+                <div class="absolute top-2 right-2 badge-glass text-[10px]">Airport Meet & Greet Included</div>
+              </div>
+              <div class="p-5 space-y-3">
+                <h3 class="font-bold text-white text-lg">${r.name}</h3>
+                <p class="text-xs text-slate-400">${r.tagline || 'Reliable, air-conditioned and certified islandwide fleet.'}</p>
+                
+                <div class="grid grid-cols-4 gap-2 text-center text-[10px] font-semibold text-slate-300 py-2 border-y border-slate-800">
+                  <div class="bg-slate-900/60 p-1.5 rounded-lg">👥 ${r.passengers} Seats</div>
+                  <div class="bg-slate-900/60 p-1.5 rounded-lg">🧳 ${r.luggage} Bags</div>
+                  <div class="bg-slate-900/60 p-1.5 rounded-lg">⚙️ ${r.trans}</div>
+                  <div class="bg-slate-900/60 p-1.5 rounded-lg">❄️ ${r.acType || 'Dual AC'}</div>
+                </div>
+
+                <div class="pt-1 flex items-baseline justify-between">
+                  <div>
+                    <div class="text-[10px] text-slate-400 uppercase font-semibold">Daily Rate (Estimated)</div>
+                    <div class="text-2xl font-black text-emerald-400"><span data-usd-rate="${r.dailyRateUsd}">$${r.dailyRateUsd}</span> <span class="text-xs text-slate-400 font-normal">/ day</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-5 pt-0">
+              <a href="${waUrl}" target="_blank" class="btn-whatsapp w-full justify-center text-xs py-2.5 font-bold">
+                <span>💬</span> PLAN MY RENTAL ON WHATSAPP
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Refresh dynamic currency after rendering
+      if (typeof setCurrency === 'function') {
+        setCurrency(currentCurrency);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderRentalFleet();
+      window.addEventListener('ah_rentals_updated', renderRentalFleet);
+    });
+  </script>
+</body>
+</html>

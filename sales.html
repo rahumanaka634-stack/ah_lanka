@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehicles For Sale — AH LANKA | Cars, SUVs & Vans in Sri Lanka</title>
+  <meta name="description" content="Browse verified vehicles for sale at AH LANKA. Toyota Land Cruiser, Prado, HiAce KDH, Axio, Premio, Vezel and more. Inspected condition, clean titles, LKR pricing. WhatsApp: +94 76 632 2352.">
+  <meta name="keywords" content="Cars for sale Sri Lanka, Used cars Kurunegala, Buy vehicle Sri Lanka, Prado for sale Sri Lanka, KDH van for sale Sri Lanka">
+
+  <!-- Tailwind CSS & Custom Design System -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body class="text-slate-100 antialiased selection:bg-red-600 selection:text-white">
+
+  <!-- =========================================================================
+       GLOBAL NAVIGATION HEADER
+       ========================================================================= -->
+  <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3.5 group">
+        <img src="images/logo-floating.png" alt="AH LANKA Logo" class="h-12 w-auto object-contain floating-header-logo">
+        <div>
+          <div class="font-extrabold text-xl tracking-wider text-white flex items-center gap-2">
+            AH LANKA
+            <span class="text-[9px] uppercase tracking-widest px-2 py-0.5 rounded-full bg-red-950/90 text-red-400 border border-red-800/40">Official</span>
+          </div>
+          <div class="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Car Sales • Car Rentals & Hires</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold">
+        <a href="index.html" class="text-slate-300 hover:text-white transition-colors py-1">Home</a>
+        <a href="sales.html" class="text-white hover:text-red-400 transition-colors py-1 border-b-2 border-red-600 flex items-center gap-1.5">
+          <span>🚘</span> Buy a Vehicle
+        </a>
+        <a href="rentals.html" class="text-slate-300 hover:text-white transition-colors py-1 flex items-center gap-1.5">
+          <span>🌴</span> Rent a Vehicle
+        </a>
+        <a href="about.html" class="text-slate-300 hover:text-white transition-colors py-1">About AH Lanka</a>
+        <a href="contact.html" class="text-slate-300 hover:text-white transition-colors py-1">Contact</a>
+      </nav>
+
+      <!-- Desktop Header Actions -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'm%20interested%20in%20buying%20a%20vehicle%20from%20your%20sales%20inventory." target="_blank" class="btn-whatsapp py-2.5 px-4 text-xs">
+          <span>💬</span> WhatsApp Sales (076 632 2352)
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button onclick="toggleMobileNav()" class="lg:hidden p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white" aria-label="Toggle Navigation Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-nav-drawer" class="hidden lg:hidden border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-xl px-6 py-6 space-y-4">
+      <div class="grid grid-cols-2 gap-3 pb-3 border-b border-slate-800">
+        <a href="sales.html" class="p-3 rounded-xl bg-red-950/50 border border-red-600/60 text-center">
+          <div class="text-lg">🚘</div>
+          <div class="font-bold text-xs text-white mt-1">Buy Vehicle</div>
+        </a>
+        <a href="rentals.html" class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-center">
+          <div class="text-lg">🌴</div>
+          <div class="font-bold text-xs text-white mt-1">Rent Vehicle</div>
+        </a>
+      </div>
+      <div class="flex flex-col space-y-3 font-semibold text-sm">
+        <a href="index.html" class="text-slate-300 hover:text-white py-1">Home</a>
+        <a href="sales.html" class="text-red-400 py-1">Vehicle Sales Marketplace</a>
+        <a href="rentals.html" class="text-slate-300 hover:text-white py-1">Vehicle Rentals & Chauffeur Hires</a>
+        <a href="about.html" class="text-slate-300 hover:text-white py-1">About AH Lanka</a>
+        <a href="contact.html" class="text-slate-300 hover:text-white py-1">Contact Us</a>
+      </div>
+      <div class="pt-4 border-t border-slate-800">
+        <a href="https://wa.me/94766322352" target="_blank" class="w-full btn-whatsapp justify-center py-3 text-xs">
+          <span>💬</span> Chat on WhatsApp (076 632 2352)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-24 sm:pt-28 pb-20">
+
+    <!-- =========================================================================
+         PAGE HERO & INTRO
+         ========================================================================= -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="relative overflow-hidden glass-panel p-8 sm:p-12 rounded-3xl border-red-900/40 bg-gradient-to-r from-slate-950 via-slate-900 to-[#170a0e]">
+        <div class="max-w-3xl space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/80 border border-red-800/60 text-xs font-semibold text-red-300">
+            <span>🇱🇰</span> Sri Lankan Domestic Marketplace
+          </div>
+          <h1 class="text-3xl sm:text-5xl font-black text-white leading-tight">
+            Find Your Next Vehicle To Own.
+          </h1>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Browse our inspected inventory of passenger cars, luxury SUVs, commercial vans, and family wagons. Every vehicle comes with verified mileage, transparent pricing in Sri Lankan Rupees (LKR), and clear legal documentation.
+          </p>
+        </div>
+
+        <!-- Trust Badges Bar -->
+        <div class="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-semibold text-slate-300">
+          <div class="flex items-center gap-2">
+            <span class="text-red-500">✓</span> 100% Verified Ownership
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-red-500">✓</span> Comprehensive Inspection
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-red-500">✓</span> Direct WhatsApp Dealings
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-red-500">✓</span> Kurunegala & Islandwide
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SEARCH, CATEGORIES & FILTER CONTROLS BAR
+         ========================================================================= -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+      <div class="glass-panel p-4 sm:p-6 rounded-2xl border-slate-800 space-y-4">
+        
+        <!-- Search Input & Sort Dropdown -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="relative w-full md:w-96">
+            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+              🔍
+            </span>
+            <input type="text" id="sales-search-input" oninput="filterVehicles()" placeholder="Search make, model, or year (e.g. Prado, KDH, Axio)..." class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-10 pr-4 py-2.5 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-red-500">
+          </div>
+
+          <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
+            <span class="text-xs text-slate-400 font-semibold whitespace-nowrap">Sort By:</span>
+            <select id="sales-sort-select" onchange="filterVehicles()" class="bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+              <option value="default">Featured / Recommended</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="year-desc">Year: Newest First</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Filter Pills Bar -->
+        <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80">
+          <span class="text-xs text-slate-400 font-bold uppercase tracking-wider mr-2">Category:</span>
+          <button onclick="setCategoryFilter('all')" data-cat="all" class="cat-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-red-600 text-white transition-all">All Vehicles</button>
+          <button onclick="setCategoryFilter('suv')" data-cat="suv" class="cat-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 hover:text-white border border-slate-800 transition-all">SUVs & 4x4s</button>
+          <button onclick="setCategoryFilter('van')" data-cat="van" class="cat-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 hover:text-white border border-slate-800 transition-all">Vans & Commercial</button>
+          <button onclick="setCategoryFilter('sedan')" data-cat="sedan" class="cat-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 hover:text-white border border-slate-800 transition-all">Sedans & Saloons</button>
+          <button onclick="setCategoryFilter('hatchback')" data-cat="hatchback" class="cat-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 hover:text-white border border-slate-800 transition-all">Hatchbacks & Compacts</button>
+        </div>
+
+        <!-- Secondary Specs Filters (Fuel & Transmission) -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+          <div>
+            <select id="filter-fuel" onchange="filterVehicles()" class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-300 focus:outline-none">
+              <option value="all">Fuel: All Types</option>
+              <option value="Diesel">Diesel</option>
+              <option value="Petrol">Petrol</option>
+              <option value="Hybrid">Hybrid</option>
+            </select>
+          </div>
+          <div>
+            <select id="filter-trans" onchange="filterVehicles()" class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-300 focus:outline-none">
+              <option value="all">Transmission: All</option>
+              <option value="Automatic">Automatic</option>
+              <option value="Manual">Manual</option>
+            </select>
+          </div>
+          <div>
+            <select id="filter-price" onchange="filterVehicles()" class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-300 focus:outline-none">
+              <option value="all">Price: All Ranges</option>
+              <option value="under15">Under LKR 15M</option>
+              <option value="15to30">LKR 15M - 30M</option>
+              <option value="above30">Above LKR 30M</option>
+            </select>
+          </div>
+          <div>
+            <button onclick="resetSalesFilters()" class="w-full py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-all">
+              ↺ Reset Filters
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         VEHICLES FOR SALE GRID
+         ========================================================================= -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Counter & Status -->
+      <div class="flex items-center justify-between text-xs text-slate-400 mb-6">
+        <div>Showing <span id="vehicle-count" class="font-bold text-white">6</span> verified vehicles</div>
+        <div class="flex items-center gap-1.5 text-emerald-400 font-semibold">
+          <span class="online-dot"></span> Ready for WhatsApp Inquiries
+        </div>
+      </div>
+
+      <!-- Vehicle Cards Container -->
+      <div id="vehicles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Injected via JavaScript dynamically -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="no-results-state" class="hidden text-center py-16 space-y-4">
+        <div class="text-4xl">🚗</div>
+        <h3 class="text-lg font-bold text-white">No vehicles match your search criteria</h3>
+        <p class="text-xs text-slate-400">Try adjusting your filters, searching another model, or message us on WhatsApp for incoming stock.</p>
+        <button onclick="resetSalesFilters()" class="btn-ghost text-xs">Reset All Filters</button>
+      </div>
+
+    </section>
+
+    <!-- =========================================================================
+         CUSTOM VEHICLE SOURCING BANNER
+         ========================================================================= -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+      <div class="glass-panel p-8 sm:p-10 rounded-3xl border-slate-800 bg-gradient-to-r from-slate-900 to-slate-950 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2 max-w-xl">
+          <span class="badge-red">Looking for a specific model?</span>
+          <h2 class="text-2xl font-extrabold text-white">Looking to Buy a Vehicle Not Listed Here?</h2>
+          <p class="text-xs sm:text-sm text-slate-300">
+            Tell us the exact make, model, year, and budget you require. AH Lanka will source and inspect it for you across our islandwide dealer network.
+          </p>
+        </div>
+        <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'm%20looking%20to%20buy%20a%20specific%20vehicle%20not%20listed%20on%20your%20website.%20Could%20you%20help%20me%20source%20it%3F" target="_blank" class="btn-whatsapp py-3 px-6 text-xs whitespace-nowrap">
+          <span>💬</span> Request Vehicle on WhatsApp
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       VEHICLE DETAILS MODAL
+       ========================================================================= -->
+  <div id="vehicle-modal" class="modal-backdrop">
+    <div class="modal-content p-6 sm:p-8 space-y-6">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+        <div>
+          <span class="badge-red text-[10px]">Verified Vehicle Inspection</span>
+          <h2 id="modal-title" class="text-xl sm:text-2xl font-black text-white mt-1">Vehicle Name</h2>
+        </div>
+        <button onclick="closeVehicleModal()" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center font-bold text-sm">
+          ✕
+        </button>
+      </div>
+
+      <div class="relative h-60 sm:h-72 rounded-2xl overflow-hidden bg-slate-900">
+        <img id="modal-img" src="" alt="Vehicle Preview" class="w-full h-full object-cover">
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs">
+        <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+          <div class="text-slate-400 text-[10px] uppercase font-bold">Manufacture Year</div>
+          <div id="modal-year" class="font-extrabold text-white text-sm mt-0.5">-</div>
+        </div>
+        <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+          <div class="text-slate-400 text-[10px] uppercase font-bold">Mileage</div>
+          <div id="modal-mileage" class="font-extrabold text-white text-sm mt-0.5">-</div>
+        </div>
+        <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+          <div class="text-slate-400 text-[10px] uppercase font-bold">Fuel Type</div>
+          <div id="modal-fuel" class="font-extrabold text-white text-sm mt-0.5">-</div>
+        </div>
+        <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+          <div class="text-slate-400 text-[10px] uppercase font-bold">Transmission</div>
+          <div id="modal-trans" class="font-extrabold text-white text-sm mt-0.5">-</div>
+        </div>
+      </div>
+
+      <div class="space-y-2 bg-slate-900/40 p-4 rounded-xl border border-slate-800">
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-300">Technical Condition & Features</div>
+        <p id="modal-desc" class="text-xs text-slate-300 leading-relaxed"></p>
+        <div class="text-xs text-slate-400 pt-1">
+          Engine Spec: <span id="modal-engine" class="text-white font-semibold">Standard</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-800">
+        <div>
+          <div class="text-[10px] text-slate-400 uppercase font-semibold">Price in Sri Lankan Rupees</div>
+          <div id="modal-price" class="text-2xl font-black text-red-500">LKR 0</div>
+        </div>
+        <a id="modal-wa-btn" href="#" target="_blank" class="w-full sm:w-auto btn-whatsapp justify-center py-3 px-6 text-xs font-bold">
+          <span>💬</span> ASK ABOUT THIS VEHICLE ON WHATSAPP
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       GLOBAL FOOTER
+       ========================================================================= -->
+  <footer class="border-t border-slate-900 bg-slate-950 pt-16 pb-12 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-900">
+        
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <img src="images/logo-floating.png" alt="AH LANKA Logo" class="h-10 w-auto object-contain">
+            <div>
+              <div class="font-extrabold text-base text-white">AH LANKA</div>
+              <div class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Car Sales • Car Rentals & Hires</div>
+            </div>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+            “Your Vehicle. Your Journey. Your Choice.”<br>
+            Sri Lanka’s premier marketplace for reliable vehicle ownership.
+          </p>
+          <div class="text-slate-300 font-mono text-xs">
+            WhatsApp Sales: <a href="https://wa.me/94766322352" class="text-emerald-400 font-bold hover:underline">+94 76 632 2352</a>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="font-bold text-white text-sm">Services</div>
+          <ul class="space-y-2">
+            <li><a href="sales.html" class="text-red-400 font-bold">Vehicles for Sale</a></li>
+            <li><a href="rentals.html" class="hover:text-emerald-400 transition-colors">Car & SUV Rentals</a></li>
+            <li><a href="rentals.html" class="hover:text-emerald-400 transition-colors">Chauffeur Van Hires</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <div class="font-bold text-white text-sm">Company</div>
+          <ul class="space-y-2">
+            <li><a href="about.html" class="hover:text-white transition-colors">About AH Lanka</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+            <li><a href="contact.html#hubs" class="hover:text-white transition-colors">Kurunegala Hub</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <div class="font-bold text-white text-sm">Sales Hours</div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Monday - Saturday: 8:30 AM - 7:00 PM<br>
+            Sunday: By Appointment<br>
+            WhatsApp Support: 24/7
+          </p>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div>© 2026 AH LANKA. All Rights Reserved. "Your Vehicle. Your Journey. Your Choice."</div>
+        <div class="flex items-center gap-4">
+          <a href="index.html" class="hover:text-slate-300">Home</a>
+          <a href="sales.html" class="hover:text-slate-300">Sales</a>
+          <a href="rentals.html" class="hover:text-slate-300">Rentals</a>
+          <a href="contact.html" class="hover:text-slate-300">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       GLOBAL FLOATING WHATSAPP BUTTON
+       ========================================================================= -->
+  <div class="floating-whatsapp-container">
+    <div class="floating-whatsapp-tooltip">
+      <span class="online-dot"></span> Inquire on WhatsApp
+    </div>
+    <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'm%20interested%20in%20buying%20a%20vehicle%20from%20your%20inventory." target="_blank" class="floating-whatsapp-btn" aria-label="Chat on WhatsApp (+94 76 632 2352)">
+      <svg class="w-7 h-7 fill-white" viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-1.118-.061-.264-.087-.605-.205-1.04-.393-1.85-.801-3.053-2.678-3.146-2.802-.092-.123-.751-1.002-.751-1.911 0-.909.475-1.356.644-1.542.169-.187.369-.234.492-.234.123 0 .246.002.354.007.113.006.262-.043.411.314.154.37.524 1.278.57 1.371.046.092.077.2.015.324-.061.123-.092.2-.185.308-.092.108-.194.241-.277.324-.092.092-.187.193-.08.378.107.185.478.789 1.025 1.277.705.628 1.3.822 1.485.914.185.093.292.077.4-.046.108-.123.461-.539.585-.724.123-.185.246-.154.415-.092.17.062 1.077.508 1.262.6.185.092.308.138.354.215.046.077.046.446-.098.851z"/>
+        <path d="M12.004 2c-5.518 0-9.998 4.476-10 9.993 0 1.763.459 3.486 1.332 5.002l-1.336 4.887 5.011-1.314c1.464.799 3.119 1.22 4.989 1.222 5.519 0 10.002-4.477 10.002-9.995 0-5.521-4.48-10-10.002-10zm0 18.256c-1.579 0-3.12-.419-4.474-1.213l-.321-.189-2.973.779.793-2.898-.207-.33c-.874-1.391-1.335-3.009-1.334-4.667 0-4.552 3.707-8.257 8.261-8.257 4.551 0 8.255 3.704 8.255 8.257 0 4.554-3.705 8.261-8.256 8.261z"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- LOAD CENTRALIZED INVENTORY STORE & SUPABASE CLOUD SYNC -->
+  <script src="js/inventory.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script>
+    let currentCategory = "all";
+
+    function setCategoryFilter(cat) {
+      currentCategory = cat;
+      document.querySelectorAll('.cat-filter-btn').forEach(btn => {
+        if (btn.dataset.cat === cat) {
+          btn.className = "cat-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-red-600 text-white transition-all";
+        } else {
+          btn.className = "cat-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 hover:text-white border border-slate-800 transition-all";
+        }
+      });
+      filterVehicles();
+    }
+
+    function resetSalesFilters() {
+      document.getElementById('sales-search-input').value = '';
+      document.getElementById('sales-sort-select').value = 'default';
+      document.getElementById('filter-fuel').value = 'all';
+      document.getElementById('filter-trans').value = 'all';
+      document.getElementById('filter-price').value = 'all';
+      setCategoryFilter('all');
+    }
+
+    function filterVehicles() {
+      const query = document.getElementById('sales-search-input').value.toLowerCase().trim();
+      const sort = document.getElementById('sales-sort-select').value;
+      const fuel = document.getElementById('filter-fuel').value;
+      const trans = document.getElementById('filter-trans').value;
+      const priceFilter = document.getElementById('filter-price').value;
+
+      const allVehicles = AHStore.getSales();
+
+      let filtered = allVehicles.filter(v => {
+        const matchesCat = (currentCategory === 'all') || (v.category === currentCategory);
+        const matchesQuery = !query || v.name.toLowerCase().includes(query) || v.year.toString().includes(query) || (v.desc && v.desc.toLowerCase().includes(query));
+        const matchesFuel = (fuel === 'all') || (v.fuel === fuel);
+        const matchesTrans = (trans === 'all') || (v.trans === trans);
+        
+        let matchesPrice = true;
+        if (priceFilter === 'under15') matchesPrice = v.priceNumber < 15000000;
+        else if (priceFilter === '15to30') matchesPrice = v.priceNumber >= 15000000 && v.priceNumber <= 30000000;
+        else if (priceFilter === 'above30') matchesPrice = v.priceNumber > 30000000;
+
+        return matchesCat && matchesQuery && matchesFuel && matchesTrans && matchesPrice;
+      });
+
+      // Sorting
+      if (sort === 'price-asc') filtered.sort((a, b) => a.priceNumber - b.priceNumber);
+      else if (sort === 'price-desc') filtered.sort((a, b) => b.priceNumber - a.priceNumber);
+      else if (sort === 'year-desc') filtered.sort((a, b) => b.year - a.year);
+
+      renderVehicles(filtered);
+    }
+
+    function renderVehicles(vehicles) {
+      const container = document.getElementById('vehicles-grid');
+      const counter = document.getElementById('vehicle-count');
+      const noResults = document.getElementById('no-results-state');
+
+      counter.textContent = vehicles.length;
+
+      if (vehicles.length === 0) {
+        container.innerHTML = '';
+        noResults.classList.remove('hidden');
+        return;
+      }
+
+      noResults.classList.add('hidden');
+      
+      container.innerHTML = vehicles.map(v => {
+        const isAvailable = v.status !== 'Sold';
+        const badgeClass = isAvailable ? (v.badgeType === 'green' ? 'badge-green' : 'badge-red') : 'bg-red-950/80 text-red-400 border border-red-800 text-[10px] font-bold px-2 py-0.5 rounded';
+        const statusLabel = isAvailable ? v.badge : 'Sold Out';
+        const waMsg = `Hello AH Lanka! 👋\n\nI'm interested in buying this vehicle:\nVehicle: ${v.name} (${v.year})\nPrice: ${v.price}\nRef ID: ${v.id}\n\nPlease send me inspection details and availability. Thank you!`;
+        const waUrl = `https://wa.me/94766322352?text=${encodeURIComponent(waMsg)}`;
+
+        return `
+          <div class="anti-gravity-card glass-panel overflow-hidden border-slate-800 flex flex-col justify-between">
+            <div>
+              <div class="relative h-52 w-full overflow-hidden bg-slate-900 cursor-pointer" onclick='openVehicleModal(${JSON.stringify(v)})'>
+                <img src="${v.img}" alt="${v.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                <div class="absolute top-3 left-3">
+                  <span class="${badgeClass}">${statusLabel}</span>
+                </div>
+                <div class="absolute top-3 right-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded-xl text-xs font-bold text-white border border-slate-700">
+                  ${v.year}
+                </div>
+              </div>
+
+              <div class="p-5 space-y-3">
+                <div>
+                  <h3 class="text-lg font-bold text-white hover:text-red-400 transition-colors cursor-pointer" onclick='openVehicleModal(${JSON.stringify(v)})'>
+                    ${v.name}
+                  </h3>
+                  <p class="text-xs text-slate-400 line-clamp-1">${v.desc || ''}</p>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2 text-center text-[11px] font-semibold text-slate-300 py-2 border-y border-slate-800/80">
+                  <div class="bg-slate-900/60 p-1.5 rounded-lg">🛣️ ${v.mileage}</div>
+                  <div class="bg-slate-900/60 p-1.5 rounded-lg">⛽ ${v.fuel}</div>
+                  <div class="bg-slate-900/60 p-1.5 rounded-lg">⚙️ ${v.trans}</div>
+                </div>
+
+                <div class="pt-1 flex items-baseline justify-between">
+                  <div>
+                    <div class="text-[10px] text-slate-400 uppercase font-semibold">Price (Negotiable)</div>
+                    <div class="text-2xl font-black text-red-500">${v.price}</div>
+                  </div>
+                  <button onclick='openVehicleModal(${JSON.stringify(v)})' class="text-xs text-slate-400 hover:text-white font-medium underline">
+                    Full Specs
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Single High-Conversion WhatsApp CTA (No Walkaround) -->
+            <div class="p-5 pt-0">
+              <a href="${waUrl}" target="_blank" class="btn-whatsapp w-full justify-center text-xs py-2.5 font-bold shadow-md">
+                <span>💬</span> ASK ABOUT THIS VEHICLE ON WHATSAPP
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Initialize on load & listen for updates
+    document.addEventListener('DOMContentLoaded', () => {
+      filterVehicles();
+      window.addEventListener('ah_sales_updated', filterVehicles);
+    });
+  </script>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

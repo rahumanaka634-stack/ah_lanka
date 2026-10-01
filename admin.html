@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AH LANKA — Admin Management Portal</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Tailwind CSS & Master Design System -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    .admin-nav-item.active {
+      background: rgba(229, 25, 45, 0.15);
+      border-color: rgba(229, 25, 45, 0.5);
+      color: #fff;
+    }
+    .badge-status-available {
+      background: rgba(37, 211, 102, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(37, 211, 102, 0.3);
+    }
+    .badge-status-sold {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+    .badge-status-booked {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-[#07090e] text-slate-100 antialiased font-sans">
+
+  <!-- =========================================================================
+       SECURITY PASSCODE LOCK SCREEN (DEFAULT: 1234)
+       ========================================================================= -->
+  <div id="admin-auth-screen" class="fixed inset-0 z-50 bg-[#07090e] flex items-center justify-center p-4">
+    <div class="glass-panel p-8 sm:p-10 rounded-3xl max-w-md w-full border-slate-800 text-center space-y-6 shadow-2xl relative overflow-hidden">
+      <div class="absolute -top-16 -left-16 w-48 h-48 bg-red-600/15 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <!-- Floating 3D Showroom Emblem -->
+      <div class="floating-hero-logo-wrapper mb-2">
+        <div class="logo-ambient-aura"></div>
+        <img src="images/logo-floating.png" alt="AH LANKA 3D Emblem" class="floating-hero-logo w-36 mx-auto">
+      </div>
+
+      <div class="space-y-1">
+        <h1 class="text-2xl font-black text-white">Staff Admin Portal</h1>
+        <p class="text-xs text-slate-400">AH LANKA Vehicle Management System</p>
+      </div>
+
+      <div class="space-y-3">
+        <div class="text-xs text-slate-300 font-semibold text-left">Enter 4-Digit Admin Passcode:</div>
+        <input type="password" id="auth-pin" maxlength="8" placeholder="••••" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-center text-2xl tracking-widest text-white focus:outline-none focus:border-red-500 font-mono">
+        <div id="auth-error" class="hidden text-xs text-red-400 font-medium">Incorrect Passcode. Try again.</div>
+      </div>
+
+      <button onclick="checkAdminPasscode()" class="btn-primary-red w-full justify-center py-3 text-sm font-bold shadow-lg">
+        Unlock Portal
+      </button>
+
+      <div class="pt-2 text-[11px] text-slate-500 bg-slate-900/60 p-2.5 rounded-xl border border-slate-800/80">
+        Demo Access Passcode: <strong class="text-slate-300 font-mono">1234</strong>
+      </div>
+      
+      <div>
+        <a href="index.html" class="text-xs text-slate-400 hover:text-white underline">← Return to Public Website</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MAIN ADMIN DASHBOARD
+       ========================================================================= -->
+  <div id="admin-main-app" class="hidden min-h-screen flex flex-col lg:flex-row">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="w-full lg:w-72 bg-slate-950 border-r border-slate-900 p-6 flex flex-col justify-between shrink-0">
+      <div class="space-y-6">
+        
+        <!-- Brand Header -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <img src="images/logo-floating.png" alt="AH LANKA Logo" class="h-10 w-auto object-contain floating-header-logo">
+            <div>
+              <div class="font-extrabold text-sm text-white">AH LANKA</div>
+              <div class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Admin Workspace</div>
+            </div>
+          </div>
+          <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="space-y-1.5 text-xs font-semibold">
+          <button onclick="switchAdminTab('overview')" id="tab-overview" class="admin-nav-item active w-full flex items-center gap-3 px-3.5 py-3 rounded-xl border border-transparent text-slate-300 hover:text-white transition-all text-left">
+            <span class="text-base">📊</span> Dashboard Overview
+          </button>
+          
+          <button onclick="switchAdminTab('sales')" id="tab-sales" class="admin-nav-item w-full flex items-center gap-3 px-3.5 py-3 rounded-xl border border-transparent text-slate-300 hover:text-white transition-all text-left">
+            <span class="text-base">🚘</span> Vehicles For Sale (<span id="sidebar-sales-count">0</span>)
+          </button>
+          
+          <button onclick="switchAdminTab('rentals')" id="tab-rentals" class="admin-nav-item w-full flex items-center gap-3 px-3.5 py-3 rounded-xl border border-transparent text-slate-300 hover:text-white transition-all text-left">
+            <span class="text-base">🌴</span> Rental Fleet (<span id="sidebar-rental-count">0</span>)
+          </button>
+          
+          <button onclick="switchAdminTab('settings')" id="tab-settings" class="admin-nav-item w-full flex items-center gap-3 px-3.5 py-3 rounded-xl border border-transparent text-slate-300 hover:text-white transition-all text-left">
+            <span class="text-base">⚙️</span> Website & WhatsApp
+          </button>
+
+          <button onclick="switchAdminTab('backup')" id="tab-backup" class="admin-nav-item w-full flex items-center gap-3 px-3.5 py-3 rounded-xl border border-transparent text-slate-300 hover:text-white transition-all text-left">
+            <span class="text-base">💾</span> Backup & Export
+          </button>
+        </nav>
+
+      </div>
+
+      <!-- Bottom User Controls -->
+      <div class="pt-6 border-t border-slate-900 space-y-3">
+        <a href="index.html" target="_blank" class="w-full btn-ghost text-xs py-2.5 justify-center flex items-center gap-2">
+          <span>🌐</span> View Live Website ↗
+        </a>
+        <button onclick="adminLogout()" class="w-full text-xs text-slate-500 hover:text-red-400 py-2 transition-colors">
+          🔒 Lock & Log Out
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 p-6 sm:p-10 max-w-7xl mx-auto w-full space-y-8">
+      
+      <!-- Top Action Bar -->
+      <header class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-900">
+        <div>
+          <h1 id="page-title" class="text-2xl sm:text-3xl font-black text-white">Dashboard Overview</h1>
+          <p id="page-subtitle" class="text-xs text-slate-400 mt-0.5">Real-time status of your AH Lanka sales inventory & rental fleet.</p>
+        </div>
+        
+        <div class="flex items-center gap-3">
+          <button onclick="openAddSalesModal()" class="btn-primary-red text-xs py-2 px-3.5">
+            + Add Sales Vehicle
+          </button>
+          <button onclick="openAddRentalModal()" class="btn-whatsapp text-xs py-2 px-3.5">
+            + Add Rental Fleet
+          </button>
+        </div>
+      </header>
+
+      <!-- =====================================================================
+           TAB 1: DASHBOARD OVERVIEW
+           ===================================================================== -->
+      <section id="section-overview" class="space-y-8">
+        
+        <!-- Metric Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="glass-panel p-5 rounded-2xl border-slate-800 space-y-1">
+            <div class="text-slate-400 text-xs font-semibold">Total Vehicles For Sale</div>
+            <div id="stat-sales-total" class="text-3xl font-black text-white">0</div>
+            <div class="text-[11px] text-red-400 font-medium">Sri Lankan Domestic Market</div>
+          </div>
+
+          <div class="glass-panel p-5 rounded-2xl border-slate-800 space-y-1">
+            <div class="text-slate-400 text-xs font-semibold">Active Rental Fleet</div>
+            <div id="stat-rental-total" class="text-3xl font-black text-emerald-400">0</div>
+            <div class="text-[11px] text-slate-400 font-medium">Cars, SUVs, Vans & Coaches</div>
+          </div>
+
+          <div class="glass-panel p-5 rounded-2xl border-slate-800 space-y-1">
+            <div class="text-slate-400 text-xs font-semibold">WhatsApp Gateway</div>
+            <div id="stat-whatsapp" class="text-xl font-black text-white font-mono">+94 76 632 2352</div>
+            <div class="text-[11px] text-emerald-400 font-medium flex items-center gap-1">
+              <span class="online-dot"></span> Live Deep-Link Active
+            </div>
+          </div>
+
+          <div class="glass-panel p-5 rounded-2xl border-slate-800 space-y-1">
+            <div class="text-slate-400 text-xs font-semibold">Total Sales Value</div>
+            <div id="stat-sales-value" class="text-2xl font-black text-red-500 font-mono">LKR 0M</div>
+            <div class="text-[11px] text-slate-400 font-medium">Combined inventory value</div>
+          </div>
+        </div>
+
+        <!-- Quick Summary Lists -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          <!-- Recent Sales Vehicles -->
+          <div class="glass-panel p-6 rounded-2xl border-slate-800 space-y-4">
+            <div class="flex items-center justify-between">
+              <h2 class="font-bold text-white text-base">Vehicles For Sale</h2>
+              <button onclick="switchAdminTab('sales')" class="text-xs text-red-400 hover:underline">Manage All →</button>
+            </div>
+            <div id="overview-sales-list" class="space-y-3">
+              <!-- Injected dynamically -->
+            </div>
+          </div>
+
+          <!-- Recent Rental Vehicles -->
+          <div class="glass-panel p-6 rounded-2xl border-slate-800 space-y-4">
+            <div class="flex items-center justify-between">
+              <h2 class="font-bold text-white text-base">Rental Fleet Categories</h2>
+              <button onclick="switchAdminTab('rentals')" class="text-xs text-emerald-400 hover:underline">Manage All →</button>
+            </div>
+            <div id="overview-rental-list" class="space-y-3">
+              <!-- Injected dynamically -->
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- =====================================================================
+           TAB 2: SALES VEHICLES INVENTORY MANAGER
+           ===================================================================== -->
+      <section id="section-sales" class="hidden space-y-6">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="relative w-full sm:w-80">
+            <input type="text" id="admin-sales-search" oninput="renderSalesTable()" placeholder="Filter sales inventory..." class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none focus:border-red-500">
+          </div>
+          <button onclick="openAddSalesModal()" class="btn-primary-red text-xs py-2 px-4 whitespace-nowrap">
+            + Add New Sales Vehicle
+          </button>
+        </div>
+
+        <!-- Sales Table Container -->
+        <div class="glass-panel rounded-2xl border-slate-800 overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-900/80 text-slate-400 uppercase font-bold text-[10px] tracking-wider border-b border-slate-800">
+                <tr>
+                  <th class="p-4">Vehicle</th>
+                  <th class="p-4">Year & Specs</th>
+                  <th class="p-4">Category</th>
+                  <th class="p-4">Price (LKR)</th>
+                  <th class="p-4">Status</th>
+                  <th class="p-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="sales-table-body" class="divide-y divide-slate-800/60">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           TAB 3: RENTAL FLEET MANAGER
+           ===================================================================== -->
+      <section id="section-rentals" class="hidden space-y-6">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="relative w-full sm:w-80">
+            <input type="text" id="admin-rental-search" oninput="renderRentalTable()" placeholder="Filter rental fleet..." class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
+          </div>
+          <button onclick="openAddRentalModal()" class="btn-whatsapp text-xs py-2 px-4 whitespace-nowrap">
+            + Add New Rental Vehicle
+          </button>
+        </div>
+
+        <!-- Rental Table Container -->
+        <div class="glass-panel rounded-2xl border-slate-800 overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-900/80 text-slate-400 uppercase font-bold text-[10px] tracking-wider border-b border-slate-800">
+                <tr>
+                  <th class="p-4">Fleet Model</th>
+                  <th class="p-4">Category</th>
+                  <th class="p-4">Capacity</th>
+                  <th class="p-4">Daily Rate</th>
+                  <th class="p-4">Status</th>
+                  <th class="p-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="rental-table-body" class="divide-y divide-slate-800/60">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           TAB 4: GLOBAL SETTINGS
+           ===================================================================== -->
+      <section id="section-settings" class="hidden space-y-6">
+        <div class="glass-panel p-6 sm:p-8 rounded-3xl border-slate-800 max-w-2xl space-y-6">
+          <div class="space-y-1">
+            <h2 class="text-xl font-bold text-white">Website & WhatsApp Settings</h2>
+            <p class="text-xs text-slate-400">Updates here immediately apply to all conversion buttons across the website.</p>
+          </div>
+
+          <form onsubmit="saveGlobalSettings(event)" class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">WhatsApp International Number (URL format)</label>
+              <input type="text" id="set-phone" placeholder="e.g. 94766322352" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-red-500">
+              <span class="text-[10px] text-slate-500">Used inside wa.me links. Do not include spaces or '+' symbols here.</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Display WhatsApp Phone</label>
+                <input type="text" id="set-display-phone" placeholder="+94 76 632 2352" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none">
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Local Call Phone</label>
+                <input type="text" id="set-local-phone" placeholder="076 632 2352" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Brand Tagline</label>
+              <input type="text" id="set-tagline" value="Your Vehicle. Your Journey. Your Choice." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none">
+            </div>
+
+            <div class="pt-4 border-t border-slate-800">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Currency Reference Rates (Against USD = 1.0)</label>
+              <div class="grid grid-cols-3 gap-3">
+                <div>
+                  <span class="text-[10px] text-slate-400 font-mono">1 USD = LKR:</span>
+                  <input type="number" id="set-rate-lkr" step="0.5" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono mt-1">
+                </div>
+                <div>
+                  <span class="text-[10px] text-slate-400 font-mono">1 USD = EUR:</span>
+                  <input type="number" id="set-rate-eur" step="0.01" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono mt-1">
+                </div>
+                <div>
+                  <span class="text-[10px] text-slate-400 font-mono">1 USD = GBP:</span>
+                  <input type="number" id="set-rate-gbp" step="0.01" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono mt-1">
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4">
+              <button type="submit" class="btn-primary-red text-xs py-3 px-6 font-bold">
+                Save Global Settings
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Cloud Database & CDN Storage -->
+        <div class="glass-panel p-6 sm:p-8 rounded-3xl border-slate-800 max-w-2xl space-y-5">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <div>
+              <h3 class="text-base font-bold text-white flex items-center gap-2">
+                <span>☁️</span> Cloud Architecture (Supabase & Cloudinary)
+              </h3>
+              <p class="text-xs text-slate-400">Real-time sync to all visitor screens & high-speed image delivery.</p>
+            </div>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-[10px] text-emerald-400 font-bold">
+              <span class="online-dot"></span> Supabase Active
+            </span>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">PostgreSQL Endpoint:</span>
+              <span class="text-emerald-400 font-mono text-[11px]">rbxkcaucuhvolksevjmo.supabase.co</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Database Region:</span>
+              <span class="text-slate-200 font-semibold">Southeast Asia (Singapore - 35ms)</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Real-time Public API:</span>
+              <span class="text-emerald-400 font-semibold">Enabled (SELECT, INSERT, UPDATE, DELETE)</span>
+            </div>
+          </div>
+
+          <!-- Cloudinary Image Hosting -->
+          <div class="space-y-3 pt-2">
+            <div class="flex items-center justify-between">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-300">Cloudinary CDN (Optional Direct Uploads)</label>
+              <a href="https://cloudinary.com" target="_blank" class="text-[10px] text-red-400 hover:underline">Get Free Account →</a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <span class="text-[10px] text-slate-400">Cloud Name:</span>
+                <input type="text" id="set-cloudinary-name" placeholder="e.g. ah-lanka" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono mt-1">
+              </div>
+              <div>
+                <span class="text-[10px] text-slate-400">Upload Preset (Unsigned):</span>
+                <input type="text" id="set-cloudinary-preset" placeholder="e.g. ah_lanka_preset" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono mt-1">
+              </div>
+            </div>
+            <button onclick="saveCloudinarySettings()" type="button" class="btn-ghost text-xs py-2 px-4 font-bold text-slate-300 hover:text-white">
+              Save Cloudinary Config
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           TAB 5: BACKUP, EXPORT & SYNC
+           ===================================================================== -->
+      <section id="section-backup" class="hidden space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
+          
+          <div class="glass-panel p-6 rounded-2xl border-slate-800 space-y-4">
+            <h3 class="text-base font-bold text-white">Export Inventory JSON</h3>
+            <p class="text-xs text-slate-400">Download the complete database of all sales vehicles, rental fleets, and configurations as a JSON file.</p>
+            <button onclick="exportDataJSON()" class="btn-primary-red text-xs py-2.5 px-4 font-bold flex items-center gap-2">
+              <span>📥</span> Download Backup JSON
+            </button>
+          </div>
+
+          <div class="glass-panel p-6 rounded-2xl border-slate-800 space-y-4">
+            <h3 class="text-base font-bold text-white">Reset to Default Demo Stock</h3>
+            <p class="text-xs text-slate-400">Reset the local storage database to the original default showroom inventory (Prado, KDH, Axio, etc.).</p>
+            <button onclick="resetToDefaults()" class="btn-ghost text-xs py-2.5 px-4 font-bold text-red-400 hover:border-red-500">
+              ↺ Reset to Showroom Defaults
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- =========================================================================
+       MODAL: ADD / EDIT VEHICLE FOR SALE
+       ========================================================================= -->
+  <div id="sales-modal" class="modal-backdrop">
+    <div class="modal-content p-6 sm:p-8 space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h2 id="sales-modal-title" class="text-lg font-bold text-white">Add Vehicle For Sale</h2>
+        <button onclick="closeModal('sales-modal')" class="text-slate-400 hover:text-white font-bold text-base">✕</button>
+      </div>
+
+      <form id="sales-form" onsubmit="handleSalesFormSubmit(event)" class="space-y-4">
+        <input type="hidden" id="form-sales-id">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Make & Model Name</label>
+            <input type="text" id="form-sales-name" required placeholder="e.g. Toyota Land Cruiser Prado TX" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Category</label>
+            <select id="form-sales-cat" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+              <option value="suv">SUV / 4x4</option>
+              <option value="van">Van / Commercial</option>
+              <option value="sedan">Sedan / Saloon</option>
+              <option value="hatchback">Hatchback / Compact</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Year</label>
+            <input type="number" id="form-sales-year" required value="2021" min="1990" max="2026" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Mileage</label>
+            <input type="text" id="form-sales-mileage" required placeholder="e.g. 42,000 km" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Fuel</label>
+            <select id="form-sales-fuel" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+              <option value="Diesel">Diesel</option>
+              <option value="Petrol">Petrol</option>
+              <option value="Hybrid">Hybrid</option>
+              <option value="Electric">Electric</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Transmission</label>
+            <select id="form-sales-trans" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+              <option value="Automatic">Automatic</option>
+              <option value="Manual">Manual</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Price in LKR (Numeric)</label>
+            <input type="number" id="form-sales-price" required placeholder="e.g. 48500000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-red-500">
+            <span class="text-[10px] text-slate-400">e.g. 48500000 becomes "LKR 48,500,000"</span>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Inventory Status</label>
+            <select id="form-sales-status" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+              <option value="Available">Available for Sale</option>
+              <option value="Reserved">Reserved / Advance Paid</option>
+              <option value="Sold">Sold Out</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1">Vehicle Image (PNG, JPG, WEBP)</label>
+          <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
+            <!-- Live Preview Box -->
+            <div class="sm:col-span-4 relative h-28 rounded-xl bg-slate-950 border border-slate-700 overflow-hidden flex items-center justify-center group">
+              <img id="form-sales-img-preview" src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80" alt="Preview" class="w-full h-full object-cover">
+              <div id="sales-upload-badge" class="absolute bottom-1 right-1 bg-black/80 text-[9px] font-mono px-1.5 py-0.5 rounded text-slate-300">Preview</div>
+            </div>
+            
+            <!-- Upload Dropzone / Button -->
+            <div class="sm:col-span-8 space-y-2">
+              <label class="border-2 border-dashed border-slate-700 hover:border-red-500 rounded-xl p-2.5 flex flex-col items-center justify-center cursor-pointer transition-colors bg-slate-900/60 hover:bg-slate-900 group">
+                <span class="text-base group-hover:scale-110 transition-transform">📤</span>
+                <span class="text-xs font-bold text-slate-200 mt-0.5">Upload PNG / JPG File</span>
+                <span class="text-[10px] text-slate-400">Click or drag & drop image from computer</span>
+                <input type="file" id="form-sales-file" accept="image/png, image/jpeg, image/webp" onchange="handleImageFileUpload(event, 'sales')" class="hidden">
+              </label>
+              
+              <!-- URL Input fallback -->
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider whitespace-nowrap">Or URL:</span>
+                <input type="text" id="form-sales-img" required placeholder="https://... or uploaded image data" oninput="updateImagePreview('sales', this.value)" class="flex-1 bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1 text-[11px] text-white focus:outline-none focus:border-red-500 font-mono">
+              </div>
+              
+              <!-- Presets -->
+              <div class="flex flex-wrap gap-2 text-[10px] text-slate-400 items-center">
+                <span>Presets:</span>
+                <button type="button" onclick="setPresetImg('sales', 'prado')" class="underline hover:text-white">Prado</button>
+                <button type="button" onclick="setPresetImg('sales', 'kdh')" class="underline hover:text-white">KDH Van</button>
+                <button type="button" onclick="setPresetImg('sales', 'sedan')" class="underline hover:text-white">Sedan</button>
+                <button type="button" onclick="setPresetImg('sales', 'compact')" class="underline hover:text-white">Compact</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1">Engine / Key Specs</label>
+          <input type="text" id="form-sales-engine" placeholder="e.g. 2800cc Turbo Diesel (1GD-FTV)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1">Description & Features</label>
+          <textarea id="form-sales-desc" rows="2" placeholder="Sunroof, 7 leather seats, 100% accident-free, clean documents..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none"></textarea>
+        </div>
+
+        <div class="pt-3 flex justify-end gap-3 border-t border-slate-800">
+          <button type="button" onclick="closeModal('sales-modal')" class="btn-ghost text-xs py-2 px-4">Cancel</button>
+          <button type="submit" class="btn-primary-red text-xs py-2 px-5 font-bold">Save Vehicle</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL: ADD / EDIT RENTAL VEHICLE
+       ========================================================================= -->
+  <div id="rental-modal" class="modal-backdrop">
+    <div class="modal-content p-6 sm:p-8 space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h2 id="rental-modal-title" class="text-lg font-bold text-white">Add Rental Fleet Vehicle</h2>
+        <button onclick="closeModal('rental-modal')" class="text-slate-400 hover:text-white font-bold text-base">✕</button>
+      </div>
+
+      <form id="rental-form" onsubmit="handleRentalFormSubmit(event)" class="space-y-4">
+        <input type="hidden" id="form-rental-id">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Fleet Model Name</label>
+            <input type="text" id="form-rental-name" required placeholder="e.g. Toyota Prado TX / Montero" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Category</label>
+            <select id="form-rental-cat" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+              <option value="SUV">Luxury SUV</option>
+              <option value="Van">Luxury Van (KDH)</option>
+              <option value="Sedan">Comfort Sedan</option>
+              <option value="Bus">Tourist Coach / Bus</option>
+              <option value="City Car">City Compact Car</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Passengers</label>
+            <input type="number" id="form-rental-pax" required min="1" max="60" value="5" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Luggage Capacity</label>
+            <input type="number" id="form-rental-bags" required min="0" max="60" value="4" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Transmission</label>
+            <select id="form-rental-trans" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+              <option value="Automatic">Automatic</option>
+              <option value="Manual">Manual</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">AC Type</label>
+            <input type="text" id="form-rental-ac" placeholder="Dual AC" value="Dual AC" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Daily Rate in USD ($)</label>
+            <input type="number" id="form-rental-rate" required placeholder="e.g. 95" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-emerald-500">
+            <span class="text-[10px] text-slate-400">Converts automatically to LKR, EUR, GBP based on settings</span>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Fleet Status</label>
+            <select id="form-rental-status" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+              <option value="Available">Available for Rental</option>
+              <option value="Booked">Currently on Hire / Booked</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1">Fleet Image (PNG, JPG, WEBP)</label>
+          <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
+            <!-- Live Preview Box -->
+            <div class="sm:col-span-4 relative h-28 rounded-xl bg-slate-950 border border-slate-700 overflow-hidden flex items-center justify-center group">
+              <img id="form-rental-img-preview" src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80" alt="Preview" class="w-full h-full object-cover">
+              <div id="rental-upload-badge" class="absolute bottom-1 right-1 bg-black/80 text-[9px] font-mono px-1.5 py-0.5 rounded text-slate-300">Preview</div>
+            </div>
+            
+            <!-- Upload Dropzone / Button -->
+            <div class="sm:col-span-8 space-y-2">
+              <label class="border-2 border-dashed border-slate-700 hover:border-emerald-500 rounded-xl p-2.5 flex flex-col items-center justify-center cursor-pointer transition-colors bg-slate-900/60 hover:bg-slate-900 group">
+                <span class="text-base group-hover:scale-110 transition-transform">📤</span>
+                <span class="text-xs font-bold text-slate-200 mt-0.5">Upload PNG / JPG File</span>
+                <span class="text-[10px] text-slate-400">Click or drag & drop image from computer</span>
+                <input type="file" id="form-rental-file" accept="image/png, image/jpeg, image/webp" onchange="handleImageFileUpload(event, 'rental')" class="hidden">
+              </label>
+              
+              <!-- URL Input fallback -->
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider whitespace-nowrap">Or URL:</span>
+                <input type="text" id="form-rental-img" required placeholder="https://... or uploaded image data" oninput="updateImagePreview('rental', this.value)" class="flex-1 bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1 text-[11px] text-white focus:outline-none focus:border-emerald-500 font-mono">
+              </div>
+              
+              <!-- Presets -->
+              <div class="flex flex-wrap gap-2 text-[10px] text-slate-400 items-center">
+                <span>Presets:</span>
+                <button type="button" onclick="setPresetImg('rental', 'prado')" class="underline hover:text-white">Prado</button>
+                <button type="button" onclick="setPresetImg('rental', 'kdh')" class="underline hover:text-white">KDH</button>
+                <button type="button" onclick="setPresetImg('rental', 'sedan')" class="underline hover:text-white">Sedan</button>
+                <button type="button" onclick="setPresetImg('rental', 'bus')" class="underline hover:text-white">Bus</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1">Short Tagline / Recommendation</label>
+          <input type="text" id="form-rental-tagline" placeholder="High ground clearance, dual AC, best for hill country and safaris..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+        </div>
+
+        <div class="pt-3 flex justify-end gap-3 border-t border-slate-800">
+          <button type="button" onclick="closeModal('rental-modal')" class="btn-ghost text-xs py-2 px-4">Cancel</button>
+          <button type="submit" class="btn-whatsapp text-xs py-2 px-5 font-bold">Save Fleet Vehicle</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="admin-toast" class="fixed top-5 right-5 z-50 transform translate-x-96 transition-transform duration-300 pointer-events-none">
+    <div class="glass-panel px-4 py-3 rounded-xl border border-emerald-500/50 bg-slate-950 text-emerald-400 text-xs font-bold flex items-center gap-2 shadow-2xl">
+      <span class="text-base">✓</span> <span id="toast-message">Success!</span>
+    </div>
+  </div>
+
+  <!-- Load Unified Storage & Admin Engine & Supabase Cloud Sync -->
+  <script src="js/inventory.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script>
+    const CORRECT_PIN = "1234";
+
+    function checkAdminPasscode() {
+      const pin = document.getElementById('auth-pin').value.trim();
+      const err = document.getElementById('auth-error');
+      
+      if (pin === CORRECT_PIN) {
+        sessionStorage.setItem('ah_admin_logged_in', 'true');
+        document.getElementById('admin-auth-screen').classList.add('hidden');
+        document.getElementById('admin-main-app').classList.remove('hidden');
+        initAdminApp();
+      } else {
+        err.classList.remove('hidden');
+      }
+    }
+
+    function adminLogout() {
+      sessionStorage.removeItem('ah_admin_logged_in');
+      document.getElementById('admin-auth-screen').classList.remove('hidden');
+      document.getElementById('admin-main-app').classList.add('hidden');
+      document.getElementById('auth-pin').value = '';
+    }
+
+    // Tab Switching
+    function switchAdminTab(tab) {
+      const tabs = ['overview', 'sales', 'rentals', 'settings', 'backup'];
+      tabs.forEach(t => {
+        const sec = document.getElementById(`section-${t}`);
+        const btn = document.getElementById(`tab-${t}`);
+        if (t === tab) {
+          sec.classList.remove('hidden');
+          btn.classList.add('active');
+        } else {
+          sec.classList.add('hidden');
+          btn.classList.remove('active');
+        }
+      });
+
+      const titles = {
+        overview: ["Dashboard Overview", "Real-time status of your AH Lanka sales inventory & rental fleet."],
+        sales: ["Vehicles For Sale Manager", "Add, edit, change pricing, or toggle availability for domestic sales."],
+        rentals: ["Rental Fleet Manager", "Manage cars, luxury vans, and coaches available for tourist hires."],
+        settings: ["Website & WhatsApp Settings", "Configure WhatsApp numbers, display tags, and currency exchange rates."],
+        backup: ["Backup, Export & Sync", "Export your database as JSON or reset to default showroom stock."]
+      };
+
+      document.getElementById('page-title').textContent = titles[tab][0];
+      document.getElementById('page-subtitle').textContent = titles[tab][1];
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('admin-toast');
+      document.getElementById('toast-message').textContent = msg;
+      toast.classList.remove('translate-x-96');
+      setTimeout(() => {
+        toast.classList.add('translate-x-96');
+      }, 2800);
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+
+    // Modal Triggers
+    function openAddSalesModal() {
+      document.getElementById('sales-form').reset();
+      document.getElementById('form-sales-id').value = '';
+      document.getElementById('sales-modal-title').textContent = 'Add Vehicle For Sale';
+      const defaultImg = 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80';
+      document.getElementById('form-sales-img').value = defaultImg;
+      document.getElementById('form-sales-img-preview').src = defaultImg;
+      document.getElementById('sales-upload-badge').textContent = 'Preset';
+      document.getElementById('form-sales-file').value = '';
+      document.getElementById('sales-modal').classList.add('active');
+    }
+
+    function openEditSalesModal(id) {
+      const v = AHStore.getSales().find(x => x.id === id);
+      if (!v) return;
+
+      document.getElementById('form-sales-id').value = v.id;
+      document.getElementById('form-sales-name').value = v.name;
+      document.getElementById('form-sales-cat').value = v.category;
+      document.getElementById('form-sales-year').value = v.year;
+      document.getElementById('form-sales-mileage').value = v.mileage;
+      document.getElementById('form-sales-fuel').value = v.fuel;
+      document.getElementById('form-sales-trans').value = v.trans;
+      document.getElementById('form-sales-price').value = v.priceNumber;
+      document.getElementById('form-sales-status').value = v.status || 'Available';
+      document.getElementById('form-sales-img').value = v.img;
+      document.getElementById('form-sales-img-preview').src = v.img;
+      document.getElementById('sales-upload-badge').textContent = v.img.startsWith('data:') ? 'Custom PNG/File' : 'Saved';
+      document.getElementById('form-sales-file').value = '';
+      document.getElementById('form-sales-engine').value = v.engine || '';
+      document.getElementById('form-sales-desc').value = v.desc || '';
+
+      document.getElementById('sales-modal-title').textContent = `Edit: ${v.name}`;
+      document.getElementById('sales-modal').classList.add('active');
+    }
+
+    function openAddRentalModal() {
+      document.getElementById('rental-form').reset();
+      document.getElementById('form-rental-id').value = '';
+      document.getElementById('rental-modal-title').textContent = 'Add Rental Fleet Vehicle';
+      const defaultImg = 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80';
+      document.getElementById('form-rental-img').value = defaultImg;
+      document.getElementById('form-rental-img-preview').src = defaultImg;
+      document.getElementById('rental-upload-badge').textContent = 'Preset';
+      document.getElementById('form-rental-file').value = '';
+      document.getElementById('rental-modal').classList.add('active');
+    }
+
+    function openEditRentalModal(id) {
+      const r = AHStore.getRentals().find(x => x.id === id);
+      if (!r) return;
+
+      document.getElementById('form-rental-id').value = r.id;
+      document.getElementById('form-rental-name').value = r.name;
+      document.getElementById('form-rental-cat').value = r.category;
+      document.getElementById('form-rental-pax').value = r.passengers;
+      document.getElementById('form-rental-bags').value = r.luggage;
+      document.getElementById('form-rental-trans').value = r.trans;
+      document.getElementById('form-rental-ac').value = r.acType || 'Dual AC';
+      document.getElementById('form-rental-rate').value = r.dailyRateUsd;
+      document.getElementById('form-rental-status').value = r.status || 'Available';
+      document.getElementById('form-rental-img').value = r.img;
+      document.getElementById('form-rental-img-preview').src = r.img;
+      document.getElementById('rental-upload-badge').textContent = r.img.startsWith('data:') ? 'Custom PNG/File' : 'Saved';
+      document.getElementById('form-rental-file').value = '';
+      document.getElementById('form-rental-tagline').value = r.tagline || '';
+
+      document.getElementById('rental-modal-title').textContent = `Edit Fleet: ${r.name}`;
+      document.getElementById('rental-modal').classList.add('active');
+    }
+
+    // Image upload & preview engine
+    function updateImagePreview(type, src) {
+      const preview = document.getElementById(type === 'sales' ? 'form-sales-img-preview' : 'form-rental-img-preview');
+      if (preview && src) {
+        preview.src = src;
+      }
+    }
+
+    function getCloudinarySettings() {
+      return {
+        cloudName: localStorage.getItem('ah_cloudinary_name') || '',
+        uploadPreset: localStorage.getItem('ah_cloudinary_preset') || ''
+      };
+    }
+
+    function saveCloudinarySettings() {
+      const name = document.getElementById('set-cloudinary-name').value.trim();
+      const preset = document.getElementById('set-cloudinary-preset').value.trim();
+      localStorage.setItem('ah_cloudinary_name', name);
+      localStorage.setItem('ah_cloudinary_preset', preset);
+      showToast("✓ Cloudinary CDN Configuration Saved!");
+    }
+
+    function handleImageFileUpload(event, type) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const badge = document.getElementById(type === 'sales' ? 'sales-upload-badge' : 'rental-upload-badge');
+      const input = document.getElementById(type === 'sales' ? 'form-sales-img' : 'form-rental-img');
+      const preview = document.getElementById(type === 'sales' ? 'form-sales-img-preview' : 'form-rental-img-preview');
+
+      // Check if Cloudinary is configured
+      const cloud = getCloudinarySettings();
+      if (cloud.cloudName && cloud.uploadPreset) {
+        if (badge) badge.textContent = 'Uploading to Cloudinary...';
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('upload_preset', cloud.uploadPreset);
+
+        fetch(`https://api.cloudinary.com/v1_1/${cloud.cloudName}/image/upload`, {
+          method: 'POST',
+          body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+          if (data.secure_url) {
+            input.value = data.secure_url;
+            preview.src = data.secure_url;
+            if (badge) badge.textContent = 'Cloudinary CDN ✓';
+            showToast("✓ Image uploaded to Cloudinary CDN!");
+          } else {
+            throw new Error(data.error ? data.error.message : 'Upload failed');
+          }
+        })
+        .catch(err => {
+          console.warn("[Cloudinary] Fallback to local canvas compression:", err);
+          processLocalCanvasUpload(file, type);
+        });
+        return;
+      }
+
+      // Default: High-performance canvas optimization
+      processLocalCanvasUpload(file, type);
+    }
+
+    function processLocalCanvasUpload(file, type) {
+      const badge = document.getElementById(type === 'sales' ? 'sales-upload-badge' : 'rental-upload-badge');
+      if (badge) badge.textContent = 'Optimizing...';
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const rawDataUrl = e.target.result;
+        const img = new Image();
+        img.onload = function() {
+          const maxDim = 1000;
+          let width = img.width;
+          let height = img.height;
+
+          if (width > maxDim || height > maxDim) {
+            if (width > height) {
+              height = Math.round((height * maxDim) / width);
+              width = maxDim;
+            } else {
+              width = Math.round((width * maxDim) / height);
+              height = maxDim;
+            }
+          }
+
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+
+          const isPng = file.type === 'image/png';
+          const optimizedDataUrl = isPng ? canvas.toDataURL('image/png') : canvas.toDataURL('image/jpeg', 0.88);
+
+          const input = document.getElementById(type === 'sales' ? 'form-sales-img' : 'form-rental-img');
+          const preview = document.getElementById(type === 'sales' ? 'form-sales-img-preview' : 'form-rental-img-preview');
+
+          input.value = optimizedDataUrl;
+          preview.src = optimizedDataUrl;
+
+          if (badge) badge.textContent = `${isPng ? 'PNG' : 'JPG'} • Ready`;
+          showToast(`✓ Image "${file.name}" uploaded successfully!`);
+        };
+        img.src = rawDataUrl;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // Image presets
+    function setPresetImg(type, model) {
+      const urls = {
+        prado: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80",
+        kdh: "https://images.unsplash.com/photo-1559297434-fae8a1916a79?auto=format&fit=crop&w=800&q=80",
+        sedan: "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80",
+        compact: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80",
+        bus: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80"
+      };
+      const fieldId = type === 'sales' ? 'form-sales-img' : 'form-rental-img';
+      const previewId = type === 'sales' ? 'form-sales-img-preview' : 'form-rental-img-preview';
+      const badgeId = type === 'sales' ? 'sales-upload-badge' : 'rental-upload-badge';
+      const url = urls[model] || urls.prado;
+      
+      document.getElementById(fieldId).value = url;
+      document.getElementById(previewId).src = url;
+      if (document.getElementById(badgeId)) document.getElementById(badgeId).textContent = 'Preset';
+    }
+
+    // Form Handlers
+    function handleSalesFormSubmit(e) {
+      e.preventDefault();
+      const priceNum = parseInt(document.getElementById('form-sales-price').value);
+      const vehicle = {
+        id: document.getElementById('form-sales-id').value || null,
+        name: document.getElementById('form-sales-name').value.trim(),
+        category: document.getElementById('form-sales-cat').value,
+        year: parseInt(document.getElementById('form-sales-year').value),
+        mileage: document.getElementById('form-sales-mileage').value.trim(),
+        fuel: document.getElementById('form-sales-fuel').value,
+        trans: document.getElementById('form-sales-trans').value,
+        priceNumber: priceNum,
+        price: `LKR ${priceNum.toLocaleString()}`,
+        status: document.getElementById('form-sales-status').value,
+        badge: document.getElementById('form-sales-status').value === 'Available' ? 'Available' : 'Reserved',
+        badgeType: document.getElementById('form-sales-status').value === 'Available' ? 'red' : 'green',
+        img: document.getElementById('form-sales-img').value.trim(),
+        engine: document.getElementById('form-sales-engine').value.trim(),
+        desc: document.getElementById('form-sales-desc').value.trim()
+      };
+
+      AHStore.saveSalesVehicle(vehicle);
+      if (typeof AHSupabase !== 'undefined') {
+        AHSupabase.saveSalesVehicle(vehicle).then(ok => {
+          if (ok) showToast("✓ Saved & Synced Live to Supabase!");
+        });
+      }
+      closeModal('sales-modal');
+      refreshAll();
+      showToast("✓ Vehicle for Sale Saved Successfully!");
+    }
+
+    function handleRentalFormSubmit(e) {
+      e.preventDefault();
+      const rateUsd = parseFloat(document.getElementById('form-rental-rate').value);
+      const fleet = {
+        id: document.getElementById('form-rental-id').value || null,
+        name: document.getElementById('form-rental-name').value.trim(),
+        category: document.getElementById('form-rental-cat').value,
+        passengers: parseInt(document.getElementById('form-rental-pax').value),
+        luggage: parseInt(document.getElementById('form-rental-bags').value),
+        trans: document.getElementById('form-rental-trans').value,
+        acType: document.getElementById('form-rental-ac').value.trim(),
+        dailyRateUsd: rateUsd,
+        status: document.getElementById('form-rental-status').value,
+        badge: document.getElementById('form-rental-cat').value,
+        badgeType: 'green',
+        img: document.getElementById('form-rental-img').value.trim(),
+        tagline: document.getElementById('form-rental-tagline').value.trim()
+      };
+
+      AHStore.saveRentalVehicle(fleet);
+      if (typeof AHSupabase !== 'undefined') {
+        AHSupabase.saveRentalVehicle(fleet).then(ok => {
+          if (ok) showToast("✓ Saved & Synced Live to Supabase!");
+        });
+      }
+      closeModal('rental-modal');
+      refreshAll();
+      showToast("✓ Rental Fleet Vehicle Saved Successfully!");
+    }
+
+    function deleteSalesVehicle(id) {
+      if (confirm("Are you sure you want to delete this sales vehicle?")) {
+        AHStore.deleteSalesVehicle(id);
+        if (typeof AHSupabase !== 'undefined') {
+          AHSupabase.deleteSalesVehicle(id);
+        }
+        refreshAll();
+        showToast("✓ Vehicle Removed from Inventory & Cloud");
+      }
+    }
+
+    function deleteRentalVehicle(id) {
+      if (confirm("Are you sure you want to delete this rental vehicle?")) {
+        AHStore.deleteRentalVehicle(id);
+        if (typeof AHSupabase !== 'undefined') {
+          AHSupabase.deleteRentalVehicle(id);
+        }
+        refreshAll();
+        showToast("✓ Rental Vehicle Removed from Fleet & Cloud");
+      }
+    }
+
+    function toggleSalesStatus(id) {
+      const v = AHStore.getSales().find(x => x.id === id);
+      if (!v) return;
+      v.status = v.status === 'Available' ? 'Sold' : 'Available';
+      v.badge = v.status;
+      AHStore.saveSalesVehicle(v);
+      if (typeof AHSupabase !== 'undefined') {
+        AHSupabase.saveSalesVehicle(v);
+      }
+      refreshAll();
+      showToast(`✓ Marked as ${v.status} (Cloud Synced)`);
+    }
+
+    function toggleRentalStatus(id) {
+      const r = AHStore.getRentals().find(x => x.id === id);
+      if (!r) return;
+      r.status = r.status === 'Available' ? 'Booked' : 'Available';
+      AHStore.saveRentalVehicle(r);
+      if (typeof AHSupabase !== 'undefined') {
+        AHSupabase.saveRentalVehicle(r);
+      }
+      refreshAll();
+      showToast(`✓ Marked as ${r.status} (Cloud Synced)`);
+    }
+
+    // Renderers
+    function renderOverview() {
+      const sales = AHStore.getSales();
+      const rentals = AHStore.getRentals();
+      const settings = AHStore.getSettings();
+
+      // Counts
+      document.getElementById('stat-sales-total').textContent = sales.length;
+      document.getElementById('stat-rental-total').textContent = rentals.length;
+      document.getElementById('sidebar-sales-count').textContent = sales.length;
+      document.getElementById('sidebar-rental-count').textContent = rentals.length;
+      document.getElementById('stat-whatsapp').textContent = settings.displayPhone;
+
+      // Total Value
+      const totalVal = sales.reduce((acc, curr) => acc + (curr.priceNumber || 0), 0);
+      document.getElementById('stat-sales-value').textContent = `LKR ${(totalVal / 1000000).toFixed(1)}M`;
+
+      // Quick Lists
+      document.getElementById('overview-sales-list').innerHTML = sales.slice(0, 4).map(v => `
+        <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/60 border border-slate-800">
+          <div class="flex items-center gap-3">
+            <img src="${v.img}" class="w-10 h-10 rounded-lg object-cover">
+            <div>
+              <div class="font-bold text-white text-xs">${v.name}</div>
+              <div class="text-[10px] text-slate-400">${v.year} • ${v.price}</div>
+            </div>
+          </div>
+          <span class="text-[10px] px-2 py-0.5 rounded font-bold ${v.status === 'Sold' ? 'badge-status-sold' : 'badge-status-available'}">${v.status || 'Available'}</span>
+        </div>
+      `).join('');
+
+      document.getElementById('overview-rental-list').innerHTML = rentals.slice(0, 4).map(r => `
+        <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/60 border border-slate-800">
+          <div class="flex items-center gap-3">
+            <img src="${r.img}" class="w-10 h-10 rounded-lg object-cover">
+            <div>
+              <div class="font-bold text-white text-xs">${r.name}</div>
+              <div class="text-[10px] text-slate-400">${r.category} • $${r.dailyRateUsd}/day</div>
+            </div>
+          </div>
+          <span class="text-[10px] px-2 py-0.5 rounded font-bold ${r.status === 'Booked' ? 'badge-status-booked' : 'badge-status-available'}">${r.status || 'Available'}</span>
+        </div>
+      `).join('');
+    }
+
+    function renderSalesTable() {
+      const query = (document.getElementById('admin-sales-search')?.value || '').toLowerCase();
+      const list = AHStore.getSales().filter(v => 
+        !query || v.name.toLowerCase().includes(query) || v.year.toString().includes(query) || v.category.toLowerCase().includes(query)
+      );
+
+      const tbody = document.getElementById('sales-table-body');
+      tbody.innerHTML = list.map(v => {
+        const statusBadge = v.status === 'Sold' ? 'badge-status-sold' : 'badge-status-available';
+        return `
+          <tr class="hover:bg-slate-900/40 transition-colors">
+            <td class="p-4 flex items-center gap-3">
+              <img src="${v.img}" class="w-12 h-10 rounded-lg object-cover border border-slate-800">
+              <div>
+                <div class="font-bold text-white text-xs">${v.name}</div>
+                <div class="text-[10px] text-slate-500 font-mono">${v.id}</div>
+              </div>
+            </td>
+            <td class="p-4 text-slate-300">
+              ${v.year} • ${v.fuel} • ${v.mileage}
+            </td>
+            <td class="p-4 uppercase text-[10px] font-bold text-slate-400">${v.category}</td>
+            <td class="p-4 font-bold text-red-400 font-mono">${v.price}</td>
+            <td class="p-4">
+              <button onclick="toggleSalesStatus('${v.id}')" title="Click to toggle status" class="text-[10px] px-2 py-0.5 rounded font-bold ${statusBadge}">
+                ${v.status || 'Available'}
+              </button>
+            </td>
+            <td class="p-4 text-right space-x-2">
+              <button onclick="openEditSalesModal('${v.id}')" class="text-xs text-slate-300 hover:text-white px-2 py-1 bg-slate-800 rounded">Edit</button>
+              <button onclick="deleteSalesVehicle('${v.id}')" class="text-xs text-red-400 hover:text-red-300 px-2 py-1 bg-red-950/60 rounded">Delete</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function renderRentalTable() {
+      const query = (document.getElementById('admin-rental-search')?.value || '').toLowerCase();
+      const list = AHStore.getRentals().filter(r => 
+        !query || r.name.toLowerCase().includes(query) || r.category.toLowerCase().includes(query)
+      );
+
+      const tbody = document.getElementById('rental-table-body');
+      tbody.innerHTML = list.map(r => {
+        const statusBadge = r.status === 'Booked' ? 'badge-status-booked' : 'badge-status-available';
+        return `
+          <tr class="hover:bg-slate-900/40 transition-colors">
+            <td class="p-4 flex items-center gap-3">
+              <img src="${r.img}" class="w-12 h-10 rounded-lg object-cover border border-slate-800">
+              <div>
+                <div class="font-bold text-white text-xs">${r.name}</div>
+                <div class="text-[10px] text-slate-500 font-mono">${r.id}</div>
+              </div>
+            </td>
+            <td class="p-4 font-semibold text-emerald-400 text-xs">${r.category}</td>
+            <td class="p-4 text-slate-300">👥 ${r.passengers} Pax • 🧳 ${r.luggage} Bags</td>
+            <td class="p-4 font-bold text-white font-mono">$${r.dailyRateUsd} / day</td>
+            <td class="p-4">
+              <button onclick="toggleRentalStatus('${r.id}')" title="Click to toggle status" class="text-[10px] px-2 py-0.5 rounded font-bold ${statusBadge}">
+                ${r.status || 'Available'}
+              </button>
+            </td>
+            <td class="p-4 text-right space-x-2">
+              <button onclick="openEditRentalModal('${r.id}')" class="text-xs text-slate-300 hover:text-white px-2 py-1 bg-slate-800 rounded">Edit</button>
+              <button onclick="deleteRentalVehicle('${r.id}')" class="text-xs text-red-400 hover:text-red-300 px-2 py-1 bg-red-950/60 rounded">Delete</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function loadSettingsForm() {
+      const s = AHStore.getSettings();
+      document.getElementById('set-phone').value = s.phone;
+      document.getElementById('set-display-phone').value = s.displayPhone;
+      document.getElementById('set-local-phone').value = s.localPhone;
+      document.getElementById('set-tagline').value = s.tagline;
+      document.getElementById('set-rate-lkr').value = s.exchangeRates.LKR;
+      document.getElementById('set-rate-eur').value = s.exchangeRates.EUR;
+      document.getElementById('set-rate-gbp').value = s.exchangeRates.GBP;
+      
+      const cloud = getCloudinarySettings();
+      if (document.getElementById('set-cloudinary-name')) {
+        document.getElementById('set-cloudinary-name').value = cloud.cloudName;
+      }
+      if (document.getElementById('set-cloudinary-preset')) {
+        document.getElementById('set-cloudinary-preset').value = cloud.uploadPreset;
+      }
+    }
+
+    function saveGlobalSettings(e) {
+      e.preventDefault();
+      const settings = {
+        phone: document.getElementById('set-phone').value.trim(),
+        displayPhone: document.getElementById('set-display-phone').value.trim(),
+        localPhone: document.getElementById('set-local-phone').value.trim(),
+        tagline: document.getElementById('set-tagline').value.trim(),
+        exchangeRates: {
+          USD: 1,
+          LKR: parseFloat(document.getElementById('set-rate-lkr').value) || 310,
+          EUR: parseFloat(document.getElementById('set-rate-eur').value) || 0.92,
+          GBP: parseFloat(document.getElementById('set-rate-gbp').value) || 0.79
+        }
+      };
+
+      AHStore.setSettings(settings);
+      refreshAll();
+      showToast("✓ Website & WhatsApp Settings Saved!");
+    }
+
+    function exportDataJSON() {
+      const data = {
+        sales: AHStore.getSales(),
+        rentals: AHStore.getRentals(),
+        settings: AHStore.getSettings(),
+        exportedAt: new Date().toISOString()
+      };
+
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `ah_lanka_inventory_backup_${Date.now()}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast("✓ Backup File Downloaded!");
+    }
+
+    function resetToDefaults() {
+      if (confirm("Reset all vehicles to default showroom stock? Any custom additions will be restored.")) {
+        AHStore.resetAll();
+        refreshAll();
+        showToast("✓ Inventory Reset to Showroom Defaults!");
+      }
+    }
+
+    function refreshAll() {
+      renderOverview();
+      renderSalesTable();
+      renderRentalTable();
+      loadSettingsForm();
+    }
+
+    function initAdminApp() {
+      refreshAll();
+    }
+
+    // Check if session exists
+    document.addEventListener('DOMContentLoaded', () => {
+      if (sessionStorage.getItem('ah_admin_logged_in') === 'true') {
+        document.getElementById('admin-auth-screen').classList.add('hidden');
+        document.getElementById('admin-main-app').classList.remove('hidden');
+        initAdminApp();
+      }
+
+      // Enter key on PIN
+      document.getElementById('auth-pin').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') checkAdminPasscode();
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — AH LANKA | Car Sales • Car Rentals & Hires</title>
+  <meta name="description" content="Learn about AH LANKA. Sri Lanka's trusted mobility brand for verified car sales and premier tourist car/van rentals. Kurunegala hub & islandwide network. WhatsApp: +94 76 632 2352.">
+  <meta name="keywords" content="About AH Lanka, Vehicle sales Kurunegala, Car rental company Sri Lanka, Trusted car dealer Sri Lanka">
+
+  <!-- Tailwind CSS & Custom Design System -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body class="text-slate-100 antialiased selection:bg-red-600 selection:text-white">
+
+  <!-- =========================================================================
+       GLOBAL NAVIGATION HEADER
+       ========================================================================= -->
+  <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3.5 group">
+        <img src="images/logo-floating.png" alt="AH LANKA Logo" class="h-12 w-auto object-contain floating-header-logo">
+        <div>
+          <div class="font-extrabold text-xl tracking-wider text-white flex items-center gap-2">
+            AH LANKA
+            <span class="text-[9px] uppercase tracking-widest px-2 py-0.5 rounded-full bg-red-950/90 text-red-400 border border-red-800/40">Official</span>
+          </div>
+          <div class="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Car Sales • Car Rentals & Hires</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold">
+        <a href="index.html" class="text-slate-300 hover:text-white transition-colors py-1">Home</a>
+        <a href="sales.html" class="text-slate-300 hover:text-white transition-colors py-1 flex items-center gap-1.5">
+          <span>🚘</span> Buy a Vehicle
+        </a>
+        <a href="rentals.html" class="text-slate-300 hover:text-white transition-colors py-1 flex items-center gap-1.5">
+          <span>🌴</span> Rent a Vehicle
+        </a>
+        <a href="about.html" class="text-white hover:text-red-400 transition-colors py-1 border-b-2 border-red-600">About AH Lanka</a>
+        <a href="contact.html" class="text-slate-300 hover:text-white transition-colors py-1">Contact</a>
+      </nav>
+
+      <!-- Desktop Header Actions -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'd%20like%20to%20know%20more%20about%20your%20company%20and%20services." target="_blank" class="btn-whatsapp py-2.5 px-4 text-xs">
+          <span>💬</span> Chat 076 632 2352
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button onclick="toggleMobileNav()" class="lg:hidden p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white" aria-label="Toggle Navigation Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-nav-drawer" class="hidden lg:hidden border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-xl px-6 py-6 space-y-4">
+      <div class="grid grid-cols-2 gap-3 pb-3 border-b border-slate-800">
+        <a href="sales.html" class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-center">
+          <div class="text-lg">🚘</div>
+          <div class="font-bold text-xs text-white mt-1">Buy Vehicle</div>
+        </a>
+        <a href="rentals.html" class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-center">
+          <div class="text-lg">🌴</div>
+          <div class="font-bold text-xs text-white mt-1">Rent Vehicle</div>
+        </a>
+      </div>
+      <div class="flex flex-col space-y-3 font-semibold text-sm">
+        <a href="index.html" class="text-slate-300 hover:text-white py-1">Home</a>
+        <a href="sales.html" class="text-slate-300 hover:text-white py-1">Vehicle Sales Marketplace</a>
+        <a href="rentals.html" class="text-slate-300 hover:text-white py-1">Vehicle Rentals & Chauffeur Hires</a>
+        <a href="about.html" class="text-red-400 py-1">About AH Lanka</a>
+        <a href="contact.html" class="text-slate-300 hover:text-white py-1">Contact Us</a>
+      </div>
+      <div class="pt-4 border-t border-slate-800">
+        <a href="https://wa.me/94766322352" target="_blank" class="w-full btn-whatsapp justify-center py-3 text-xs">
+          <span>💬</span> Chat on WhatsApp (076 632 2352)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-24 sm:pt-28 pb-20">
+
+    <!-- =========================================================================
+         HERO SECTION: BRAND VISION & VALUES
+         ========================================================================= -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="relative overflow-hidden glass-panel p-8 sm:p-14 rounded-3xl border-slate-800 bg-gradient-to-r from-slate-950 via-[#101522] to-slate-950">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
+          <div class="max-w-2xl space-y-5">
+            <span class="badge-red">The Story of AH Lanka</span>
+            <h1 class="text-3xl sm:text-5xl font-black text-white leading-tight">
+              "Your Vehicle.<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-400 to-amber-400">Your Journey.</span><br>Your Choice."
+            </h1>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Headquartered in Kurunegala with islandwide operational reach, <strong>AH LANKA</strong> was founded to resolve a fundamental challenge in Sri Lanka’s automotive landscape: delivering uncompromising vehicle reliability, transparent pricing, and instant human communication.
+            </p>
+            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+              By uniting top-tier <strong>Vehicle Sales</strong> for local motorists with premier <strong>Vehicle Rentals & Chauffeur Hires</strong> for international travellers, we provide a unified mobility ecosystem backed by a single standard of excellence.
+            </p>
+          </div>
+
+          <!-- Official 3D Floating Emblem Showcase -->
+          <div class="floating-hero-logo-wrapper flex-shrink-0 text-center">
+            <div class="logo-ambient-aura"></div>
+            <img src="images/logo-floating.png" alt="AH LANKA 3D Showroom Emblem" class="floating-hero-logo w-48 sm:w-64 mx-auto">
+            <div class="mt-3 text-[10px] uppercase font-bold tracking-widest text-slate-400">Official Brand Emblem</div>
+          </div>
+        </div>
+
+        <div class="mt-10 pt-8 border-t border-slate-800 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+          <div>
+            <div class="text-3xl font-black text-red-500">100%</div>
+            <div class="text-xs text-slate-400 mt-1">Verified Fleet Quality</div>
+          </div>
+          <div>
+            <div class="text-3xl font-black text-emerald-400">24/7</div>
+            <div class="text-xs text-slate-400 mt-1">WhatsApp Response</div>
+          </div>
+          <div>
+            <div class="text-3xl font-black text-white">9</div>
+            <div class="text-xs text-slate-400 mt-1">Provinces Covered</div>
+          </div>
+          <div>
+            <div class="text-3xl font-black text-amber-400">0%</div>
+            <div class="text-xs text-slate-400 mt-1">Hidden Surcharges</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         THE 5 CORE PILLARS OF AH LANKA
+         ========================================================================= -->
+    <section id="why-us" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
+        <span class="badge-red">Our Commitment</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white">The 5 Pillars of AH Lanka</h2>
+        <p class="text-slate-400 text-xs sm:text-sm">
+          Every transaction and journey is governed by five operational standards that protect our clients.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Pillar 1 -->
+        <div class="glass-panel p-6 rounded-2xl border-slate-800 space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-red-600/20 border border-red-500/30 flex items-center justify-center text-2xl">
+            🛠️
+          </div>
+          <h3 class="text-lg font-bold text-white">Well-Maintained Vehicles</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Every vehicle in our sales inventory and rental fleet undergoes rigorous multi-point mechanical inspections. From brake pads to air-conditioning compressors, we only operate vehicles in peak condition.
+          </p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="glass-panel p-6 rounded-2xl border-slate-800 space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-red-600/20 border border-red-500/30 flex items-center justify-center text-2xl">
+            🛡️
+          </div>
+          <h3 class="text-lg font-bold text-white">Safe & Reliable</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            We provide full legal documentation for vehicle purchases and comprehensive passenger liability insurance for rentals. In the rare event of a mechanical issue, our rapid response team provides immediate backup.
+          </p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="glass-panel p-6 rounded-2xl border-slate-800 space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-red-600/20 border border-red-500/30 flex items-center justify-center text-2xl">
+            🏷️
+          </div>
+          <h3 class="text-lg font-bold text-white">Competitive & Fair Rates</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Transparent pricing without surprise add-ons. Our sales prices reflect true Sri Lankan market value, and our rental rates are straightforward and competitive for both short vacations and long-term hires.
+          </p>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="glass-panel p-6 rounded-2xl border-slate-800 space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-red-600/20 border border-red-500/30 flex items-center justify-center text-2xl">
+            🤝
+          </div>
+          <h3 class="text-lg font-bold text-white">Friendly Customer Service</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Authentic Sri Lankan hospitality. We do not hide behind automated ticketing systems. When you message AH Lanka, you connect directly with experienced managers who listen to your needs.
+          </p>
+        </div>
+
+        <!-- Pillar 5 -->
+        <div class="glass-panel p-6 rounded-2xl border-slate-800 space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-red-600/20 border border-red-500/30 flex items-center justify-center text-2xl">
+            🇱🇰
+          </div>
+          <h3 class="text-lg font-bold text-white">Islandwide Service & Coverage</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Based in the North Western hub of Kurunegala, our network reaches Katunayake International Airport, Colombo, Kandy, Nuwara Eliya, Ella, and the southern coastline from Bentota to Mirissa.
+          </p>
+        </div>
+
+        <!-- Pillar 6 (Bonus: WhatsApp Flow) -->
+        <div class="glass-panel p-6 rounded-2xl border-emerald-900/40 bg-emerald-950/20 space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-emerald-600/20 border border-emerald-500/30 flex items-center justify-center text-2xl">
+            💬
+          </div>
+          <h3 class="text-lg font-bold text-emerald-300">Zero-Friction WhatsApp Access</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            No mandatory account creation. No endless email chains. You tap a button, and you are instantly talking with AH Lanka’s official operations team on WhatsApp.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         CREATIVE REDIRECTION PORTALS
+         ========================================================================= -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <div class="anti-gravity-card glass-panel p-8 rounded-3xl border-red-900/50 flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <span class="badge-red">Looking to Buy?</span>
+            <h3 class="text-2xl font-bold text-white">Explore Verified Vehicles For Sale</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Find cars, luxury SUVs, and commercial vans with guaranteed inspection records and clean titles ready for transfer in Sri Lanka.
+            </p>
+          </div>
+          <a href="sales.html" class="btn-primary-red text-xs py-3 justify-center self-start sm:self-auto">
+            Browse Sales Inventory →
+          </a>
+        </div>
+
+        <div class="anti-gravity-card glass-panel p-8 rounded-3xl border-emerald-900/50 flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <span class="badge-green">Travelling Sri Lanka?</span>
+            <h3 class="text-2xl font-bold text-white">Book Chauffeur or Self-Drive Fleet</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Plan your Sri Lanka holiday with dependable vehicles, airport delivery at Katunayake (CMB), and experienced English-speaking drivers.
+            </p>
+          </div>
+          <a href="rentals.html" class="btn-whatsapp text-xs py-3 justify-center self-start sm:self-auto">
+            Explore Rental Fleet & Builder →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       GLOBAL FOOTER
+       ========================================================================= -->
+  <footer class="border-t border-slate-900 bg-slate-950 pt-16 pb-12 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-900">
+        
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <img src="images/logo-floating.png" alt="AH LANKA Logo" class="h-10 w-auto object-contain">
+            <div>
+              <div class="font-extrabold text-base text-white">AH LANKA</div>
+              <div class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Car Sales • Car Rentals & Hires</div>
+            </div>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+            “Your Vehicle. Your Journey. Your Choice.”<br>
+            Sri Lanka’s trusted automotive partner for vehicle sales and tourist rentals.
+          </p>
+          <div class="text-slate-300 font-mono text-xs">
+            WhatsApp Hotline: <a href="https://wa.me/94766322352" class="text-emerald-400 font-bold hover:underline">+94 76 632 2352</a>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="font-bold text-white text-sm">Navigation</div>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="sales.html" class="hover:text-red-400 transition-colors">Vehicles for Sale</a></li>
+            <li><a href="rentals.html" class="hover:text-emerald-400 transition-colors">Vehicle Rentals</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <div class="font-bold text-white text-sm">Key Hubs</div>
+          <ul class="space-y-2">
+            <li><span class="text-slate-300">Kurunegala Main Hub</span></li>
+            <li><span class="text-slate-300">Airport (Katunayake CMB)</span></li>
+            <li><span class="text-slate-300">Colombo Delivery Desk</span></li>
+            <li><span class="text-slate-300">Kandy City Point</span></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <div class="font-bold text-white text-sm">Connect With Us</div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            WhatsApp: 076 632 2352<br>
+            International: +94 76 632 2352<br>
+            Available 24/7 for Rental Emergencies
+          </p>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div>© 2026 AH LANKA. All Rights Reserved. "Your Vehicle. Your Journey. Your Choice."</div>
+        <div class="flex items-center gap-4">
+          <a href="index.html" class="hover:text-slate-300">Home</a>
+          <a href="sales.html" class="hover:text-slate-300">Sales</a>
+          <a href="rentals.html" class="hover:text-slate-300">Rentals</a>
+          <a href="contact.html" class="hover:text-slate-300">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       GLOBAL FLOATING WHATSAPP BUTTON
+       ========================================================================= -->
+  <div class="floating-whatsapp-container">
+    <div class="floating-whatsapp-tooltip">
+      <span class="online-dot"></span> Chat with AH Lanka
+    </div>
+    <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'd%20like%20to%20know%20more%20about%20your%20vehicle%20services." target="_blank" class="floating-whatsapp-btn" aria-label="Chat on WhatsApp (+94 76 632 2352)">
+      <svg class="w-7 h-7 fill-white" viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-1.118-.061-.264-.087-.605-.205-1.04-.393-1.85-.801-3.053-2.678-3.146-2.802-.092-.123-.751-1.002-.751-1.911 0-.909.475-1.356.644-1.542.169-.187.369-.234.492-.234.123 0 .246.002.354.007.113.006.262-.043.411.314.154.37.524 1.278.57 1.371.046.092.077.2.015.324-.061.123-.092.2-.185.308-.092.108-.194.241-.277.324-.092.092-.187.193-.08.378.107.185.478.789 1.025 1.277.705.628 1.3.822 1.485.914.185.093.292.077.4-.046.108-.123.461-.539.585-.724.123-.185.246-.154.415-.092.17.062 1.077.508 1.262.6.185.092.308.138.354.215.046.077.046.446-.098.851z"/>
+        <path d="M12.004 2c-5.518 0-9.998 4.476-10 9.993 0 1.763.459 3.486 1.332 5.002l-1.336 4.887 5.011-1.314c1.464.799 3.119 1.22 4.989 1.222 5.519 0 10.002-4.477 10.002-9.995 0-5.521-4.48-10-10.002-10zm0 18.256c-1.579 0-3.12-.419-4.474-1.213l-.321-.189-2.973.779.793-2.898-.207-.33c-.874-1.391-1.335-3.009-1.334-4.667 0-4.552 3.707-8.257 8.261-8.257 4.551 0 8.255 3.704 8.255 8.257 0 4.554-3.705 8.261-8.256 8.261z"/>
+      </svg>
+    </a>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

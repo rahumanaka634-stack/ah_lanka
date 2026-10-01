@@ -1,0 +1,550 @@
+/* ==========================================================================
+   AH LANKA — MASTER DESIGN SYSTEM & SPATIAL STYLES (2026)
+   "Your Vehicle. Your Journey. Your Choice."
+   ========================================================================== */
+
+:root {
+  /* Brand Core Colors */
+  --color-black-deep: #07090e;
+  --color-black-surface: #0e131d;
+  --color-black-elevated: #151c2a;
+  --color-black-card: rgba(18, 24, 37, 0.78);
+  --color-black-border: rgba(255, 255, 255, 0.08);
+  
+  --color-red-primary: #e5192d;
+  --color-red-hover: #ff2b40;
+  --color-red-deep: #990a18;
+  --color-red-glow: rgba(229, 25, 45, 0.28);
+  
+  --color-white: #ffffff;
+  --color-slate-light: #f1f5f9;
+  --color-slate-muted: #94a3b8;
+  --color-slate-dark: #334155;
+  
+  --color-whatsapp: #25d366;
+  --color-whatsapp-hover: #1ebd5a;
+  --color-whatsapp-glow: rgba(37, 211, 102, 0.35);
+  
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  
+  /* Spatial & Anti-Gravity Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.6), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+  --shadow-lg: 0 20px 45px -10px rgba(0, 0, 0, 0.8), 0 0 30px rgba(229, 25, 45, 0.08);
+  --shadow-glow-red: 0 0 35px rgba(229, 25, 45, 0.35);
+  --shadow-glow-wa: 0 0 30px rgba(37, 211, 102, 0.4);
+  
+  /* Transitions */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.2s ease;
+  --transition-smooth: 0.35s var(--ease-spring);
+  --transition-slow: 0.6s var(--ease-spring);
+}
+
+/* Base Reset & Smooth Scroll */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--color-black-deep);
+  color: var(--color-slate-light);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.6;
+  position: relative;
+  background: radial-gradient(circle at 50% -10%, rgba(229, 25, 45, 0.12) 0%, transparent 60%),
+              radial-gradient(circle at 100% 50%, rgba(14, 25, 45, 0.4) 0%, transparent 50%),
+              var(--color-black-deep);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-black-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: #1f293d;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-red-primary);
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-white);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--color-black-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-black-border);
+  box-shadow: var(--shadow-md);
+  border-radius: 20px;
+}
+
+.glass-nav {
+  background: rgba(7, 9, 14, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-black-border);
+}
+
+/* Anti-Gravity Floating Card Physics */
+.anti-gravity-card {
+  transition: transform 0.4s var(--ease-spring), 
+              box-shadow 0.4s var(--ease-spring), 
+              border-color 0.3s ease;
+  position: relative;
+  will-change: transform;
+}
+
+.anti-gravity-card:hover {
+  transform: translateY(-8px) scale(1.008);
+  border-color: rgba(229, 25, 45, 0.45);
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(229, 25, 45, 0.12);
+}
+
+/* Red Accent Glow Button */
+.btn-primary-red {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--color-red-primary) 0%, #b30c1d 100%);
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 20px var(--color-red-glow);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-primary-red:hover {
+  background: linear-gradient(135deg, var(--color-red-hover) 0%, var(--color-red-primary) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(229, 25, 45, 0.5);
+  color: #fff;
+}
+
+/* WhatsApp Conversion Button */
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #25d366 0%, #1ea952 100%);
+  color: #052610;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 22px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px var(--color-whatsapp-glow);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-whatsapp:hover {
+  background: linear-gradient(135deg, #2cf577 0%, #20bd5c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+  color: #000;
+}
+
+/* Secondary Ghost Button */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-slate-light);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 11px 20px;
+  border-radius: 14px;
+  border: 1px solid var(--color-black-border);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+/* Floating Sticky Global WhatsApp Button */
+.floating-whatsapp-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.floating-whatsapp-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25d366, #1ebe5d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
+  color: #ffffff;
+  position: relative;
+  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
+}
+
+.floating-whatsapp-btn:hover {
+  transform: scale(1.1) rotate(6deg);
+  box-shadow: 0 12px 35px rgba(37, 211, 102, 0.65);
+}
+
+.floating-whatsapp-btn::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.4);
+  animation: pulseRipple 2.2s infinite;
+  z-index: -1;
+}
+
+.floating-whatsapp-tooltip {
+  background: rgba(14, 19, 29, 0.94);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(37, 211, 102, 0.3);
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+  animation: fadeInRight 0.5s ease;
+}
+
+@keyframes pulseRipple {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.25); opacity: 0; }
+  100% { transform: scale(0.95); opacity: 0; }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Pulsing Online Dot */
+.online-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #25d366;
+  display: inline-block;
+  position: relative;
+}
+
+.online-dot::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.6);
+  animation: pingDot 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes pingDot {
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* Badges */
+.badge-red {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(229, 25, 45, 0.15);
+  color: #ff4d61;
+  border: 1px solid rgba(229, 25, 45, 0.35);
+}
+
+.badge-green {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(37, 211, 102, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(37, 211, 102, 0.3);
+}
+
+.badge-glass {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--color-slate-light);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Creative Link Gateway Cards (Home page portals) */
+.gateway-portal {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  padding: 32px;
+  background: var(--color-black-card);
+  border: 1px solid var(--color-black-border);
+  transition: all 0.4s var(--ease-spring);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px;
+}
+
+.gateway-portal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.16;
+  transition: transform 0.6s var(--ease-spring), opacity 0.4s ease;
+  z-index: 0;
+}
+
+.gateway-portal:hover::before {
+  transform: scale(1.08);
+  opacity: 0.28;
+}
+
+.gateway-portal:hover {
+  transform: translateY(-8px);
+  border-color: rgba(229, 25, 45, 0.5);
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.8), 0 0 35px rgba(229, 25, 45, 0.15);
+}
+
+.gateway-portal > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Modal styling */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: #0f1420;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  max-width: 750px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+  transform: translateY(20px) scale(0.96);
+  transition: transform 0.3s var(--ease-spring);
+}
+
+.modal-backdrop.active .modal-content {
+  transform: translateY(0) scale(1);
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  .floating-whatsapp-container {
+    bottom: 20px;
+    right: 18px;
+  }
+  .floating-whatsapp-tooltip {
+    display: none;
+  }
+  .gateway-portal {
+    padding: 24px;
+    min-height: 220px;
+  }
+}
+
+/* ==========================================================================
+   OFFICIAL AH LANKA 3D FLOATING LOGO STYLING & ANIMATIONS
+   ========================================================================== */
+
+/* Header Floating Logo */
+.floating-header-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 12px rgba(229, 25, 45, 0.3));
+  animation: floatHeaderEmblem 4.5s ease-in-out infinite;
+  transition: transform 0.4s var(--ease-spring), filter 0.4s ease;
+  will-change: transform, filter;
+}
+
+.floating-header-logo:hover {
+  transform: translateY(-4px) scale(1.08) rotate(1deg);
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 25px rgba(229, 25, 45, 0.6));
+}
+
+@keyframes floatHeaderEmblem {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+}
+
+/* Hero Majestic Floating Logo */
+.floating-hero-logo-wrapper {
+  position: relative;
+  display: inline-block;
+  perspective: 1000px;
+}
+
+.floating-hero-logo {
+  max-width: 320px;
+  width: 80%;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.85)) 
+          drop-shadow(0 0 30px rgba(229, 25, 45, 0.35))
+          drop-shadow(0 0 15px rgba(245, 158, 11, 0.2));
+  animation: floatHeroEmblem 5.5s ease-in-out infinite;
+  transition: transform 0.5s var(--ease-spring), filter 0.5s ease;
+  will-change: transform, filter;
+  cursor: pointer;
+}
+
+.floating-hero-logo:hover {
+  transform: translateY(-16px) scale(1.06) rotateX(4deg) rotateY(-4deg);
+  filter: drop-shadow(0 40px 60px rgba(0, 0, 0, 0.95)) 
+          drop-shadow(0 0 50px rgba(229, 25, 45, 0.65))
+          drop-shadow(0 0 30px rgba(245, 158, 11, 0.4));
+}
+
+@keyframes floatHeroEmblem {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-1.5deg);
+  }
+}
+
+/* Ambient Pulsing Aura Behind Floating Emblem */
+.logo-ambient-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(229, 25, 45, 0.3) 0%, rgba(245, 158, 11, 0.12) 40%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: pulseLogoAura 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes pulseLogoAura {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  50% {
+    opacity: 0.95;
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .floating-header-logo, .floating-hero-logo, .logo-ambient-aura {
+    animation: none !important;
+  }
+}

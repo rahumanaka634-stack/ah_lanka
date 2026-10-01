@@ -541,16 +541,16 @@ a {
 }
 
 .floating-header-logo:hover {
-  transform: translateY(-4px) scale(1.08) rotate(1deg);
+  transform: translateY(-4px) scale(1.08);
   filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 25px rgba(229, 25, 45, 0.6));
 }
 
 @keyframes floatHeaderEmblem {
   0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translateY(0px);
   }
   50% {
-    transform: translateY(-5px) rotate(-1deg);
+    transform: translateY(-5px);
   }
 }
 
@@ -577,7 +577,7 @@ a {
 }
 
 .floating-hero-logo:hover {
-  transform: translateY(-16px) scale(1.06) rotateX(4deg) rotateY(-4deg);
+  transform: translateY(-16px) scale(1.06);
   filter: drop-shadow(0 40px 60px rgba(0, 0, 0, 0.95)) 
           drop-shadow(0 0 50px rgba(229, 25, 45, 0.65))
           drop-shadow(0 0 30px rgba(245, 158, 11, 0.4));
@@ -585,10 +585,10 @@ a {
 
 @keyframes floatHeroEmblem {
   0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translateY(0px);
   }
   50% {
-    transform: translateY(-12px) rotate(-1.5deg);
+    transform: translateY(-12px);
   }
 }
 

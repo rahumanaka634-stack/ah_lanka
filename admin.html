@@ -350,12 +350,12 @@
           <div class="flex items-center justify-between border-b border-slate-800 pb-3">
             <div>
               <h3 class="text-base font-bold text-white flex items-center gap-2">
-                <span>☁️</span> Cloud Architecture (Supabase & Cloudinary)
+                <span>☁️</span> Cloud Architecture (Supabase Database & Storage)
               </h3>
-              <p class="text-xs text-slate-400">Real-time sync to all visitor screens & high-speed image delivery.</p>
+              <p class="text-xs text-slate-400">Unified PostgreSQL database and global image CDN hosted in Singapore.</p>
             </div>
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-[10px] text-emerald-400 font-bold">
-              <span class="online-dot"></span> Supabase Active
+              <span class="online-dot"></span> 100% Cloud Active
             </span>
           </div>
 
@@ -369,30 +369,13 @@
               <span class="text-slate-200 font-semibold">Southeast Asia (Singapore - 35ms)</span>
             </div>
             <div class="flex items-center justify-between">
-              <span class="text-slate-400">Real-time Public API:</span>
-              <span class="text-emerald-400 font-semibold">Enabled (SELECT, INSERT, UPDATE, DELETE)</span>
+              <span class="text-slate-400">Image Storage Bucket:</span>
+              <span class="text-emerald-400 font-semibold">`vehicles` (Public CDN Active • 1GB Free)</span>
             </div>
-          </div>
-
-          <!-- Cloudinary Image Hosting -->
-          <div class="space-y-3 pt-2">
             <div class="flex items-center justify-between">
-              <label class="block text-xs font-bold uppercase tracking-wider text-slate-300">Cloudinary CDN (Optional Direct Uploads)</label>
-              <a href="https://cloudinary.com" target="_blank" class="text-[10px] text-red-400 hover:underline">Get Free Account →</a>
+              <span class="text-slate-400">Upload Engine:</span>
+              <span class="text-emerald-400 font-semibold">Direct Supabase Storage (No 3rd party needed)</span>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div>
-                <span class="text-[10px] text-slate-400">Cloud Name:</span>
-                <input type="text" id="set-cloudinary-name" placeholder="e.g. ah-lanka" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono mt-1">
-              </div>
-              <div>
-                <span class="text-[10px] text-slate-400">Upload Preset (Unsigned):</span>
-                <input type="text" id="set-cloudinary-preset" placeholder="e.g. ah_lanka_preset" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono mt-1">
-              </div>
-            </div>
-            <button onclick="saveCloudinarySettings()" type="button" class="btn-ghost text-xs py-2 px-4 font-bold text-slate-300 hover:text-white">
-              Save Cloudinary Config
-            </button>
           </div>
         </div>
       </section>
@@ -836,7 +819,7 @@
       showToast("✓ Cloudinary CDN Configuration Saved!");
     }
 
-    function handleImageFileUpload(event, type) {
+    async function handleImageFileUpload(event, type) {
       const file = event.target.files[0];
       if (!file) return;
 
@@ -844,37 +827,22 @@
       const input = document.getElementById(type === 'sales' ? 'form-sales-img' : 'form-rental-img');
       const preview = document.getElementById(type === 'sales' ? 'form-sales-img-preview' : 'form-rental-img-preview');
 
-      // Check if Cloudinary is configured
-      const cloud = getCloudinarySettings();
-      if (cloud.cloudName && cloud.uploadPreset) {
-        if (badge) badge.textContent = 'Uploading to Cloudinary...';
-        const formData = new FormData();
-        formData.append('file', file);
-        formData.append('upload_preset', cloud.uploadPreset);
-
-        fetch(`https://api.cloudinary.com/v1_1/${cloud.cloudName}/image/upload`, {
-          method: 'POST',
-          body: formData
-        })
-        .then(res => res.json())
-        .then(data => {
-          if (data.secure_url) {
-            input.value = data.secure_url;
-            preview.src = data.secure_url;
-            if (badge) badge.textContent = 'Cloudinary CDN ✓';
-            showToast("✓ Image uploaded to Cloudinary CDN!");
-          } else {
-            throw new Error(data.error ? data.error.message : 'Upload failed');
-          }
-        })
-        .catch(err => {
-          console.warn("[Cloudinary] Fallback to local canvas compression:", err);
-          processLocalCanvasUpload(file, type);
-        });
-        return;
+      // 1. Direct High-Speed Supabase Cloud Storage Upload
+      if (typeof AHSupabase !== 'undefined') {
+        if (badge) badge.textContent = 'Uploading to Cloud...';
+        try {
+          const publicUrl = await AHSupabase.uploadImage(file);
+          input.value = publicUrl;
+          preview.src = publicUrl;
+          if (badge) badge.textContent = 'Supabase Cloud ✓';
+          showToast(`✓ Image "${file.name}" saved to Supabase Storage!`);
+          return;
+        } catch (err) {
+          console.warn("[Supabase Storage] Fallback to client optimization:", err);
+        }
       }
 
-      // Default: High-performance canvas optimization
+      // 2. Fallback: High-performance canvas optimization
       processLocalCanvasUpload(file, type);
     }
 

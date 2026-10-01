@@ -198,6 +198,35 @@ const AHSupabase = {
   },
 
   // -------------------------------------------------------------
+  // SUPABASE STORAGE: Direct Vehicle Image Uploads
+  // -------------------------------------------------------------
+  uploadImage: async function(file, customFilename) {
+    const ext = file.name.split('.').pop().toLowerCase() || 'png';
+    const cleanBase = (customFilename || file.name.replace(/\.[^/.]+$/, '').replace(/[^a-zA-Z0-9_-]/g, '_')).slice(0, 30);
+    const filename = `${Date.now()}_${cleanBase}.${ext}`;
+
+    const uploadUrl = `${this.url}/storage/v1/object/vehicles/${filename}`;
+    const res = await fetch(uploadUrl, {
+      method: 'POST',
+      headers: {
+        'apikey': this.anonKey,
+        'Authorization': 'Bearer ' + this.anonKey,
+        'Content-Type': file.type || 'image/png'
+      },
+      body: file
+    });
+
+    if (!res.ok) {
+      const errText = await res.text();
+      throw new Error(`Upload failed (${res.status}): ${errText}`);
+    }
+
+    // Return the permanent public CDN URL
+    const publicUrl = `${this.url}/storage/v1/object/public/vehicles/${filename}`;
+    return publicUrl;
+  },
+
+  // -------------------------------------------------------------
   // INITIAL SYNC (Called automatically on page load)
   // -------------------------------------------------------------
   initSync: function() {

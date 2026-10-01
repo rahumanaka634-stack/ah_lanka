@@ -531,10 +531,10 @@ a {
 
 /* Header Floating Logo */
 .floating-header-logo {
-  height: 48px;
+  height: 52px;
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 12px rgba(229, 25, 45, 0.3));
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 10px rgba(229, 25, 45, 0.25));
   animation: floatHeaderEmblem 4.5s ease-in-out infinite;
   transition: transform 0.4s var(--ease-spring), filter 0.4s ease;
   will-change: transform, filter;
@@ -562,14 +562,15 @@ a {
 }
 
 .floating-hero-logo {
-  max-width: 320px;
-  width: 80%;
+  max-width: 420px;
+  width: 90%;
   height: auto;
   object-fit: contain;
+  display: block;
   margin: 0 auto;
-  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.85)) 
-          drop-shadow(0 0 30px rgba(229, 25, 45, 0.35))
-          drop-shadow(0 0 15px rgba(245, 158, 11, 0.2));
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.8)) 
+          drop-shadow(0 0 25px rgba(229, 25, 45, 0.3))
+          drop-shadow(0 0 12px rgba(245, 158, 11, 0.15));
   animation: floatHeroEmblem 5.5s ease-in-out infinite;
   transition: transform 0.5s var(--ease-spring), filter 0.5s ease;
   will-change: transform, filter;

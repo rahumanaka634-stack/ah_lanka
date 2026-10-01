@@ -450,7 +450,7 @@ a {
 @media (max-width: 640px) {
   .floating-header-logo {
     height: 42px !important;
-    width: 42px !important;
+    width: auto !important;
   }
 
   /* Brand name text sizing on mobile */
@@ -533,7 +533,8 @@ a {
 /* Header Floating Logo — 3D Circular Medallion */
 .floating-header-logo {
   height: 52px;
-  width: 52px;
+  width: auto;
+  max-width: 56px;
   object-fit: contain;
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 12px rgba(229, 25, 45, 0.35));
   animation: floatHeaderEmblem 4.5s ease-in-out infinite;

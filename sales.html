@@ -263,8 +263,29 @@
         </button>
       </div>
 
-      <div class="relative h-60 sm:h-72 rounded-2xl overflow-hidden bg-slate-900">
-        <img id="modal-img" src="" alt="Vehicle Preview" class="w-full h-full object-cover">
+      <!-- Gallery Display Container (Up to 5 Photos) -->
+      <div class="space-y-2.5">
+        <div class="relative h-60 sm:h-80 rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 group">
+          <img id="modal-img" src="" alt="Vehicle Preview" class="w-full h-full object-cover transition-opacity duration-200">
+          
+          <!-- Photo Counter Badge -->
+          <div id="modal-counter-badge" class="absolute top-3 right-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded-xl text-[11px] font-mono font-bold text-white border border-slate-700">
+            1 / 1
+          </div>
+
+          <!-- Prev/Next Chevrons -->
+          <button id="modal-prev-btn" type="button" onclick="prevModalPhoto(event)" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/75 hover:bg-red-600 text-white flex items-center justify-center font-bold text-lg transition-all border border-slate-700 shadow-xl opacity-0 group-hover:opacity-100 cursor-pointer">
+            ‹
+          </button>
+          <button id="modal-next-btn" type="button" onclick="nextModalPhoto(event)" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/75 hover:bg-red-600 text-white flex items-center justify-center font-bold text-lg transition-all border border-slate-700 shadow-xl opacity-0 group-hover:opacity-100 cursor-pointer">
+            ›
+          </button>
+        </div>
+
+        <!-- Thumbnails Strip -->
+        <div id="modal-thumbnails-strip" class="flex items-center gap-2 overflow-x-auto pb-1">
+          <!-- Rendered dynamically -->
+        </div>
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs">
@@ -477,6 +498,11 @@
                 <div class="absolute top-3 right-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded-xl text-xs font-bold text-white border border-slate-700">
                   ${v.year}
                 </div>
+                ${(v.images && v.images.length > 1) ? `
+                  <div class="absolute bottom-2.5 left-2.5 bg-black/85 backdrop-blur-md px-2 py-0.5 rounded-lg text-[10px] font-bold text-white border border-slate-700/80 flex items-center gap-1 shadow">
+                    📸 ${v.images.length} Photos
+                  </div>
+                ` : ''}
               </div>
 
               <div class="p-5 space-y-3">

@@ -184,13 +184,27 @@ function setCurrency(curr) {
 }
 
 /**
- * Vehicle Details Modal Engine (for Sales & Featured)
+ * Vehicle Details Modal Engine with Multi-Photo Gallery (Up to 5 Photos)
  */
+let currentModalPhotos = [];
+let currentModalPhotoIndex = 0;
+
 function openVehicleModal(vehicle) {
   const modal = document.getElementById('vehicle-modal');
   if (!modal) return;
 
-  document.getElementById('modal-img').src = vehicle.img;
+  // Compile list of up to 5 photos:
+  if (Array.isArray(vehicle.images) && vehicle.images.length) {
+    currentModalPhotos = vehicle.images.filter(Boolean);
+  } else if (vehicle.img) {
+    currentModalPhotos = vehicle.img.split(',').map(s => s.trim()).filter(Boolean);
+  } else {
+    currentModalPhotos = ['https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80'];
+  }
+  currentModalPhotoIndex = 0;
+
+  updateModalPhotoDisplay();
+
   document.getElementById('modal-title').textContent = vehicle.name;
   document.getElementById('modal-year').textContent = vehicle.year;
   document.getElementById('modal-price').textContent = vehicle.price;
@@ -205,6 +219,65 @@ function openVehicleModal(vehicle) {
 
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
+}
+
+function updateModalPhotoDisplay() {
+  const imgEl = document.getElementById('modal-img');
+  const counterEl = document.getElementById('modal-counter-badge');
+  const prevBtn = document.getElementById('modal-prev-btn');
+  const nextBtn = document.getElementById('modal-next-btn');
+  const strip = document.getElementById('modal-thumbnails-strip');
+
+  const total = currentModalPhotos.length;
+  if (!total) return;
+
+  if (imgEl) {
+    imgEl.src = currentModalPhotos[currentModalPhotoIndex];
+  }
+
+  if (counterEl) {
+    counterEl.textContent = `${currentModalPhotoIndex + 1} / ${total}`;
+    counterEl.style.display = total > 1 ? 'block' : 'none';
+  }
+
+  if (prevBtn) prevBtn.style.display = total > 1 ? 'flex' : 'none';
+  if (nextBtn) nextBtn.style.display = total > 1 ? 'flex' : 'none';
+
+  // Render clickable thumbnail buttons below the main photo
+  if (strip) {
+    if (total <= 1) {
+      strip.innerHTML = '';
+      strip.style.display = 'none';
+    } else {
+      strip.style.display = 'flex';
+      strip.innerHTML = currentModalPhotos.map((url, idx) => `
+        <button type="button" onclick="setModalPhotoIndex(${idx})" class="w-14 h-12 rounded-xl overflow-hidden border-2 transition-all cursor-pointer flex-shrink-0 ${idx === currentModalPhotoIndex ? 'border-red-500 scale-105 shadow-md shadow-red-900/40' : 'border-slate-800 opacity-60 hover:opacity-100'}">
+          <img src="${url}" class="w-full h-full object-cover">
+        </button>
+      `).join('');
+    }
+  }
+}
+
+function setModalPhotoIndex(idx) {
+  if (idx >= 0 && idx < currentModalPhotos.length) {
+    currentModalPhotoIndex = idx;
+    updateModalPhotoDisplay();
+  }
+}
+
+function prevModalPhoto(e) {
+  if (e) e.stopPropagation();
+  if (currentModalPhotos.length <= 1) return;
+  currentModalPhotoIndex = (currentModalPhotoIndex - 1 + currentModalPhotos.length) % currentModalPhotos.length;
+  updateModalPhotoDisplay();
+}
+
+function nextModalPhoto(e) {
+  if (e) e.stopPropagation();
+  if (currentModalPhotos.length <= 1) return;
+  currentModalPhotoIndex = (currentModalPhotoIndex + 1) % currentModalPhotos.length;
+  updateModalPhotoDisplay();
 }
 
 function closeVehicleModal() {

@@ -433,6 +433,11 @@
                 <img src="${r.img}" alt="${r.name}" class="w-full h-full object-cover" loading="lazy">
                 <div class="absolute top-2 left-2 ${statusBadge} text-[10px]">${statusText}</div>
                 <div class="absolute top-2 right-2 badge-glass text-[10px]">Airport Meet & Greet Included</div>
+                ${(r.images && r.images.length > 1) ? `
+                  <div class="absolute bottom-2 left-2 bg-black/85 backdrop-blur-md px-2 py-0.5 rounded-lg text-[10px] font-bold text-white border border-slate-700/80 flex items-center gap-1 shadow">
+                    📸 ${r.images.length} Photos
+                  </div>
+                ` : ''}
               </div>
               <div class="p-5 space-y-3">
                 <h3 class="font-bold text-white text-lg">${r.name}</h3>

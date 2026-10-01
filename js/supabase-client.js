@@ -28,23 +28,28 @@ const AHSupabase = {
       const data = await res.json();
       
       if (Array.isArray(data) && data.length > 0) {
-        const mapped = data.map(row => ({
-          id: row.id,
-          name: row.name,
-          category: (row.category || 'suv').toLowerCase(),
-          year: row.year,
-          mileage: row.mileage,
-          fuel: row.fuel,
-          trans: row.trans,
-          priceNumber: parseInt(row.price_number || 0),
-          price: row.price,
-          badge: row.badge || row.status,
-          badgeType: row.badge_type || (row.status === 'Available' ? 'green' : 'red'),
-          engine: row.engine || '',
-          desc: row.desc || '',
-          img: row.img,
-          status: row.status || 'Available'
-        }));
+        const mapped = data.map(row => {
+          const imgList = (row.img || '').split(',').map(s => s.trim()).filter(Boolean);
+          const mainImg = imgList[0] || 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80';
+          return {
+            id: row.id,
+            name: row.name,
+            category: (row.category || 'suv').toLowerCase(),
+            year: row.year,
+            mileage: row.mileage,
+            fuel: row.fuel,
+            trans: row.trans,
+            priceNumber: parseInt(row.price_number || 0),
+            price: row.price,
+            badge: row.badge || row.status,
+            badgeType: row.badge_type || (row.status === 'Available' ? 'green' : 'red'),
+            engine: row.engine || '',
+            desc: row.desc || '',
+            img: mainImg,
+            images: imgList.length ? imgList : [mainImg],
+            status: row.status || 'Available'
+          };
+        });
         
         // Cache to localStorage for instant offline access
         localStorage.setItem('ah_sales_inventory', JSON.stringify(mapped));
@@ -59,6 +64,10 @@ const AHSupabase = {
   },
 
   saveSalesVehicle: async function(vehicle) {
+    const imgList = Array.isArray(vehicle.images) && vehicle.images.length 
+      ? vehicle.images.filter(Boolean) 
+      : (vehicle.img ? [vehicle.img] : []);
+
     const payload = {
       id: vehicle.id || ("AH-SALES-" + Math.floor(1000 + Math.random() * 9000)),
       name: vehicle.name,
@@ -75,7 +84,7 @@ const AHSupabase = {
       badge: vehicle.badge || vehicle.status,
       badge_type: vehicle.badgeType || "green",
       status: vehicle.status || "Available",
-      img: vehicle.img
+      img: imgList.join(',')
     };
 
     try {
@@ -120,23 +129,28 @@ const AHSupabase = {
       const data = await res.json();
       
       if (Array.isArray(data) && data.length > 0) {
-        const mapped = data.map(row => ({
-          id: row.id,
-          name: row.name,
-          category: row.category,
-          passengers: row.seats || 4,
-          luggage: row.luggage || 3,
-          trans: row.trans || 'Automatic',
-          acType: row.ac || 'Dual AC',
-          dailyRateUsd: parseInt(row.daily_rate ? row.daily_rate.replace(/[^0-9]/g, '') : 50) || 50,
-          dailyRateFormatted: row.daily_rate,
-          weeklyRateFormatted: row.weekly_rate,
-          badge: row.badge || row.category,
-          badgeType: 'green',
-          tagline: (row.features && row.features.length) ? row.features.join(' • ') : (row.name + ' for hire in Sri Lanka'),
-          img: row.img,
-          status: row.status || 'Available'
-        }));
+        const mapped = data.map(row => {
+          const imgList = (row.img || '').split(',').map(s => s.trim()).filter(Boolean);
+          const mainImg = imgList[0] || 'https://images.unsplash.com/photo-1594502184342-2e12f877aa73?auto=format&fit=crop&w=1000&q=80';
+          return {
+            id: row.id,
+            name: row.name,
+            category: row.category,
+            passengers: row.seats || 4,
+            luggage: row.luggage || 3,
+            trans: row.trans || 'Automatic',
+            acType: row.ac || 'Dual AC',
+            dailyRateUsd: parseInt(row.daily_rate ? row.daily_rate.replace(/[^0-9]/g, '') : 50) || 50,
+            dailyRateFormatted: row.daily_rate,
+            weeklyRateFormatted: row.weekly_rate,
+            badge: row.badge || row.category,
+            badgeType: 'green',
+            tagline: (row.features && row.features.length) ? row.features.join(' • ') : (row.name + ' for hire in Sri Lanka'),
+            img: mainImg,
+            images: imgList.length ? imgList : [mainImg],
+            status: row.status || 'Available'
+          };
+        });
         
         // Cache to localStorage for instant offline access
         localStorage.setItem('ah_rental_inventory', JSON.stringify(mapped));
@@ -151,6 +165,10 @@ const AHSupabase = {
   },
 
   saveRentalVehicle: async function(rental) {
+    const imgList = Array.isArray(rental.images) && rental.images.length 
+      ? rental.images.filter(Boolean) 
+      : (rental.img ? [rental.img] : []);
+
     const payload = {
       id: rental.id || ("AH-RENT-" + Math.floor(1000 + Math.random() * 9000)),
       name: rental.name,
@@ -165,7 +183,7 @@ const AHSupabase = {
       features: rental.tagline ? [rental.tagline] : ["Air Conditioned", "Islandwide Service"],
       badge: rental.badge || rental.category,
       status: rental.status || "Available",
-      img: rental.img
+      img: imgList.join(',')
     };
 
     try {

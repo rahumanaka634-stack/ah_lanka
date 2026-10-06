@@ -560,8 +560,8 @@ a {
 }
 
 .floating-hero-logo {
-  max-width: 320px;
-  width: 80%;
+  max-width: 175px;
+  width: 65%;
   aspect-ratio: 1 / 1;
   object-fit: contain;
   display: block;
@@ -640,11 +640,11 @@ html.light-mode {
   --color-black-deep: #f8fafc;
   --color-black-surface: #ffffff;
   --color-black-elevated: #f1f5f9;
-  --color-black-card: rgba(255, 255, 255, 0.94);
-  --color-black-border: rgba(15, 23, 42, 0.12);
+  --color-black-card: #ffffff;
+  --color-black-border: #e2e8f0;
   --color-white: #0f172a;
   --color-slate-light: #1e293b;
-  --color-slate-muted: #64748b;
+  --color-slate-muted: #475569;
   --color-slate-dark: #cbd5e1;
   --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
   --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(15, 23, 42, 0.05);
@@ -653,19 +653,32 @@ html.light-mode {
 
 html.light-mode body {
   background: #f8fafc !important;
-  color: #1e293b !important;
+  color: #0f172a !important;
 }
 
+/* Glass Panels & Surfaces */
 html.light-mode .glass-panel {
-  background: rgba(255, 255, 255, 0.94) !important;
+  background: #ffffff !important;
   border-color: #e2e8f0 !important;
-  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(15, 23, 42, 0.04) !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(15, 23, 42, 0.04) !important;
+}
+
+/* Reset Dark Hero & Section Gradients in Light Mode */
+html.light-mode [class*="bg-gradient-to-r"][class*="from-slate-"],
+html.light-mode [class*="bg-gradient-to-r"][class*="from-red-950"],
+html.light-mode [class*="bg-gradient-to-r"][class*="from-emerald-950"],
+html.light-mode [class*="bg-gradient-to-br"][class*="from-red-950"],
+html.light-mode .glass-panel[class*="bg-gradient-"] {
+  background: #ffffff !important;
+  background-image: none !important;
+  border-color: #e2e8f0 !important;
 }
 
 html.light-mode .glass-nav {
-  background: rgba(255, 255, 255, 0.94) !important;
-  border-bottom-color: rgba(226, 232, 240, 0.9) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-bottom-color: #e2e8f0 !important;
   backdrop-filter: blur(16px) !important;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04) !important;
 }
 
 html.light-mode #mobile-nav-drawer {
@@ -673,48 +686,16 @@ html.light-mode #mobile-nav-drawer {
   border-color: #e2e8f0 !important;
 }
 
+/* Headings and Base Text */
 html.light-mode h1, 
 html.light-mode h2, 
 html.light-mode h3, 
-html.light-mode h4, 
-html.light-mode .text-white {
+html.light-mode h4 {
   color: #0f172a !important;
 }
 
-/* Preserve crisp white text on colored buttons & badges */
-html.light-mode .btn-whatsapp,
-html.light-mode .btn-whatsapp *,
-html.light-mode .btn-red,
-html.light-mode .btn-red *,
-html.light-mode .btn-primary-red,
-html.light-mode .btn-primary-red *,
-html.light-mode .btn-gold,
-html.light-mode .btn-gold *,
-html.light-mode .bg-red-600,
-html.light-mode .bg-red-600 *,
-html.light-mode .badge-red,
-html.light-mode .badge-green,
-html.light-mode .floating-whatsapp-btn * {
-  color: #ffffff !important;
-}
-
-html.light-mode aside {
-  background-color: #ffffff !important;
-  border-color: #e2e8f0 !important;
-}
-
-html.light-mode table {
-  color: #1e293b !important;
-}
-
-html.light-mode table th {
-  background-color: #f8fafc !important;
-  color: #475569 !important;
-  border-color: #e2e8f0 !important;
-}
-
-html.light-mode table td {
-  border-color: #f1f5f9 !important;
+html.light-mode .text-white {
+  color: #0f172a;
 }
 
 html.light-mode .text-slate-100 {
@@ -730,23 +711,107 @@ html.light-mode .text-slate-300 {
 }
 
 html.light-mode .text-slate-400 {
+  color: #475569 !important;
+}
+
+html.light-mode .text-slate-500 {
   color: #64748b !important;
 }
 
-html.light-mode .bg-slate-900,
-html.light-mode .bg-slate-900\/90,
-html.light-mode .bg-slate-900\/80,
+/* Preserve crisp white text on solid colored buttons & badges */
+html.light-mode .btn-whatsapp,
+html.light-mode .btn-whatsapp *,
+html.light-mode .btn-red,
+html.light-mode .btn-red *,
+html.light-mode .btn-primary-red,
+html.light-mode .btn-primary-red *,
+html.light-mode .btn-gold,
+html.light-mode .btn-gold *,
+html.light-mode .bg-red-600,
+html.light-mode .bg-red-600 *,
+html.light-mode .floating-whatsapp-btn,
+html.light-mode .floating-whatsapp-btn * {
+  color: #ffffff !important;
+}
+
+/* Ghost Buttons (Secondary Actions — e.g. "Sell / Trade Your Car", "Reset Filters") */
+html.light-mode .btn-ghost {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06) !important;
+}
+
+html.light-mode .btn-ghost:hover {
+  background: #f8fafc !important;
+  border-color: #e5192d !important;
+  color: #e5192d !important;
+  box-shadow: 0 4px 12px rgba(229, 25, 45, 0.12) !important;
+}
+
+/* Badges & Status Pills in Light Mode (Crisp & High Contrast) */
+html.light-mode .badge-red {
+  background: #fee2e2 !important;
+  color: #b91c1c !important;
+  border: 1px solid #fca5a5 !important;
+}
+
+html.light-mode .badge-green {
+  background: #dcfce7 !important;
+  color: #15803d !important;
+  border: 1px solid #86efac !important;
+}
+
+html.light-mode .badge-glass {
+  background: #f1f5f9 !important;
+  color: #334155 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+html.light-mode .hud-pill {
+  background: #fee2e2 !important;
+  color: #991b1b !important;
+  border: 1px solid #fca5a5 !important;
+}
+
+/* Vehicle Card Quick Specs Pills (e.g. 42,000 km | Diesel | Auto) */
+html.light-mode .anti-gravity-card .grid-cols-3 > div,
 html.light-mode .bg-slate-900\/60,
 html.light-mode .bg-slate-900\/40,
+html.light-mode .bg-slate-900\/80 {
+  background-color: #f1f5f9 !important;
+  color: #1e293b !important;
+  border: 1px solid #cbd5e1 !important;
+  font-weight: 600 !important;
+}
+
+/* Dark Slate Background Elements */
+html.light-mode .bg-slate-900,
 html.light-mode .bg-slate-950,
-html.light-mode .bg-slate-950\/95,
-html.light-mode .bg-slate-950\/90,
-html.light-mode .bg-slate-950\/80,
-html.light-mode .bg-slate-950\/60,
 html.light-mode .bg-black\/80,
 html.light-mode .bg-black\/85 {
   background-color: #ffffff !important;
   border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* Dark Tinted Containers (Red & Emerald accents) */
+html.light-mode .bg-red-950,
+html.light-mode .bg-red-950\/60,
+html.light-mode .bg-red-950\/70,
+html.light-mode .bg-red-950\/80,
+html.light-mode .bg-red-950\/90 {
+  background-color: #fff1f2 !important;
+  border-color: #fecdd3 !important;
+  color: #9f1239 !important;
+}
+
+html.light-mode .bg-emerald-950,
+html.light-mode .bg-emerald-950\/60,
+html.light-mode .bg-emerald-950\/80 {
+  background-color: #ecfdf5 !important;
+  border-color: #a7f3d0 !important;
+  color: #065f46 !important;
 }
 
 html.light-mode .border-slate-800,
@@ -755,6 +820,55 @@ html.light-mode .border-slate-700,
 html.light-mode .border-slate-700\/80,
 html.light-mode .border-slate-900 {
   border-color: #e2e8f0 !important;
+}
+
+/* Photo Badges Inside Vehicle Cards (e.g. Year "2021", Photos count) */
+html.light-mode .absolute.top-3.right-3.bg-black\/80,
+html.light-mode .absolute.bottom-2\.5.left-2\.5.bg-black\/85 {
+  background-color: rgba(15, 23, 42, 0.85) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Creative Link Gateway Cards (Section 3) */
+html.light-mode .gateway-portal {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.05) !important;
+}
+
+html.light-mode .gateway-portal:hover {
+  transform: translateY(-6px);
+  border-color: #e5192d !important;
+  box-shadow: 0 16px 30px -8px rgba(229, 25, 45, 0.12) !important;
+}
+
+/* Secondary Promo Pill on Home Hero */
+html.light-mode .hero-rental-pill,
+html.light-mode a[href="rentals.html"].rounded-full {
+  background-color: #f0fdf4 !important;
+  border-color: #86efac !important;
+  color: #166534 !important;
+}
+
+html.light-mode a[href="rentals.html"].rounded-full span {
+  color: #166534 !important;
+}
+
+html.light-mode a[href="rentals.html"].rounded-full strong {
+  color: #15803d !important;
+}
+
+/* Floating WhatsApp Tooltip & Dock */
+html.light-mode .floating-whatsapp-tooltip {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12) !important;
+}
+
+html.light-mode .floating-whatsapp-tooltip span {
+  color: #0f172a !important;
 }
 
 /* Light Mode Input & Form Elements */
@@ -792,12 +906,80 @@ html.light-mode .modal-content {
 html.light-mode .cat-filter-btn:not(.bg-red-600) {
   background-color: #f1f5f9 !important;
   color: #334155 !important;
-  border-color: #e2e8f0 !important;
+  border: 1px solid #cbd5e1 !important;
 }
 
 html.light-mode .cat-filter-btn:not(.bg-red-600):hover {
   background-color: #e2e8f0 !important;
   color: #0f172a !important;
+}
+
+/* Currency Switcher Buttons */
+html.light-mode .curr-btn:not(.bg-red-600) {
+  background-color: #f1f5f9 !important;
+  color: #475569 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+html.light-mode .curr-btn:not(.bg-red-600):hover {
+  background-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* Rental Builder Driver Service Tabs */
+html.light-mode #rb-driver-btn.border-emerald-500,
+html.light-mode button[onclick*="With"].border-emerald-500 {
+  background-color: #ecfdf5 !important;
+  color: #047857 !important;
+  border-color: #10b981 !important;
+}
+
+html.light-mode #rb-self-btn.border-slate-700,
+html.light-mode button[onclick*="Self"].border-slate-700,
+html.light-mode button.border-slate-700 {
+  background-color: #f1f5f9 !important;
+  color: #475569 !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Rental Builder Live Message Output Box */
+html.light-mode #rb-message-preview {
+  background-color: #f8fafc !important;
+  color: #047857 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+/* Reset / Secondary Action Buttons with bg-slate-800 */
+html.light-mode button.bg-slate-800,
+html.light-mode .bg-slate-800 {
+  background-color: #f1f5f9 !important;
+  color: #334155 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+html.light-mode button.bg-slate-800:hover {
+  background-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* Tables in Light Mode */
+html.light-mode aside {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light-mode table {
+  color: #1e293b !important;
+}
+
+html.light-mode table th {
+  background-color: #f8fafc !important;
+  color: #475569 !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light-mode table td {
+  border-color: #f1f5f9 !important;
 }
 
 /* Footer in Light Mode */

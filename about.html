@@ -52,15 +52,10 @@
 
       <!-- Header Actions -->
       <div class="nav-actions-wrapper flex items-center gap-2.5">
-        <!-- Sun & Moon Mode Selector -->
-        <div class="theme-mode-pills" role="group" aria-label="Theme Mode Selection">
-          <button type="button" onclick="setTheme('light')" class="theme-btn-sun" title="Click for Light Mode" aria-label="Light Mode">
-            ☀️
-          </button>
-          <button type="button" onclick="setTheme('dark')" class="theme-btn-moon" title="Click for Dark Mode" aria-label="Dark Mode">
-            🌙
-          </button>
-        </div>
+        <!-- Single Sun / Half-Moon Morphing Theme Button -->
+        <button type="button" onclick="toggleTheme()" class="theme-single-btn" title="Toggle Light / Dark Mode" aria-label="Toggle Light / Dark Mode">
+          <span class="theme-btn-icon">☀️</span>
+        </button>
 
         <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'd%20like%20to%20know%20more%20about%20your%20company%20and%20services." target="_blank" class="nav-wa-btn btn-whatsapp h-9 px-3.5 text-xs font-bold rounded-xl flex items-center gap-2 whitespace-nowrap shadow-md">
           <span>💬</span>
@@ -69,16 +64,11 @@
         </a>
       </div>
 
-      <!-- Mobile Right Controls (Sun/Moon + Hamburger) -->
+      <!-- Mobile Right Controls (Theme Button + Hamburger) -->
       <div class="flex items-center gap-2 lg:hidden">
-        <div class="theme-mode-pills" role="group" aria-label="Theme Mode Selection">
-          <button type="button" onclick="setTheme('light')" class="theme-btn-sun" title="Click for Light Mode" aria-label="Light Mode">
-            ☀️
-          </button>
-          <button type="button" onclick="setTheme('dark')" class="theme-btn-moon" title="Click for Dark Mode" aria-label="Dark Mode">
-            🌙
-          </button>
-        </div>
+        <button type="button" onclick="toggleTheme()" class="theme-single-btn" title="Toggle Light / Dark Mode" aria-label="Toggle Light / Dark Mode">
+          <span class="theme-btn-icon">☀️</span>
+        </button>
 
         <!-- Mobile Hamburger Button -->
         <button onclick="toggleMobileNav()" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white flex items-center justify-center transition-colors" aria-label="Toggle Navigation Menu">
@@ -98,17 +88,12 @@
           <span class="text-base">🌓</span>
           <div>
             <div class="drawer-theme-title text-xs font-bold text-white">Appearance Mode</div>
-            <div class="text-[10px] text-slate-400 font-medium">Tap ☀️ for Light • 🌙 for Dark</div>
+            <div class="text-[10px] text-slate-400 font-medium">Click icon to switch Light / Dark</div>
           </div>
         </div>
-        <div class="theme-mode-pills" role="group" aria-label="Theme Mode Selection">
-          <button type="button" onclick="setTheme('light')" class="theme-btn-sun" title="Click for Light Mode" aria-label="Light Mode">
-            ☀️
-          </button>
-          <button type="button" onclick="setTheme('dark')" class="theme-btn-moon" title="Click for Dark Mode" aria-label="Dark Mode">
-            🌙
-          </button>
-        </div>
+        <button type="button" onclick="toggleTheme()" class="theme-single-btn" title="Toggle Light / Dark Mode" aria-label="Toggle Light / Dark Mode">
+          <span class="theme-btn-icon">☀️</span>
+        </button>
       </div>
 
       <div class="grid grid-cols-5 gap-2.5 pb-3 border-b border-slate-800">

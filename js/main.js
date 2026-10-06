@@ -332,13 +332,14 @@ function applyTheme(theme) {
     html.classList.remove('light-mode');
   }
 
-  // Update Sun & Moon Buttons
-  document.querySelectorAll('.theme-btn-sun').forEach(btn => {
-    btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+  // Update Single Sun / Moon Morphing Button
+  document.querySelectorAll('.theme-btn-icon').forEach(icon => {
+    icon.textContent = isLight ? '🌙' : '☀️';
   });
 
-  document.querySelectorAll('.theme-btn-moon').forEach(btn => {
-    btn.setAttribute('aria-pressed', !isLight ? 'true' : 'false');
+  document.querySelectorAll('.theme-single-btn').forEach(btn => {
+    btn.setAttribute('title', isLight ? 'Click 🌙 for Dark Mode' : 'Click ☀️ for Light Mode');
+    btn.setAttribute('aria-label', isLight ? 'Switch to Dark Mode' : 'Switch to Light Mode');
   });
 
   // Backward compatibility with legacy toggles

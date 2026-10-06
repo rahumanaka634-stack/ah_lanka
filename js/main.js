@@ -154,7 +154,12 @@ function setCurrency(curr) {
   currentCurrency = curr;
   localStorage.setItem('ah_currency', curr);
   
-  // Update currency toggle buttons
+  // Sync dropdown selects
+  document.querySelectorAll('.nav-currency-select').forEach(sel => {
+    sel.value = curr;
+  });
+
+  // Update currency toggle buttons (if present)
   document.querySelectorAll('.curr-btn').forEach(btn => {
     if (btn.dataset.currency === curr) {
       btn.classList.add('bg-red-600', 'text-white');

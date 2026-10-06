@@ -131,16 +131,16 @@ function syncRentalBuilder() {
     ? `${rentalBuilderState.pickupDate} → ${rentalBuilderState.returnDate}`
     : `Flexible / To be confirmed`;
 
-  const msg = `Hello AH Lanka! 👋
+  const msg = `Hello AH Lanka!
 
 I'm interested in renting a vehicle for my Sri Lanka journey:
 
-🚙 Vehicle Type: ${rentalBuilderState.type}
-👨‍✈️ Service: ${rentalBuilderState.driverMode}
-📅 Dates: ${datesFormatted}
-👥 Passengers: ${rentalBuilderState.passengers}
-📍 Pickup Location: ${rentalBuilderState.location}
-${rentalBuilderState.flightNo ? `✈️ Flight / Notes: ${rentalBuilderState.flightNo}\n` : ''}
+Vehicle Type: ${rentalBuilderState.type}
+Service: ${rentalBuilderState.driverMode}
+Dates: ${datesFormatted}
+Passengers: ${rentalBuilderState.passengers}
+Pickup Location: ${rentalBuilderState.location}
+${rentalBuilderState.flightNo ? `Flight / Notes: ${rentalBuilderState.flightNo}\n` : ''}
 Please send me the available options and all-inclusive rental rates. Thank you!`;
 
   previewEl.textContent = msg;

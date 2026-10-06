@@ -626,3 +626,413 @@ a {
     animation: none !important;
   }
 }
+
+/* ==========================================================================
+   FUTURISTIC LIGHT MODE & THEME STYLING
+   ========================================================================== */
+
+/* Smooth Theme Transitions */
+html, body, .glass-panel, .glass-nav, .modal-content, footer, .anti-gravity-card {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+html.light-mode {
+  --color-black-deep: #f8fafc;
+  --color-black-surface: #ffffff;
+  --color-black-elevated: #f1f5f9;
+  --color-black-card: rgba(255, 255, 255, 0.94);
+  --color-black-border: rgba(15, 23, 42, 0.12);
+  --color-white: #0f172a;
+  --color-slate-light: #1e293b;
+  --color-slate-muted: #64748b;
+  --color-slate-dark: #cbd5e1;
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 20px 45px -10px rgba(15, 23, 42, 0.12), 0 0 30px rgba(229, 25, 45, 0.06);
+}
+
+html.light-mode body {
+  background: #f8fafc !important;
+  color: #1e293b !important;
+}
+
+html.light-mode .glass-panel {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(15, 23, 42, 0.04) !important;
+}
+
+html.light-mode .glass-nav {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border-bottom-color: rgba(226, 232, 240, 0.9) !important;
+  backdrop-filter: blur(16px) !important;
+}
+
+html.light-mode #mobile-nav-drawer {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light-mode h1, 
+html.light-mode h2, 
+html.light-mode h3, 
+html.light-mode h4, 
+html.light-mode .text-white {
+  color: #0f172a !important;
+}
+
+/* Preserve crisp white text on colored buttons & badges */
+html.light-mode .btn-whatsapp,
+html.light-mode .btn-whatsapp *,
+html.light-mode .btn-red,
+html.light-mode .btn-red *,
+html.light-mode .btn-primary-red,
+html.light-mode .btn-primary-red *,
+html.light-mode .btn-gold,
+html.light-mode .btn-gold *,
+html.light-mode .bg-red-600,
+html.light-mode .bg-red-600 *,
+html.light-mode .badge-red,
+html.light-mode .badge-green,
+html.light-mode .floating-whatsapp-btn * {
+  color: #ffffff !important;
+}
+
+html.light-mode aside {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light-mode table {
+  color: #1e293b !important;
+}
+
+html.light-mode table th {
+  background-color: #f8fafc !important;
+  color: #475569 !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light-mode table td {
+  border-color: #f1f5f9 !important;
+}
+
+html.light-mode .text-slate-100 {
+  color: #0f172a !important;
+}
+
+html.light-mode .text-slate-200 {
+  color: #1e293b !important;
+}
+
+html.light-mode .text-slate-300 {
+  color: #334155 !important;
+}
+
+html.light-mode .text-slate-400 {
+  color: #64748b !important;
+}
+
+html.light-mode .bg-slate-900,
+html.light-mode .bg-slate-900\/90,
+html.light-mode .bg-slate-900\/80,
+html.light-mode .bg-slate-900\/60,
+html.light-mode .bg-slate-900\/40,
+html.light-mode .bg-slate-950,
+html.light-mode .bg-slate-950\/95,
+html.light-mode .bg-slate-950\/90,
+html.light-mode .bg-slate-950\/80,
+html.light-mode .bg-slate-950\/60,
+html.light-mode .bg-black\/80,
+html.light-mode .bg-black\/85 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light-mode .border-slate-800,
+html.light-mode .border-slate-800\/80,
+html.light-mode .border-slate-700,
+html.light-mode .border-slate-700\/80,
+html.light-mode .border-slate-900 {
+  border-color: #e2e8f0 !important;
+}
+
+/* Light Mode Input & Form Elements */
+html.light-mode input:not([type="checkbox"]):not([type="radio"]),
+html.light-mode select,
+html.light-mode textarea {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html.light-mode input::placeholder,
+html.light-mode textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+html.light-mode select option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Modal styling in Light Mode */
+html.light-mode .modal-backdrop {
+  background: rgba(15, 23, 42, 0.65) !important;
+}
+
+html.light-mode .modal-content {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.2) !important;
+}
+
+/* Category filter buttons in Light Mode */
+html.light-mode .cat-filter-btn:not(.bg-red-600) {
+  background-color: #f1f5f9 !important;
+  color: #334155 !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light-mode .cat-filter-btn:not(.bg-red-600):hover {
+  background-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* Footer in Light Mode */
+html.light-mode footer {
+  background-color: #f1f5f9 !important;
+  border-top-color: #e2e8f0 !important;
+  color: #475569 !important;
+}
+
+/* Drawer Theme Row */
+html.light-mode .drawer-theme-row {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light-mode .drawer-theme-title {
+  color: #0f172a !important;
+}
+
+/* ==========================================================================
+   FUTURISTIC SCI-FI VISUAL ELEMENTS & ANIMATIONS
+   ========================================================================== */
+
+/* Neon Hud Cyber Grid Animation */
+.cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(229, 25, 45, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(229, 25, 45, 0.05) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 75%);
+}
+
+html.light-mode .cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(229, 25, 45, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(229, 25, 45, 0.06) 1px, transparent 1px);
+}
+
+/* Animated Neon Hologram Glow Border */
+.neon-glow-card {
+  position: relative;
+}
+
+.neon-glow-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(229, 25, 45, 0.4), transparent, rgba(56, 189, 248, 0.4));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.neon-glow-card:hover::after {
+  opacity: 1;
+}
+
+/* Futuristic Scanning Beam */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
+}
+
+.scan-beam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #e5192d, #38bdf8, transparent);
+  opacity: 0.6;
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+}
+
+/* Futuristic HUD Pill Badge */
+.hud-pill {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(8px);
+}
+
+/* ==========================================================================
+   INTERACTIVE LIGHT / DARK MODE SLIDER SWITCH COMPONENT
+   ========================================================================== */
+.theme-toggle-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 3px 8px 3px 3px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-spring);
+  backdrop-filter: blur(12px);
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  user-select: none;
+}
+
+.theme-toggle-switch:hover {
+  border-color: rgba(229, 25, 45, 0.5);
+  box-shadow: 0 0 16px rgba(229, 25, 45, 0.25);
+  transform: translateY(-1px);
+}
+
+.theme-toggle-switch:active {
+  transform: scale(0.97);
+}
+
+.theme-switch-track {
+  position: relative;
+  width: 52px;
+  height: 26px;
+  background: rgba(2, 6, 23, 0.95);
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.35s var(--ease-spring);
+}
+
+.theme-switch-icon-sun,
+.theme-switch-icon-moon {
+  font-size: 12px;
+  line-height: 1;
+  user-select: none;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.theme-switch-icon-sun {
+  opacity: 0.35;
+  filter: grayscale(70%);
+}
+
+.theme-switch-icon-moon {
+  opacity: 1;
+  filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.9));
+}
+
+.theme-switch-thumb {
+  position: absolute;
+  top: 2px;
+  left: 27px; /* Dark mode: thumb is right over moon */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border: 1.5px solid rgba(229, 25, 45, 0.75);
+  box-shadow: 0 0 10px rgba(229, 25, 45, 0.6), 0 2px 6px rgba(0, 0, 0, 0.6);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+}
+
+.theme-switch-text {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  transition: color 0.3s ease;
+}
+
+/* Light mode state for switch */
+html.light-mode .theme-toggle-switch {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: #cbd5e1;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08);
+}
+
+html.light-mode .theme-toggle-switch:hover {
+  border-color: #e5192d;
+  box-shadow: 0 0 18px rgba(229, 25, 45, 0.2);
+}
+
+html.light-mode .theme-switch-track {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.08);
+}
+
+html.light-mode .theme-switch-thumb {
+  left: 3px; /* Light mode: thumb slides left over sun */
+  background: linear-gradient(135deg, #ffffff, #fef08a);
+  border-color: rgba(234, 179, 8, 0.95);
+  box-shadow: 0 0 12px rgba(234, 179, 8, 0.65), 0 2px 6px rgba(15, 23, 42, 0.15);
+}
+
+html.light-mode .theme-switch-icon-sun {
+  opacity: 1;
+  filter: drop-shadow(0 0 5px rgba(234, 179, 8, 0.95));
+}
+
+html.light-mode .theme-switch-icon-moon {
+  opacity: 0.35;
+  filter: grayscale(70%);
+}
+
+html.light-mode .theme-switch-text {
+  color: #0f172a;
+}
+
+/* Legacy .theme-toggle-btn fallback */
+.theme-toggle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--color-black-border);
+  color: var(--color-slate-light);
+  transition: all 0.3s var(--ease-spring);
+}
+
+html.light-mode .theme-toggle-btn {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+

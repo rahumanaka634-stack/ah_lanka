@@ -17,8 +17,14 @@ const DEFAULT_SALES_INVENTORY = [
     badge: "Available",
     badgeType: "red",
     engine: "2800cc Turbo Diesel (1GD-FTV)",
-    desc: "Sunroof, 7 leather seats, 360-degree cameras, Modellista aero kit, original factory condition, 100% accident-free.",
-    img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80",
+    desc: "Sunroof, 7 leather seats, 360-degree panoramic cameras, Modellista aero kit, original factory condition, 100% accident-free.",
+    img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=85",
+    images: [
+      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=85"
+    ],
     status: "Available"
   },
   {
@@ -35,7 +41,13 @@ const DEFAULT_SALES_INVENTORY = [
     badgeType: "green",
     engine: "3000cc Turbo Diesel (1KD-FTV)",
     desc: "Dark Prime edition, dual air conditioning, velvet executive seats, push start, original metallic black finish.",
-    img: "https://images.unsplash.com/photo-1559297434-fae8a1916a79?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1559297434-fae8a1916a79?auto=format&fit=crop&w=1200&q=85",
+    images: [
+      "https://images.unsplash.com/photo-1559297434-fae8a1916a79?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1520050206274-a1ae44613e6d?auto=format&fit=crop&w=1200&q=85"
+    ],
     status: "Available"
   },
   {
@@ -52,7 +64,13 @@ const DEFAULT_SALES_INVENTORY = [
     badgeType: "red",
     engine: "1500cc Synergy Drive Hybrid",
     desc: "WxB full option with leather-trimmed seats, Toyota Safety Sense, lane departure assist, pristine battery health report.",
-    img: "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1200&q=85",
+    images: [
+      "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=85"
+    ],
     status: "Available"
   },
   {
@@ -69,7 +87,12 @@ const DEFAULT_SALES_INVENTORY = [
     badgeType: "green",
     engine: "1500cc i-DCD Hybrid",
     desc: "Orange interior trim package, adaptive cruise control, LED headlights, brand new tires fitted, verifiable agency records.",
-    img: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=85",
+    images: [
+      "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=85"
+    ],
     status: "Available"
   },
   {
@@ -86,7 +109,12 @@ const DEFAULT_SALES_INVENTORY = [
     badgeType: "red",
     engine: "1500cc VVT-i (1NZ-FE)",
     desc: "Teak interior finish, electric driver seat, intelligent clearance sonar, Pearl White metallic, immaculate condition.",
-    img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=85",
+    images: [
+      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=85"
+    ],
     status: "Available"
   },
   {
@@ -103,7 +131,12 @@ const DEFAULT_SALES_INVENTORY = [
     badgeType: "green",
     engine: "660cc Mild Hybrid Turbo",
     desc: "Head-up display, paddle shifters, heated seats, keyless push start, exceptional 24+ km/L fuel efficiency in city driving.",
-    img: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=85",
+    images: [
+      "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=85"
+    ],
     status: "Available"
   }
 ];
@@ -226,7 +259,25 @@ const AHStore = {
       return DEFAULT_SALES_INVENTORY;
     }
     try {
-      return JSON.parse(raw);
+      let list = JSON.parse(raw);
+      // Ensure each vehicle has an images array for multi-photo gallery
+      let updated = false;
+      list = list.map(v => {
+        if (!v.images || !v.images.length) {
+          const def = DEFAULT_SALES_INVENTORY.find(d => d.id === v.id);
+          if (def && def.images) {
+            v.images = def.images;
+            updated = true;
+          } else if (v.img) {
+            v.images = [v.img];
+          }
+        }
+        return v;
+      });
+      if (updated) {
+        localStorage.setItem('ah_sales_inventory', JSON.stringify(list));
+      }
+      return list;
     } catch(e) {
       return DEFAULT_SALES_INVENTORY;
     }

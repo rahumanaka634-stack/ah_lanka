@@ -13,6 +13,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Theme Preload (Prevents FOUC) -->
+  <script>(function(){if(localStorage.getItem('ah_theme')==='light')document.documentElement.classList.add('light-mode');})();</script>
 </head>
 <body class="text-slate-100 antialiased selection:bg-red-600 selection:text-white">
 
@@ -48,7 +50,17 @@
       </nav>
 
       <!-- Header Actions -->
-      <div class="nav-actions-wrapper">
+      <div class="nav-actions-wrapper flex items-center gap-3">
+        <!-- Modern Light / Dark Mode Slider Switch -->
+        <button onclick="toggleTheme()" class="theme-toggle-switch" role="switch" aria-checked="false" title="Switch Theme Mode" aria-label="Toggle Light / Dark Mode">
+          <div class="theme-switch-track">
+            <span class="theme-switch-icon-sun">☀️</span>
+            <span class="theme-switch-icon-moon">🌙</span>
+            <div class="theme-switch-thumb"></div>
+          </div>
+          <span class="theme-switch-text hidden md:inline">DARK</span>
+        </button>
+
         <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'm%20interested%20in%20buying%20a%20vehicle%20from%20your%20sales%20inventory." target="_blank" class="nav-wa-btn btn-whatsapp py-2 px-3 text-xs">
           <span>💬</span>
           <span class="nav-wa-long">WhatsApp Sales (076 632 2352)</span>
@@ -56,17 +68,47 @@
         </a>
       </div>
 
-      <!-- Mobile Hamburger Button -->
-      <button onclick="toggleMobileNav()" class="lg:hidden p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white" aria-label="Toggle Navigation Menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
+      <!-- Mobile Right Controls (Theme Toggle + Hamburger) -->
+      <div class="flex items-center gap-2.5 lg:hidden">
+        <button onclick="toggleTheme()" class="theme-toggle-switch" role="switch" aria-checked="false" title="Toggle Light / Dark Mode" aria-label="Toggle Light / Dark Mode">
+          <div class="theme-switch-track">
+            <span class="theme-switch-icon-sun">☀️</span>
+            <span class="theme-switch-icon-moon">🌙</span>
+            <div class="theme-switch-thumb"></div>
+          </div>
+        </button>
+
+        <!-- Mobile Hamburger Button -->
+        <button onclick="toggleMobileNav()" class="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white" aria-label="Toggle Navigation Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
 
     </div>
 
     <!-- Mobile Drawer Menu -->
     <div id="mobile-nav-drawer" class="hidden lg:hidden border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-xl px-6 py-6 space-y-4">
+      <!-- Dedicated Drawer Appearance Mode Control -->
+      <div class="drawer-theme-row flex items-center justify-between p-3 rounded-xl bg-slate-900 border border-slate-800">
+        <div class="flex items-center gap-2.5">
+          <span class="text-base">🌓</span>
+          <div>
+            <div class="drawer-theme-title text-xs font-bold text-white">Appearance Mode</div>
+            <div class="text-[10px] text-slate-400">Switch Light / Dark Theme</div>
+          </div>
+        </div>
+        <button onclick="toggleTheme()" class="theme-toggle-switch" role="switch" aria-checked="false" aria-label="Toggle Light / Dark Mode">
+          <div class="theme-switch-track">
+            <span class="theme-switch-icon-sun">☀️</span>
+            <span class="theme-switch-icon-moon">🌙</span>
+            <div class="theme-switch-thumb"></div>
+          </div>
+          <span class="theme-switch-text">DARK</span>
+        </button>
+      </div>
+
       <div class="grid grid-cols-2 gap-3 pb-3 border-b border-slate-800">
         <a href="sales.html" class="p-3 rounded-xl bg-red-950/50 border border-red-600/60 text-center">
           <div class="text-lg">🚘</div>
@@ -99,15 +141,18 @@
          ========================================================================= -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <div class="relative overflow-hidden glass-panel p-8 sm:p-12 rounded-3xl border-red-900/40 bg-gradient-to-r from-slate-950 via-slate-900 to-[#170a0e]">
-        <div class="max-w-3xl space-y-4">
+        <div class="cyber-grid absolute inset-0 opacity-40 pointer-events-none"></div>
+        <div class="scan-beam"></div>
+        <div class="max-w-3xl space-y-4 relative z-10">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/80 border border-red-800/60 text-xs font-semibold text-red-300">
             <span>🇱🇰</span> Sri Lankan Domestic Marketplace
+            <span class="hud-pill bg-red-900/80 text-white font-mono text-[9px] ml-1">AI VERIFIED</span>
           </div>
           <h1 class="text-3xl sm:text-5xl font-black text-white leading-tight">
             Find Your Next Vehicle To Own.
           </h1>
           <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Browse our inspected inventory of passenger cars, luxury SUVs, commercial vans, and family wagons. Every vehicle comes with verified mileage, transparent pricing in Sri Lankan Rupees (LKR), and clear legal documentation.
+            Browse our inspected inventory of passenger cars, luxury SUVs, commercial vans, and family wagons. Every vehicle comes with verified mileage, multi-angle photo gallery, transparent pricing in Sri Lankan Rupees (LKR), and instant direct WhatsApp inquiries.
           </p>
         </div>
 
@@ -488,15 +533,15 @@
         const waUrl = `https://wa.me/94766322352?text=${encodeURIComponent(waMsg)}`;
 
         return `
-          <div class="anti-gravity-card glass-panel overflow-hidden border-slate-800 flex flex-col justify-between">
+          <div class="anti-gravity-card neon-glow-card glass-panel overflow-hidden border-slate-800 flex flex-col justify-between group">
             <div>
               <div class="relative h-52 w-full overflow-hidden bg-slate-900 cursor-pointer" onclick='openVehicleModal(${JSON.stringify(v)})'>
                 <img src="${v.img}" alt="${v.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
                 <div class="absolute top-3 left-3">
                   <span class="${badgeClass}">${statusLabel}</span>
                 </div>
-                <div class="absolute top-3 right-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded-xl text-xs font-bold text-white border border-slate-700">
-                  ${v.year}
+                <div class="absolute top-3 right-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded-xl text-xs font-mono font-bold text-white border border-slate-700 shadow-md">
+                  ⚡ ${v.year}
                 </div>
                 ${(v.images && v.images.length > 1) ? `
                   <div class="absolute bottom-2.5 left-2.5 bg-black/85 backdrop-blur-md px-2 py-0.5 rounded-lg text-[10px] font-bold text-white border border-slate-700/80 flex items-center gap-1 shadow">

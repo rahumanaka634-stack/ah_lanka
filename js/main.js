@@ -316,8 +316,52 @@ function initDefaultDates() {
   }
 }
 
+// Global Theme Management (Dark / Light Mode)
+function initTheme() {
+  const savedTheme = localStorage.getItem('ah_theme') || 'dark';
+  applyTheme(savedTheme);
+}
+
+function applyTheme(theme) {
+  const html = document.documentElement;
+  const toggleIcons = document.querySelectorAll('.theme-toggle-icon');
+  const switchTexts = document.querySelectorAll('.theme-switch-text');
+  const switches = document.querySelectorAll('.theme-toggle-switch');
+  
+  if (theme === 'light') {
+    html.classList.add('light-mode');
+    toggleIcons.forEach(icon => icon.textContent = '🌙');
+    switchTexts.forEach(el => el.textContent = 'LIGHT');
+    switches.forEach(btn => {
+      btn.setAttribute('aria-checked', 'true');
+      btn.setAttribute('title', 'Switch to Dark Mode');
+    });
+  } else {
+    html.classList.remove('light-mode');
+    toggleIcons.forEach(icon => icon.textContent = '☀️');
+    switchTexts.forEach(el => el.textContent = 'DARK');
+    switches.forEach(btn => {
+      btn.setAttribute('aria-checked', 'false');
+      btn.setAttribute('title', 'Switch to Light Mode');
+    });
+  }
+  localStorage.setItem('ah_theme', theme);
+}
+
+function toggleTheme() {
+  const current = localStorage.getItem('ah_theme') || 'dark';
+  const nextTheme = current === 'dark' ? 'light' : 'dark';
+  applyTheme(nextTheme);
+}
+
+// Expose globally
+window.initTheme = initTheme;
+window.applyTheme = applyTheme;
+window.toggleTheme = toggleTheme;
+
 // Global Event Listeners on DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
   initDefaultDates();
   syncRentalBuilder();
   setCurrency(currentCurrency);
@@ -334,3 +378,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+

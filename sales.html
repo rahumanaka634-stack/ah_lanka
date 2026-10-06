@@ -26,41 +26,44 @@
       
       <!-- Brand Logo -->
       <a href="index.html" class="nav-brand-link flex items-center gap-2.5 group">
-        <img src="images/logo-circle.png" alt="AH LANKA Logo" class="h-12 w-auto object-contain floating-header-logo">
+        <img src="images/logo-circle.png" alt="AH LANKA Official Logo" class="h-12 w-auto object-contain floating-header-logo">
         <div>
-          <div class="nav-brand-name font-extrabold text-xl tracking-wider text-white flex items-center gap-2">
+          <div class="nav-brand-name font-black text-xl tracking-wider text-white flex items-center gap-2">
             AH LANKA
-            <span class="nav-page-badge text-[9px] uppercase tracking-widest px-2 py-0.5 rounded-full bg-red-950/90 text-red-400 border border-red-800/40">CAR SALE</span>
+            <span class="nav-page-badge text-[9px] font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-red-950/90 text-red-400 border border-red-800/60 shadow-sm">OFFICIAL</span>
           </div>
-          <div class="nav-brand-subtitle text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Car Sale • Rentals & Hires</div>
+          <div class="nav-brand-subtitle text-[11px] text-slate-400 font-bold tracking-wider uppercase">CAR SALES • CAR RENTALS & HIRES</div>
         </div>
       </a>
 
       <!-- Desktop Nav Links -->
       <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold">
         <a href="index.html" class="text-slate-300 hover:text-white transition-colors py-1">Home</a>
-        <a href="sales.html" class="text-white hover:text-red-400 transition-colors py-1 border-b-2 border-red-600 flex items-center gap-1.5 font-bold">
-          <span>🚘</span> Cars For Sale
-          <span class="text-[9px] bg-red-600/30 text-red-400 px-1.5 py-0.5 rounded border border-red-500/40 uppercase">Main Stock</span>
+        <a href="sales.html" class="text-white hover:text-red-400 transition-colors py-1 border-b-2 border-red-600 font-bold flex items-center gap-1.5">
+          <span>🚘</span> Buy a Vehicle
         </a>
-        <a href="rentals.html" class="text-slate-400 hover:text-white transition-colors py-1 flex items-center gap-1.5 text-xs">
-          <span>🌴</span> Rentals & Hires
+        <a href="rentals.html" class="text-slate-300 hover:text-white transition-colors py-1 flex items-center gap-1.5">
+          <span>🌴</span> Rent a Vehicle
         </a>
         <a href="about.html" class="text-slate-300 hover:text-white transition-colors py-1">About AH Lanka</a>
         <a href="contact.html" class="text-slate-300 hover:text-white transition-colors py-1">Contact</a>
       </nav>
 
-      <!-- Header Actions -->
+      <!-- Header Actions (Theme Toggle & WhatsApp) -->
       <div class="nav-actions-wrapper flex items-center gap-2.5">
         <!-- Single Sun / Half-Moon Morphing Theme Button -->
         <button type="button" onclick="toggleTheme()" class="theme-single-btn" title="Toggle Light / Dark Mode" aria-label="Toggle Light / Dark Mode">
           <span class="theme-btn-icon">☀️</span>
         </button>
 
-        <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'm%20interested%20in%20buying%20a%20vehicle%20from%20your%20sales%20inventory." target="_blank" class="nav-wa-btn btn-whatsapp h-9 px-3.5 text-xs font-bold rounded-xl flex items-center gap-2 whitespace-nowrap shadow-md">
+        <div class="hidden xl:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-xs font-semibold text-slate-300 shadow-sm">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse"></span>
+          <span>WhatsApp Active</span>
+        </div>
+        <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'm%20interested%20in%20buying%20a%20vehicle%20from%20your%20sales%20inventory." target="_blank" class="nav-wa-btn btn-whatsapp h-9 px-4 text-xs font-bold rounded-full flex items-center gap-2 whitespace-nowrap shadow-md">
           <span>💬</span>
-          <span class="nav-wa-long">WhatsApp Sales (076 632 2352)</span>
-          <span class="nav-wa-short">WhatsApp</span>
+          <span class="nav-wa-long">Chat 076 632 2352</span>
+          <span class="nav-wa-short">Chat</span>
         </a>
       </div>
 
@@ -71,7 +74,7 @@
         </button>
 
         <!-- Mobile Hamburger Button -->
-        <button onclick="toggleMobileNav()" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white flex items-center justify-center transition-colors" aria-label="Toggle Navigation Menu">
+        <button onclick="toggleMobileNav()" class="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 text-slate-300 hover:text-white flex items-center justify-center transition-colors" aria-label="Toggle Navigation Menu">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
@@ -100,27 +103,28 @@
         <a href="sales.html" class="col-span-3 p-3 rounded-xl bg-red-950/60 border border-red-600/60 text-center flex items-center justify-center gap-3">
           <div class="text-2xl">🚘</div>
           <div class="text-left">
-            <div class="font-extrabold text-xs text-white">Cars For Sale</div>
-            <div class="text-[9px] text-red-300 uppercase tracking-wider font-semibold">Primary Showroom</div>
+            <div class="font-extrabold text-xs text-white">Buy a Vehicle</div>
+            <div class="text-[9px] text-red-300 uppercase tracking-wider font-semibold">Car Sales</div>
           </div>
         </a>
         <a href="rentals.html" class="col-span-2 p-3 rounded-xl bg-slate-900 border border-slate-800 text-center flex items-center justify-center gap-2">
           <div class="text-xl">🌴</div>
           <div class="text-left">
-            <div class="font-bold text-xs text-white">Rentals</div>
-            <div class="text-[9px] text-slate-400">Side Fleet</div>
+            <div class="font-bold text-xs text-white">Rent a Vehicle</div>
+            <div class="text-[9px] text-slate-400">Rentals & Hires</div>
           </div>
         </a>
       </div>
       <div class="flex flex-col space-y-3 font-semibold text-sm">
         <a href="index.html" class="text-slate-300 hover:text-white py-1">Home</a>
-        <a href="sales.html" class="text-white hover:text-red-400 py-1 font-bold flex items-center justify-between">
-          <span>🚘 Vehicles For Sale</span>
-          <span class="text-[10px] bg-red-600/30 text-red-300 px-2 py-0.5 rounded border border-red-500/40">Showroom Stock</span>
+        <a href="sales.html" class="text-red-400 py-1 font-bold flex items-center gap-2">
+          <span>🚘</span> Buy a Vehicle
         </a>
-        <a href="rentals.html" class="text-slate-400 hover:text-white py-1 text-xs">🌴 Vehicle Rentals & Chauffeur Fleet</a>
-        <a href="about.html" class="text-slate-300 hover:text-white py-1">About Us</a>
-        <a href="contact.html" class="text-slate-300 hover:text-white py-1">Contact Us</a>
+        <a href="rentals.html" class="text-slate-300 hover:text-white py-1 flex items-center gap-2">
+          <span>🌴</span> Rent a Vehicle
+        </a>
+        <a href="about.html" class="text-slate-300 hover:text-white py-1">About AH Lanka</a>
+        <a href="contact.html" class="text-slate-300 hover:text-white py-1">Contact</a>
       </div>
       <div class="pt-4 border-t border-slate-800">
         <a href="https://wa.me/94766322352" target="_blank" class="w-full btn-whatsapp justify-center py-3 text-xs">

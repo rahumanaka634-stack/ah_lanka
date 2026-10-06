@@ -890,6 +890,105 @@ html.light-mode .cyber-grid {
 }
 
 /* ==========================================================================
+   SUN & HALF-MOON INDEPENDENT THEME SELECTOR BUTTONS
+   ========================================================================== */
+.theme-mode-pills {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  padding: 3px;
+  gap: 3px;
+  backdrop-filter: blur(12px);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.theme-btn-sun,
+.theme-btn-moon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* Dark mode (default): Moon is active, Sun is inactive */
+.theme-btn-sun {
+  opacity: 0.45;
+  filter: grayscale(80%);
+  background: transparent;
+}
+
+.theme-btn-sun:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.theme-btn-moon {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  opacity: 1;
+  filter: drop-shadow(0 0 3px rgba(56, 189, 248, 0.8));
+  transform: scale(1.05);
+}
+
+.theme-btn-moon:hover {
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.6);
+  transform: scale(1.12);
+}
+
+/* Light mode state: Sun is active, Moon is inactive */
+html.light-mode .theme-mode-pills {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  box-shadow: inset 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+
+html.light-mode .theme-btn-sun {
+  background: #ffffff;
+  border-color: rgba(245, 158, 11, 0.6);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.45), 0 2px 5px rgba(15, 23, 42, 0.1);
+  opacity: 1;
+  filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.8));
+  transform: scale(1.05);
+}
+
+html.light-mode .theme-btn-sun:hover {
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.7);
+  transform: scale(1.12);
+}
+
+html.light-mode .theme-btn-moon {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  opacity: 0.45;
+  filter: grayscale(80%);
+  transform: scale(1);
+}
+
+html.light-mode .theme-btn-moon:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  background: rgba(15, 23, 42, 0.08);
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
    INTERACTIVE LIGHT / DARK MODE SLIDER SWITCH COMPONENT
    ========================================================================== */
 .theme-toggle-switch {

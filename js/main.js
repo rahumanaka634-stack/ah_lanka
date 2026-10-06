@@ -324,28 +324,36 @@ function initTheme() {
 
 function applyTheme(theme) {
   const html = document.documentElement;
-  const toggleIcons = document.querySelectorAll('.theme-toggle-icon');
-  const switchTexts = document.querySelectorAll('.theme-switch-text');
-  const switches = document.querySelectorAll('.theme-toggle-switch');
+  const isLight = theme === 'light';
   
-  if (theme === 'light') {
+  if (isLight) {
     html.classList.add('light-mode');
-    toggleIcons.forEach(icon => icon.textContent = '🌙');
-    switchTexts.forEach(el => el.textContent = 'LIGHT');
-    switches.forEach(btn => {
-      btn.setAttribute('aria-checked', 'true');
-      btn.setAttribute('title', 'Switch to Dark Mode');
-    });
   } else {
     html.classList.remove('light-mode');
-    toggleIcons.forEach(icon => icon.textContent = '☀️');
-    switchTexts.forEach(el => el.textContent = 'DARK');
-    switches.forEach(btn => {
-      btn.setAttribute('aria-checked', 'false');
-      btn.setAttribute('title', 'Switch to Light Mode');
-    });
   }
+
+  // Update Sun & Moon Buttons
+  document.querySelectorAll('.theme-btn-sun').forEach(btn => {
+    btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+  });
+
+  document.querySelectorAll('.theme-btn-moon').forEach(btn => {
+    btn.setAttribute('aria-pressed', !isLight ? 'true' : 'false');
+  });
+
+  // Backward compatibility with legacy toggles
+  document.querySelectorAll('.theme-toggle-icon').forEach(icon => {
+    icon.textContent = isLight ? '🌙' : '☀️';
+  });
+  document.querySelectorAll('.theme-switch-text').forEach(el => {
+    el.textContent = isLight ? 'LIGHT' : 'DARK';
+  });
+
   localStorage.setItem('ah_theme', theme);
+}
+
+function setTheme(theme) {
+  applyTheme(theme);
 }
 
 function toggleTheme() {
@@ -357,6 +365,7 @@ function toggleTheme() {
 // Expose globally
 window.initTheme = initTheme;
 window.applyTheme = applyTheme;
+window.setTheme = setTheme;
 window.toggleTheme = toggleTheme;
 
 // Global Event Listeners on DOM Ready

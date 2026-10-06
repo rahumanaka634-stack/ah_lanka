@@ -126,19 +126,19 @@
 
       <!-- Bottom User Controls -->
       <div class="pt-6 border-t border-slate-900 space-y-3">
-        <!-- Appearance Mode Toggle Switch -->
+        <!-- Appearance Mode Sun & Moon Pills -->
         <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/60 border border-slate-800">
           <div class="text-[11px] font-bold text-slate-300 flex items-center gap-1.5">
             <span>🌓</span> Mode
           </div>
-          <button onclick="toggleTheme()" class="theme-toggle-switch" role="switch" aria-checked="false" title="Toggle Light / Dark Mode" aria-label="Toggle Light / Dark Mode">
-            <div class="theme-switch-track">
-              <span class="theme-switch-icon-sun">☀️</span>
-              <span class="theme-switch-icon-moon">🌙</span>
-              <div class="theme-switch-thumb"></div>
-            </div>
-            <span class="theme-switch-text text-[10px]">DARK</span>
-          </button>
+          <div class="theme-mode-pills" role="group" aria-label="Theme Mode Selection">
+            <button type="button" onclick="setTheme('light')" class="theme-btn-sun" title="Light Mode" aria-label="Light Mode">
+              ☀️
+            </button>
+            <button type="button" onclick="setTheme('dark')" class="theme-btn-moon" title="Dark Mode" aria-label="Dark Mode">
+              🌙
+            </button>
+          </div>
         </div>
 
         <a href="index.html" target="_blank" class="w-full btn-ghost text-xs py-2.5 justify-center flex items-center gap-2">
@@ -161,15 +161,15 @@
         </div>
         
         <div class="flex items-center gap-3">
-          <!-- Light / Dark Mode Slider Switch -->
-          <button onclick="toggleTheme()" class="theme-toggle-switch" role="switch" aria-checked="false" title="Toggle Light / Dark Mode" aria-label="Toggle Light / Dark Mode">
-            <div class="theme-switch-track">
-              <span class="theme-switch-icon-sun">☀️</span>
-              <span class="theme-switch-icon-moon">🌙</span>
-              <div class="theme-switch-thumb"></div>
-            </div>
-            <span class="theme-switch-text hidden sm:inline text-[10px]">DARK</span>
-          </button>
+          <!-- Sun & Moon Mode Pills -->
+          <div class="theme-mode-pills" role="group" aria-label="Theme Mode Selection">
+            <button type="button" onclick="setTheme('light')" class="theme-btn-sun" title="Light Mode" aria-label="Light Mode">
+              ☀️
+            </button>
+            <button type="button" onclick="setTheme('dark')" class="theme-btn-moon" title="Dark Mode" aria-label="Dark Mode">
+              🌙
+            </button>
+          </div>
 
           <button onclick="openAddSalesModal()" class="btn-primary-red text-xs py-2 px-3.5">
             + Add Sales Vehicle

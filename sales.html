@@ -39,12 +39,8 @@
       <!-- Desktop Nav Links -->
       <nav class="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-semibold whitespace-nowrap">
         <a href="index.html" class="text-slate-300 hover:text-white transition-colors py-1 whitespace-nowrap">Home</a>
-        <a href="sales.html" class="text-white hover:text-red-400 transition-colors py-1 border-b-2 border-red-600 font-bold flex items-center gap-1.5 whitespace-nowrap">
-          <span>🚘</span> Buy a Vehicle
-        </a>
-        <a href="rentals.html" class="text-slate-300 hover:text-white transition-colors py-1 flex items-center gap-1.5 whitespace-nowrap">
-          <span>🌴</span> Rent a Vehicle
-        </a>
+        <a href="sales.html" class="text-white hover:text-red-400 transition-colors py-1 border-b-2 border-red-600 font-bold whitespace-nowrap">Buy a Vehicle</a>
+        <a href="rentals.html" class="text-slate-300 hover:text-white transition-colors py-1 whitespace-nowrap">Rent a Vehicle</a>
         <a href="about.html" class="text-slate-300 hover:text-white transition-colors py-1 whitespace-nowrap">About AH Lanka</a>
         <a href="contact.html" class="text-slate-300 hover:text-white transition-colors py-1 whitespace-nowrap">Contact</a>
       </nav>
@@ -61,7 +57,7 @@
           <span>WhatsApp Active</span>
         </div>
         <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'm%20interested%20in%20buying%20a%20vehicle%20from%20your%20sales%20inventory." target="_blank" class="nav-wa-btn btn-whatsapp h-9 px-4 text-xs font-bold rounded-full flex items-center gap-2 whitespace-nowrap shadow-md">
-          <span>💬</span>
+          <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.584 1.777.818 2.791.818 3.18 0 5.767-2.586 5.767-5.767.001-3.18-2.586-5.767-5.767-5.767zm7.969 5.767c0 4.406-3.585 7.99-7.969 7.99-1.391 0-2.695-.36-3.83-1.002l-4.18 1.094 1.117-4.084c-.732-1.206-1.138-2.613-1.138-4.004 0-4.407 3.585-7.991 7.969-7.991 4.406 0 7.969 3.584 7.969 7.991z"/></svg>
           <span class="nav-wa-long">Chat 076 632 2352</span>
           <span class="nav-wa-short">Chat</span>
         </a>
@@ -87,48 +83,36 @@
     <div id="mobile-nav-drawer" class="hidden lg:hidden border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-xl px-6 py-6 space-y-4">
       <!-- Dedicated Drawer Appearance Mode Control -->
       <div class="drawer-theme-row flex items-center justify-between p-3.5 rounded-xl bg-slate-900 border border-slate-800">
-        <div class="flex items-center gap-2.5">
-          <span class="text-base">🌓</span>
-          <div>
-            <div class="drawer-theme-title text-xs font-bold text-white">Appearance Mode</div>
-            <div class="text-[10px] text-slate-400 font-medium">Click icon to switch Light / Dark</div>
-          </div>
+        <div>
+          <div class="drawer-theme-title text-xs font-bold text-white">Appearance Mode</div>
+          <div class="text-[10px] text-slate-400 font-medium">Click icon to switch Light / Dark</div>
         </div>
         <button type="button" onclick="toggleTheme()" class="theme-single-btn" title="Toggle Light / Dark Mode" aria-label="Toggle Light / Dark Mode">
           <span class="theme-btn-icon">☀️</span>
         </button>
       </div>
 
-      <div class="grid grid-cols-5 gap-2.5 pb-3 border-b border-slate-800">
-        <a href="sales.html" class="col-span-3 p-3 rounded-xl bg-red-950/60 border border-red-600/60 text-center flex items-center justify-center gap-3">
-          <div class="text-2xl">🚘</div>
-          <div class="text-left">
-            <div class="font-extrabold text-xs text-white">Buy a Vehicle</div>
-            <div class="text-[9px] text-red-300 uppercase tracking-wider font-semibold">Car Sales</div>
-          </div>
+      <div class="grid grid-cols-2 gap-2.5 pb-3 border-b border-slate-800">
+        <a href="sales.html" class="p-3 rounded-xl bg-red-950/60 border border-red-600/60 text-center flex flex-col items-center justify-center">
+          <div class="font-extrabold text-xs text-white">Buy a Vehicle</div>
+          <div class="text-[9px] text-red-300 uppercase tracking-wider font-semibold">Car Sales</div>
         </a>
-        <a href="rentals.html" class="col-span-2 p-3 rounded-xl bg-slate-900 border border-slate-800 text-center flex items-center justify-center gap-2">
-          <div class="text-xl">🌴</div>
-          <div class="text-left">
-            <div class="font-bold text-xs text-white">Rent a Vehicle</div>
-            <div class="text-[9px] text-slate-400">Rentals & Hires</div>
-          </div>
+        <a href="rentals.html" class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-center flex flex-col items-center justify-center">
+          <div class="font-bold text-xs text-white">Rent a Vehicle</div>
+          <div class="text-[9px] text-slate-400">Rentals & Hires</div>
         </a>
       </div>
       <div class="flex flex-col space-y-3 font-semibold text-sm">
         <a href="index.html" class="text-slate-300 hover:text-white py-1">Home</a>
-        <a href="sales.html" class="text-red-400 py-1 font-bold flex items-center gap-2">
-          <span>🚘</span> Buy a Vehicle
-        </a>
-        <a href="rentals.html" class="text-slate-300 hover:text-white py-1 flex items-center gap-2">
-          <span>🌴</span> Rent a Vehicle
-        </a>
+        <a href="sales.html" class="text-red-400 py-1 font-bold">Buy a Vehicle</a>
+        <a href="rentals.html" class="text-slate-300 hover:text-white py-1">Rent a Vehicle</a>
         <a href="about.html" class="text-slate-300 hover:text-white py-1">About AH Lanka</a>
         <a href="contact.html" class="text-slate-300 hover:text-white py-1">Contact</a>
       </div>
       <div class="pt-4 border-t border-slate-800">
-        <a href="https://wa.me/94766322352" target="_blank" class="w-full btn-whatsapp justify-center py-3 text-xs">
-          <span>💬</span> Chat on WhatsApp (076 632 2352)
+        <a href="https://wa.me/94766322352" target="_blank" class="w-full btn-whatsapp justify-center py-3 text-xs flex items-center gap-2">
+          <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.584 1.777.818 2.791.818 3.18 0 5.767-2.586 5.767-5.767.001-3.18-2.586-5.767-5.767-5.767zm7.969 5.767c0 4.406-3.585 7.99-7.969 7.99-1.391 0-2.695-.36-3.83-1.002l-4.18 1.094 1.117-4.084c-.732-1.206-1.138-2.613-1.138-4.004 0-4.407 3.585-7.991 7.969-7.991 4.406 0 7.969 3.584 7.969 7.991z"/></svg>
+          Chat on WhatsApp (076 632 2352)
         </a>
       </div>
     </div>
@@ -145,7 +129,7 @@
         <div class="scan-beam"></div>
         <div class="max-w-3xl space-y-4 relative z-10">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/80 border border-red-800/60 text-xs font-semibold text-red-300">
-            <span>🇱🇰</span> Sri Lankan Domestic Marketplace
+            Sri Lankan Domestic Marketplace
             <span class="hud-pill bg-red-900/80 text-white font-mono text-[9px] ml-1">AI VERIFIED</span>
           </div>
           <h1 class="text-3xl sm:text-5xl font-black text-white leading-tight">
@@ -184,7 +168,7 @@
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div class="relative w-full md:w-96">
             <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
-              🔍
+              <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
             </span>
             <input type="text" id="sales-search-input" oninput="filterVehicles()" placeholder="Search make, model, or year (e.g. Prado, KDH, Axio)..." class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-10 pr-4 py-2.5 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-red-500">
           </div>
@@ -265,7 +249,9 @@
 
       <!-- Empty State -->
       <div id="no-results-state" class="hidden text-center py-16 space-y-4">
-        <div class="text-4xl">🚗</div>
+        <div class="w-12 h-12 mx-auto rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-500">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </div>
         <h3 class="text-lg font-bold text-white">No vehicles match your search criteria</h3>
         <p class="text-xs text-slate-400">Try adjusting your filters, searching another model, or message us on WhatsApp for incoming stock.</p>
         <button onclick="resetSalesFilters()" class="btn-ghost text-xs">Reset All Filters</button>
@@ -285,8 +271,9 @@
             Tell us the exact make, model, year, and budget you require. AH Lanka will source and inspect it for you across our islandwide dealer network.
           </p>
         </div>
-        <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'm%20looking%20to%20buy%20a%20specific%20vehicle%20not%20listed%20on%20your%20website.%20Could%20you%20help%20me%20source%20it%3F" target="_blank" class="btn-whatsapp py-3 px-6 text-xs whitespace-nowrap">
-          <span>💬</span> Request Vehicle on WhatsApp
+        <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'm%20looking%20to%20buy%20a%20specific%20vehicle%20not%20listed%20on%20your%20website.%20Could%20you%20help%20me%20source%20it%3F" target="_blank" class="btn-whatsapp py-3 px-6 text-xs whitespace-nowrap flex items-center gap-2">
+          <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.584 1.777.818 2.791.818 3.18 0 5.767-2.586 5.767-5.767.001-3.18-2.586-5.767-5.767-5.767zm7.969 5.767c0 4.406-3.585 7.99-7.969 7.99-1.391 0-2.695-.36-3.83-1.002l-4.18 1.094 1.117-4.084c-.732-1.206-1.138-2.613-1.138-4.004 0-4.407 3.585-7.991 7.969-7.991 4.406 0 7.969 3.584 7.969 7.991z"/></svg>
+          Request Vehicle on WhatsApp
         </a>
       </div>
     </section>
@@ -365,8 +352,9 @@
           <div class="text-[10px] text-slate-400 uppercase font-semibold">Price in Sri Lankan Rupees</div>
           <div id="modal-price" class="text-2xl font-black text-red-500">LKR 0</div>
         </div>
-        <a id="modal-wa-btn" href="#" target="_blank" class="w-full sm:w-auto btn-whatsapp justify-center py-3 px-6 text-xs font-bold">
-          <span>💬</span> ASK ABOUT THIS VEHICLE ON WHATSAPP
+        <a id="modal-wa-btn" href="#" target="_blank" class="w-full sm:w-auto btn-whatsapp justify-center py-3 px-6 text-xs font-bold flex items-center gap-2">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          ASK ABOUT THIS VEHICLE ON WHATSAPP
         </a>
       </div>
     </div>
@@ -529,7 +517,7 @@
         const isAvailable = v.status !== 'Sold';
         const badgeClass = isAvailable ? (v.badgeType === 'green' ? 'badge-green' : 'badge-red') : 'bg-red-950/80 text-red-400 border border-red-800 text-[10px] font-bold px-2 py-0.5 rounded';
         const statusLabel = isAvailable ? v.badge : 'Sold Out';
-        const waMsg = `Hello AH Lanka! 👋\n\nI'm interested in buying this vehicle:\nVehicle: ${v.name} (${v.year})\nPrice: ${v.price}\nRef ID: ${v.id}\n\nPlease send me inspection details and availability. Thank you!`;
+        const waMsg = `Hello AH Lanka!\n\nI'm interested in buying this vehicle:\nVehicle: ${v.name} (${v.year})\nPrice: ${v.price}\nRef ID: ${v.id}\n\nPlease send me inspection details and availability. Thank you!`;
         const waUrl = `https://wa.me/94766322352?text=${encodeURIComponent(waMsg)}`;
 
         return `
@@ -541,11 +529,11 @@
                   <span class="${badgeClass}">${statusLabel}</span>
                 </div>
                 <div class="absolute top-3 right-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded-xl text-xs font-mono font-bold text-white border border-slate-700 shadow-md">
-                  ⚡ ${v.year}
+                  ${v.year}
                 </div>
                 ${(v.images && v.images.length > 1) ? `
                   <div class="absolute bottom-2.5 left-2.5 bg-black/85 backdrop-blur-md px-2 py-0.5 rounded-lg text-[10px] font-bold text-white border border-slate-700/80 flex items-center gap-1 shadow">
-                    📸 ${v.images.length} Photos
+                    ${v.images.length} Photos
                   </div>
                 ` : ''}
               </div>
@@ -559,9 +547,9 @@
                 </div>
 
                 <div class="grid grid-cols-3 gap-2 text-center text-[11px] font-semibold text-slate-300 py-2 border-y border-slate-800/80">
-                  <div class="bg-slate-900/60 p-1.5 rounded-lg">🛣️ ${v.mileage}</div>
-                  <div class="bg-slate-900/60 p-1.5 rounded-lg">⛽ ${v.fuel}</div>
-                  <div class="bg-slate-900/60 p-1.5 rounded-lg">⚙️ ${v.trans}</div>
+                  <div class="bg-slate-900/60 p-1.5 rounded-lg">${v.mileage}</div>
+                  <div class="bg-slate-900/60 p-1.5 rounded-lg">${v.fuel}</div>
+                  <div class="bg-slate-900/60 p-1.5 rounded-lg">${v.trans}</div>
                 </div>
 
                 <div class="pt-1 flex items-baseline justify-between">
@@ -578,8 +566,9 @@
 
             <!-- Single High-Conversion WhatsApp CTA (No Walkaround) -->
             <div class="p-5 pt-0">
-              <a href="${waUrl}" target="_blank" class="btn-whatsapp w-full justify-center text-xs py-2.5 font-bold shadow-md">
-                <span>💬</span> ASK ABOUT THIS VEHICLE ON WHATSAPP
+              <a href="${waUrl}" target="_blank" class="btn-whatsapp w-full justify-center text-xs py-2.5 font-bold shadow-md flex items-center gap-2">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                ASK ABOUT THIS VEHICLE ON WHATSAPP
               </a>
             </div>
           </div>

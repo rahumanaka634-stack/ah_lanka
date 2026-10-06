@@ -39,12 +39,8 @@
       <!-- Desktop Nav Links -->
       <nav class="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-semibold whitespace-nowrap">
         <a href="index.html" class="text-slate-300 hover:text-white transition-colors py-1 whitespace-nowrap">Home</a>
-        <a href="sales.html" class="text-slate-300 hover:text-white transition-colors py-1 flex items-center gap-1.5 whitespace-nowrap">
-          <span>🚘</span> Buy a Vehicle
-        </a>
-        <a href="rentals.html" class="text-slate-300 hover:text-white transition-colors py-1 flex items-center gap-1.5 whitespace-nowrap">
-          <span>🌴</span> Rent a Vehicle
-        </a>
+        <a href="sales.html" class="text-slate-300 hover:text-white transition-colors py-1 whitespace-nowrap">Buy a Vehicle</a>
+        <a href="rentals.html" class="text-slate-300 hover:text-white transition-colors py-1 whitespace-nowrap">Rent a Vehicle</a>
         <a href="about.html" class="text-slate-300 hover:text-white transition-colors py-1 whitespace-nowrap">About AH Lanka</a>
         <a href="contact.html" class="text-white hover:text-red-400 transition-colors py-1 border-b-2 border-red-600 font-bold whitespace-nowrap">Contact</a>
       </nav>
@@ -60,8 +56,8 @@
           <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse"></span>
           <span>WhatsApp Active</span>
         </div>
-        <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'd%20like%20to%20get%20in%20touch." target="_blank" class="nav-wa-btn btn-whatsapp h-9 px-4 text-xs font-bold rounded-full flex items-center gap-2 whitespace-nowrap shadow-md">
-          <span>💬</span>
+        <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%0A%0AI'd%20like%20to%20get%20in%20touch." target="_blank" class="nav-wa-btn btn-whatsapp h-9 px-4 text-xs font-bold rounded-full flex items-center gap-2 whitespace-nowrap shadow-md">
+          <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
           <span class="nav-wa-long">Chat 076 632 2352</span>
           <span class="nav-wa-short">Chat</span>
         </a>
@@ -87,12 +83,9 @@
     <div id="mobile-nav-drawer" class="hidden lg:hidden border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-xl px-6 py-6 space-y-4">
       <!-- Dedicated Drawer Appearance Mode Control -->
       <div class="drawer-theme-row flex items-center justify-between p-3.5 rounded-xl bg-slate-900 border border-slate-800">
-        <div class="flex items-center gap-2.5">
-          <span class="text-base">🌓</span>
-          <div>
-            <div class="drawer-theme-title text-xs font-bold text-white">Appearance Mode</div>
-            <div class="text-[10px] text-slate-400 font-medium">Click icon to switch Light / Dark</div>
-          </div>
+        <div>
+          <div class="drawer-theme-title text-xs font-bold text-white">Appearance Mode</div>
+          <div class="text-[10px] text-slate-400 font-medium">Click icon to switch Light / Dark</div>
         </div>
         <button type="button" onclick="toggleTheme()" class="theme-single-btn" title="Toggle Light / Dark Mode" aria-label="Toggle Light / Dark Mode">
           <span class="theme-btn-icon">☀️</span>
@@ -100,35 +93,26 @@
       </div>
 
       <div class="grid grid-cols-5 gap-2.5 pb-3 border-b border-slate-800">
-        <a href="sales.html" class="col-span-3 p-3 rounded-xl bg-red-950/60 border border-red-600/60 text-center flex items-center justify-center gap-3">
-          <div class="text-2xl">🚘</div>
-          <div class="text-left">
-            <div class="font-extrabold text-xs text-white">Buy a Vehicle</div>
-            <div class="text-[9px] text-red-300 uppercase tracking-wider font-semibold">Car Sales</div>
-          </div>
+        <a href="sales.html" class="col-span-3 p-3 rounded-xl bg-red-950/60 border border-red-600/60 text-center">
+          <div class="font-extrabold text-xs text-white">Buy a Vehicle</div>
+          <div class="text-[9px] text-red-300 uppercase tracking-wider font-semibold">Car Sales</div>
         </a>
-        <a href="rentals.html" class="col-span-2 p-3 rounded-xl bg-slate-900 border border-slate-800 text-center flex items-center justify-center gap-2">
-          <div class="text-xl">🌴</div>
-          <div class="text-left">
-            <div class="font-bold text-xs text-white">Rent a Vehicle</div>
-            <div class="text-[9px] text-slate-400">Rentals & Hires</div>
-          </div>
+        <a href="rentals.html" class="col-span-2 p-3 rounded-xl bg-slate-900 border border-slate-800 text-center">
+          <div class="font-bold text-xs text-white">Rent a Vehicle</div>
+          <div class="text-[9px] text-slate-400">Rentals & Hires</div>
         </a>
       </div>
       <div class="flex flex-col space-y-3 font-semibold text-sm">
         <a href="index.html" class="text-slate-300 hover:text-white py-1">Home</a>
-        <a href="sales.html" class="text-slate-200 hover:text-red-400 py-1 flex items-center gap-2">
-          <span>🚘</span> Buy a Vehicle
-        </a>
-        <a href="rentals.html" class="text-slate-300 hover:text-white py-1 flex items-center gap-2">
-          <span>🌴</span> Rent a Vehicle
-        </a>
+        <a href="sales.html" class="text-slate-200 hover:text-red-400 py-1">Buy a Vehicle</a>
+        <a href="rentals.html" class="text-slate-300 hover:text-white py-1">Rent a Vehicle</a>
         <a href="about.html" class="text-slate-300 hover:text-white py-1">About AH Lanka</a>
         <a href="contact.html" class="text-red-400 py-1 font-bold">Contact</a>
       </div>
       <div class="pt-4 border-t border-slate-800">
         <a href="https://wa.me/94766322352" target="_blank" class="w-full btn-whatsapp justify-center py-3 text-xs">
-          <span>💬</span> Chat on WhatsApp (076 632 2352)
+          <svg class="w-4 h-4 fill-current mr-2" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          Chat on WhatsApp (076 632 2352)
         </a>
       </div>
     </div>
@@ -169,10 +153,12 @@
           <div class="space-y-3 pt-2">
             
             <!-- Topic 1 -->
-            <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'm%20interested%20in%20buying%20a%20vehicle%20from%20your%20sales%20inventory.%20Please%20send%20me%20your%20available%20options." target="_blank" class="anti-gravity-card p-4 rounded-2xl glass-panel border-red-900/40 hover:border-red-500 block group transition-all">
+            <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%0A%0AI'm%20interested%20in%20buying%20a%20vehicle%20from%20your%20sales%20inventory.%20Please%20send%20me%20your%20available%20options." target="_blank" class="anti-gravity-card p-4 rounded-2xl glass-panel border-red-900/40 hover:border-red-500 block group transition-all">
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-xl bg-red-600/20 text-red-400 flex items-center justify-center text-xl">🚘</div>
+                  <div class="w-10 h-10 rounded-xl bg-red-600/20 text-red-400 flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
+                  </div>
                   <div>
                     <div class="font-bold text-white text-sm">Vehicle Sales Inquiry</div>
                     <div class="text-[11px] text-slate-400">Ask about cars, SUVs, or vans for sale</div>
@@ -183,10 +169,12 @@
             </a>
 
             <!-- Topic 2 -->
-            <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'm%20interested%20in%20renting%20a%20vehicle%20for%20my%20journey%20in%20Sri%20Lanka.%20Please%20share%20the%20available%20fleet%20and%20rates." target="_blank" class="anti-gravity-card p-4 rounded-2xl glass-panel border-emerald-900/40 hover:border-emerald-500 block group transition-all">
+            <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%0A%0AI'm%20interested%20in%20renting%20a%20vehicle%20for%20my%20journey%20in%20Sri%20Lanka.%20Please%20share%20the%20available%20fleet%20and%20rates." target="_blank" class="anti-gravity-card p-4 rounded-2xl glass-panel border-emerald-900/40 hover:border-emerald-500 block group transition-all">
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center text-xl">🌴</div>
+                  <div class="w-10 h-10 rounded-xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
+                  </div>
                   <div>
                     <div class="font-bold text-white text-sm">Vehicle Rental & Chauffeur Hire</div>
                     <div class="text-[11px] text-slate-400">Tourist fleet, KDH vans & family SUVs</div>
@@ -197,10 +185,12 @@
             </a>
 
             <!-- Topic 3 -->
-            <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI%20need%20Airport%20(CMB%20Katunayake)%20pickup%20and%20transportation%20service." target="_blank" class="anti-gravity-card p-4 rounded-2xl glass-panel border-blue-900/40 hover:border-blue-500 block group transition-all">
+            <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%0A%0AI%20need%20Airport%20(CMB%20Katunayake)%20pickup%20and%20transportation%20service." target="_blank" class="anti-gravity-card p-4 rounded-2xl glass-panel border-blue-900/40 hover:border-blue-500 block group transition-all">
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center text-xl">✈️</div>
+                  <div class="w-10 h-10 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                  </div>
                   <div>
                     <div class="font-bold text-white text-sm">Airport (CMB) Meet & Greet</div>
                     <div class="text-[11px] text-slate-400">Katunayake arrival transfers & tour starts</div>
@@ -211,10 +201,12 @@
             </a>
 
             <!-- Topic 4 -->
-            <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%20%F0%9F%91%8B%0A%0AI'd%20like%20general%20information%20about%20your%20services." target="_blank" class="anti-gravity-card p-4 rounded-2xl glass-panel border-purple-900/40 hover:border-purple-500 block group transition-all">
+            <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%0A%0AI'd%20like%20general%20information%20about%20your%20services." target="_blank" class="anti-gravity-card p-4 rounded-2xl glass-panel border-purple-900/40 hover:border-purple-500 block group transition-all">
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-xl bg-purple-600/20 text-purple-400 flex items-center justify-center text-xl">💬</div>
+                  <div class="w-10 h-10 rounded-xl bg-purple-600/20 text-purple-400 flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                  </div>
                   <div>
                     <div class="font-bold text-white text-sm">General Inquiry / Concierge</div>
                     <div class="text-[11px] text-slate-400">Speak directly with management</div>
@@ -268,7 +260,8 @@
             </div>
 
             <a id="contact-submit-btn" href="#" target="_blank" class="w-full btn-whatsapp justify-center py-3.5 text-sm font-bold shadow-lg">
-              <span>💬</span> OPEN IN WHATSAPP (+94 76 632 2352)
+              <svg class="w-5 h-5 fill-current mr-2" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              OPEN IN WHATSAPP (+94 76 632 2352)
             </a>
           </div>
         </div>
@@ -290,43 +283,49 @@
         
         <!-- Hub 1: Kurunegala -->
         <div class="glass-panel p-6 rounded-2xl border-slate-800 space-y-3">
-          <div class="text-2xl">🏢</div>
+          <div class="w-10 h-10 rounded-xl bg-red-600/20 text-red-400 flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
           <h3 class="text-base font-bold text-white">Kurunegala Main Hub</h3>
           <p class="text-slate-400 leading-relaxed">
             Main sales showroom, fleet maintenance facility, and executive administrative headquarters.
           </p>
-          <div class="space-y-1.5 pt-2 border-t border-slate-800 text-slate-300">
-            <div>📍 Kurunegala, North Western Province, Sri Lanka</div>
-            <div>📞 Direct: <a href="tel:+94766322352" class="text-red-400 font-bold">076 632 2352</a></div>
-            <div>🕒 Showroom: Mon - Sat: 8:30 AM - 7:00 PM</div>
+          <div class="space-y-2 pt-2 border-t border-slate-800 text-slate-300">
+            <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> <span>Kurunegala, North Western Province, Sri Lanka</span></div>
+            <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> <span>Direct: <a href="tel:+94766322352" class="text-red-400 font-bold">076 632 2352</a></span></div>
+            <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> <span>Showroom: Mon - Sat: 8:30 AM - 7:00 PM</span></div>
           </div>
         </div>
 
         <!-- Hub 2: Katunayake Airport -->
         <div class="glass-panel p-6 rounded-2xl border-slate-800 space-y-3">
-          <div class="text-2xl">✈️</div>
+          <div class="w-10 h-10 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+          </div>
           <h3 class="text-base font-bold text-white">Airport Desk (Katunayake CMB)</h3>
           <p class="text-slate-400 leading-relaxed">
             Bandaranaike International Airport passenger greetings, flight tracking, and vehicle dispatch point.
           </p>
-          <div class="space-y-1.5 pt-2 border-t border-slate-800 text-slate-300">
-            <div>📍 Katunayake CMB Arrivals Terminal</div>
-            <div>📞 Meet & Greet Hotline: <span class="text-emerald-400 font-bold">+94 76 632 2352</span></div>
-            <div>🕒 Operating Hours: 24 Hours / 7 Days (Flight Scheduled)</div>
+          <div class="space-y-2 pt-2 border-t border-slate-800 text-slate-300">
+            <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> <span>Katunayake CMB Arrivals Terminal</span></div>
+            <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> <span>Meet & Greet Hotline: <span class="text-emerald-400 font-bold">+94 76 632 2352</span></span></div>
+            <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> <span>Operating Hours: 24 Hours / 7 Days (Flight Scheduled)</span></div>
           </div>
         </div>
 
         <!-- Hub 3: Colombo Delivery Desk -->
         <div class="glass-panel p-6 rounded-2xl border-slate-800 space-y-3">
-          <div class="text-2xl">🏙️</div>
+          <div class="w-10 h-10 rounded-xl bg-purple-600/20 text-purple-400 flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
           <h3 class="text-base font-bold text-white">Colombo Delivery Desk</h3>
           <p class="text-slate-400 leading-relaxed">
             Express door-to-door delivery for rental vehicles, hotel drop-offs, and buyer inspection appointments.
           </p>
-          <div class="space-y-1.5 pt-2 border-t border-slate-800 text-slate-300">
-            <div>📍 Colombo & Greater Western Province</div>
-            <div>📞 Dispatch: <span class="text-emerald-400 font-bold">+94 76 632 2352</span></div>
-            <div>🕒 Service Hours: 7:00 AM - 10:00 PM</div>
+          <div class="space-y-2 pt-2 border-t border-slate-800 text-slate-300">
+            <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> <span>Colombo & Greater Western Province</span></div>
+            <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> <span>Dispatch: <span class="text-emerald-400 font-bold">+94 76 632 2352</span></span></div>
+            <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> <span>Service Hours: 7:00 AM - 10:00 PM</span></div>
           </div>
         </div>
 
@@ -423,7 +422,7 @@
       const topic = document.getElementById('contact-topic').value;
       const note = document.getElementById('contact-text').value.trim();
 
-      const msg = `Hello AH Lanka! 👋\n\nI'm contacting you via your website.\n\n👤 Name: ${name}\n📌 Interest: ${topic}\n${note ? `📝 Note: ${note}\n` : ''}\nPlease connect with me regarding options and assistance. Thank you!`;
+      const msg = `Hello AH Lanka!\n\nI'm contacting you via your website.\n\nName: ${name}\nInterest: ${topic}\n${note ? `Note: ${note}\n` : ''}\nPlease connect with me regarding options and assistance. Thank you!`;
 
       document.getElementById('contact-preview-box').textContent = msg;
       document.getElementById('contact-submit-btn').href = `https://wa.me/94766322352?text=${encodeURIComponent(msg)}`;

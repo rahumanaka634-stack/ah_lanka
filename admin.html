@@ -102,23 +102,28 @@
         <!-- Navigation Tabs -->
         <nav class="space-y-1.5 text-xs font-semibold">
           <button onclick="switchAdminTab('overview')" id="tab-overview" class="admin-nav-item active w-full flex items-center gap-3 px-3.5 py-3 rounded-xl border border-transparent text-slate-300 hover:text-white transition-all text-left">
-            <span class="text-base">📊</span> Dashboard Overview
+            <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            Dashboard Overview
           </button>
           
           <button onclick="switchAdminTab('sales')" id="tab-sales" class="admin-nav-item w-full flex items-center gap-3 px-3.5 py-3 rounded-xl border border-transparent text-slate-300 hover:text-white transition-all text-left">
-            <span class="text-base">🚘</span> Vehicles For Sale (<span id="sidebar-sales-count">0</span>)
+            <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
+            Vehicles For Sale (<span id="sidebar-sales-count">0</span>)
           </button>
           
           <button onclick="switchAdminTab('rentals')" id="tab-rentals" class="admin-nav-item w-full flex items-center gap-3 px-3.5 py-3 rounded-xl border border-transparent text-slate-300 hover:text-white transition-all text-left">
-            <span class="text-base">🌴</span> Rental Fleet (<span id="sidebar-rental-count">0</span>)
+            <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            Rental Fleet (<span id="sidebar-rental-count">0</span>)
           </button>
           
           <button onclick="switchAdminTab('settings')" id="tab-settings" class="admin-nav-item w-full flex items-center gap-3 px-3.5 py-3 rounded-xl border border-transparent text-slate-300 hover:text-white transition-all text-left">
-            <span class="text-base">⚙️</span> Website & WhatsApp
+            <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Website & WhatsApp
           </button>
 
           <button onclick="switchAdminTab('backup')" id="tab-backup" class="admin-nav-item w-full flex items-center gap-3 px-3.5 py-3 rounded-xl border border-transparent text-slate-300 hover:text-white transition-all text-left">
-            <span class="text-base">💾</span> Backup & Export
+            <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>
+            Backup & Export
           </button>
         </nav>
 
@@ -128,8 +133,8 @@
       <div class="pt-6 border-t border-slate-900 space-y-3">
         <!-- Appearance Mode Single Sun / Moon Button -->
         <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/60 border border-slate-800">
-          <div class="text-[11px] font-bold text-slate-300 flex items-center gap-1.5">
-            <span>🌓</span> Mode
+          <div class="text-[11px] font-bold text-slate-300">
+            Appearance Mode
           </div>
           <button type="button" onclick="toggleTheme()" class="theme-single-btn" title="Toggle Light / Dark Mode" aria-label="Toggle Light / Dark Mode">
             <span class="theme-btn-icon">☀️</span>
@@ -137,10 +142,12 @@
         </div>
 
         <a href="index.html" target="_blank" class="w-full btn-ghost text-xs py-2.5 justify-center flex items-center gap-2">
-          <span>🌐</span> View Live Website ↗
+          <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          View Live Website
         </a>
-        <button onclick="adminLogout()" class="w-full text-xs text-slate-500 hover:text-red-400 py-2 transition-colors">
-          🔒 Lock & Log Out
+        <button onclick="adminLogout()" class="w-full text-xs text-slate-500 hover:text-red-400 py-2 transition-colors flex items-center justify-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          Lock & Log Out
         </button>
       </div>
     </aside>
@@ -407,7 +414,8 @@
             <h3 class="text-base font-bold text-white">Export Inventory JSON</h3>
             <p class="text-xs text-slate-400">Download the complete database of all sales vehicles, rental fleets, and configurations as a JSON file.</p>
             <button onclick="exportDataJSON()" class="btn-primary-red text-xs py-2.5 px-4 font-bold flex items-center gap-2">
-              <span>📥</span> Download Backup JSON
+              <svg class="w-4 h-4 fill-none stroke-currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              Download Backup JSON
             </button>
           </div>
 
@@ -509,7 +517,7 @@
 
           <!-- Multi-File Upload Dropzone -->
           <label class="border-2 border-dashed border-slate-700 hover:border-red-500 rounded-xl p-3 flex flex-col items-center justify-center cursor-pointer transition-all bg-slate-900/50 hover:bg-slate-900 group">
-            <span class="text-2xl group-hover:scale-110 transition-transform">📸</span>
+            <svg class="w-8 h-8 text-slate-400 group-hover:text-red-400 group-hover:scale-110 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             <span class="text-xs font-bold text-slate-200 mt-1">Upload Multiple Images (Up to 5)</span>
             <span class="text-[10px] text-slate-400">Select 1 to 5 images at once — saves automatically to Supabase Cloud</span>
             <input type="file" id="form-sales-files" multiple accept="image/png, image/jpeg, image/webp" onchange="handleMultipleImageUpload(event, 'sales')" class="hidden">
@@ -525,7 +533,7 @@
 
           <!-- URL / Preset Quick Input Accordion -->
           <details class="text-[11px] text-slate-400 pt-1">
-            <summary class="cursor-pointer hover:text-slate-200 font-semibold select-none">🔗 Or Paste Image URL / Presets</summary>
+            <summary class="cursor-pointer hover:text-slate-200 font-semibold select-none">Or Paste Image URL / Presets</summary>
             <div class="mt-2 space-y-2 p-2.5 bg-slate-900/80 rounded-xl border border-slate-800">
               <div class="flex gap-2">
                 <input type="text" id="form-sales-url-input" placeholder="Paste image URL (https://...)" class="flex-1 bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1 text-xs text-white focus:outline-none">
@@ -639,7 +647,7 @@
 
           <!-- Multi-File Upload Dropzone -->
           <label class="border-2 border-dashed border-slate-700 hover:border-emerald-500 rounded-xl p-3 flex flex-col items-center justify-center cursor-pointer transition-all bg-slate-900/50 hover:bg-slate-900 group">
-            <span class="text-2xl group-hover:scale-110 transition-transform">📸</span>
+            <svg class="w-8 h-8 text-slate-400 group-hover:text-emerald-400 group-hover:scale-110 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             <span class="text-xs font-bold text-slate-200 mt-1">Upload Multiple Images (Up to 5)</span>
             <span class="text-[10px] text-slate-400">Select 1 to 5 images at once — saves automatically to Supabase Cloud</span>
             <input type="file" id="form-rental-files" multiple accept="image/png, image/jpeg, image/webp" onchange="handleMultipleImageUpload(event, 'rental')" class="hidden">
@@ -655,7 +663,7 @@
 
           <!-- URL / Preset Quick Input Accordion -->
           <details class="text-[11px] text-slate-400 pt-1">
-            <summary class="cursor-pointer hover:text-slate-200 font-semibold select-none">🔗 Or Paste Image URL / Presets</summary>
+            <summary class="cursor-pointer hover:text-slate-200 font-semibold select-none">Or Paste Image URL / Presets</summary>
             <div class="mt-2 space-y-2 p-2.5 bg-slate-900/80 rounded-xl border border-slate-800">
               <div class="flex gap-2">
                 <input type="text" id="form-rental-url-input" placeholder="Paste image URL (https://...)" class="flex-1 bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1 text-xs text-white focus:outline-none">
@@ -1283,7 +1291,7 @@
               </div>
             </td>
             <td class="p-4 font-semibold text-emerald-400 text-xs">${r.category}</td>
-            <td class="p-4 text-slate-300">👥 ${r.passengers} Pax • 🧳 ${r.luggage} Bags</td>
+            <td class="p-4 text-slate-300">${r.passengers} Pax • ${r.luggage} Bags</td>
             <td class="p-4 font-bold text-white font-mono">$${r.dailyRateUsd} / day</td>
             <td class="p-4">
               <button onclick="toggleRentalStatus('${r.id}')" title="Click to toggle status" class="text-[10px] px-2 py-0.5 rounded font-bold ${statusBadge}">

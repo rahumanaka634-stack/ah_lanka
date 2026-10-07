@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://ahlanka.vercel.app/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://ahlanka.vercel.app/images/logo-circle.png</image:loc>
+      <image:title>AH LANKA — Sri Lanka's Trusted Automotive Marketplace</image:title>
+      <image:caption>Official AH LANKA 3D Showroom Emblem</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Buy a Vehicle (Car Sales Inventory) -->
+  <url>
+    <loc>https://ahlanka.vercel.app/sales</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://ahlanka.vercel.app/images/logo-circle.png</image:loc>
+      <image:title>Verified Cars, SUVs, and Vans For Sale in Sri Lanka</image:title>
+    </image:image>
+  </url>
+
+  <!-- Rent a Vehicle (Rentals & Chauffeur Hires) -->
+  <url>
+    <loc>https://ahlanka.vercel.app/rentals</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://ahlanka.vercel.app/images/logo-circle.png</image:loc>
+      <image:title>Premium Vehicle Rentals and Chauffeur Hires Sri Lanka</image:title>
+    </image:image>
+  </url>
+
+  <!-- About AH Lanka -->
+  <url>
+    <loc>https://ahlanka.vercel.app/about</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ahlanka.vercel.app/images/logo-circle.png</image:loc>
+      <image:title>About AH LANKA Car Sale and Rentals</image:title>
+    </image:image>
+  </url>
+
+  <!-- Contact Us -->
+  <url>
+    <loc>https://ahlanka.vercel.app/contact</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ahlanka.vercel.app/images/logo-circle.png</image:loc>
+      <image:title>Contact AH LANKA Kurunegala and Airport CMB Support</image:title>
+    </image:image>
+  </url>
+
+</urlset>

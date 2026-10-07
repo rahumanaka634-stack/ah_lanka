@@ -1,0 +1,19 @@
+# robots.txt for AH LANKA (https://ahlanka.vercel.app)
+# Crawl instructions for Googlebot, Bingbot, and all web spiders
+
+User-agent: *
+Allow: /
+Allow: /sales
+Allow: /rentals
+Allow: /about
+Allow: /contact
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+# Disallow admin portal and private management routes
+Disallow: /admin.html
+Disallow: /admin
+
+# XML Sitemap Location
+Sitemap: https://ahlanka.vercel.app/sitemap.xml

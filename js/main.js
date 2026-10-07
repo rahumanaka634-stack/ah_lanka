@@ -257,7 +257,7 @@ function updateModalPhotoDisplay() {
       strip.style.display = 'flex';
       strip.innerHTML = currentModalPhotos.map((url, idx) => `
         <button type="button" onclick="setModalPhotoIndex(${idx})" class="w-14 h-12 rounded-xl overflow-hidden border-2 transition-all cursor-pointer flex-shrink-0 ${idx === currentModalPhotoIndex ? 'border-red-500 scale-105 shadow-md shadow-red-900/40' : 'border-slate-800 opacity-60 hover:opacity-100'}">
-          <img src="${url}" class="w-full h-full object-cover">
+          <img src="${url}" alt="Vehicle preview photo ${idx + 1}" class="w-full h-full object-cover">
         </button>
       `).join('');
     }

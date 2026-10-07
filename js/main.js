@@ -392,5 +392,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.target === modalBackdrop) closeVehicleModal();
     });
   }
+
+  // Mobile drawer: auto-close when clicking any link
+  const mobileDrawer = document.getElementById('mobile-nav-drawer');
+  if (mobileDrawer) {
+    mobileDrawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.add('hidden');
+      });
+    });
+  }
 });
 

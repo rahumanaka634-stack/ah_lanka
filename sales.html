@@ -284,20 +284,20 @@
        VEHICLE DETAILS MODAL
        ========================================================================= -->
   <div id="vehicle-modal" class="modal-backdrop">
-    <div class="modal-content p-6 sm:p-8 space-y-6">
-      <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+    <div class="modal-content p-4 sm:p-8 space-y-4 sm:space-y-6">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3 sm:pb-4">
         <div>
           <span class="badge-red text-[10px]">Verified Vehicle Inspection</span>
-          <h2 id="modal-title" class="text-xl sm:text-2xl font-black text-white mt-1">Vehicle Name</h2>
+          <h2 id="modal-title" class="text-lg sm:text-2xl font-black text-white mt-0.5">Vehicle Name</h2>
         </div>
-        <button onclick="closeVehicleModal()" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center font-bold text-sm">
+        <button onclick="closeVehicleModal()" class="w-9 h-9 sm:w-8 sm:h-8 rounded-full bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center font-bold text-sm shrink-0" aria-label="Close modal">
           ✕
         </button>
       </div>
 
       <!-- Gallery Display Container (Up to 5 Photos) -->
       <div class="space-y-2.5">
-        <div class="relative h-60 sm:h-80 rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 group">
+        <div class="relative h-52 sm:h-80 rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 group">
           <img id="modal-img" src="" alt="Vehicle Preview" class="w-full h-full object-cover transition-opacity duration-200">
           
           <!-- Photo Counter Badge -->
@@ -305,17 +305,17 @@
             1 / 1
           </div>
 
-          <!-- Prev/Next Chevrons -->
-          <button id="modal-prev-btn" type="button" onclick="prevModalPhoto(event)" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/75 hover:bg-red-600 text-white flex items-center justify-center font-bold text-lg transition-all border border-slate-700 shadow-xl opacity-0 group-hover:opacity-100 cursor-pointer">
+          <!-- Prev/Next Chevrons (Always visible on mobile touch screens) -->
+          <button id="modal-prev-btn" type="button" onclick="prevModalPhoto(event)" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/80 hover:bg-red-600 text-white flex items-center justify-center font-bold text-lg transition-all border border-slate-700 shadow-xl opacity-90 sm:opacity-0 group-hover:opacity-100 cursor-pointer" aria-label="Previous photo">
             ‹
           </button>
-          <button id="modal-next-btn" type="button" onclick="nextModalPhoto(event)" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/75 hover:bg-red-600 text-white flex items-center justify-center font-bold text-lg transition-all border border-slate-700 shadow-xl opacity-0 group-hover:opacity-100 cursor-pointer">
+          <button id="modal-next-btn" type="button" onclick="nextModalPhoto(event)" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/80 hover:bg-red-600 text-white flex items-center justify-center font-bold text-lg transition-all border border-slate-700 shadow-xl opacity-90 sm:opacity-0 group-hover:opacity-100 cursor-pointer" aria-label="Next photo">
             ›
           </button>
         </div>
 
         <!-- Thumbnails Strip -->
-        <div id="modal-thumbnails-strip" class="flex items-center gap-2 overflow-x-auto pb-1">
+        <div id="modal-thumbnails-strip" class="flex items-center gap-2 overflow-x-auto pb-1.5">
           <!-- Rendered dynamically -->
         </div>
       </div>

@@ -429,9 +429,24 @@ a {
 
 /* Mobile adjustments */
 @media (max-width: 640px) {
+  /* Prevent iOS Safari input auto-zoom on focus */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+
+  /* Remove 300ms tap delay and touch highlight box */
+  a, button, input, select {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
   .floating-whatsapp-container {
-    bottom: 20px;
-    right: 18px;
+    bottom: 18px;
+    right: 16px;
+  }
+  .floating-whatsapp-btn {
+    width: 52px;
+    height: 52px;
   }
   .floating-whatsapp-tooltip {
     display: none;
@@ -439,6 +454,21 @@ a {
   .gateway-portal {
     padding: 24px;
     min-height: 220px;
+  }
+  .modal-backdrop {
+    padding: 10px;
+  }
+  .modal-content {
+    border-radius: 20px;
+    padding: 16px !important;
+  }
+}
+
+/* Touch devices photo gallery navigation */
+@media (max-width: 768px), (hover: none) {
+  #modal-prev-btn,
+  #modal-next-btn {
+    opacity: 0.85 !important;
   }
 }
 
@@ -504,12 +534,12 @@ a {
   }
 }
 
-/* Header actions wrapper — visible from sm (640px) upward */
+/* Header actions wrapper — visible from desktop (1024px) upward to match lg breakpoint */
 .nav-actions-wrapper {
   display: none;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 1024px) {
   .nav-actions-wrapper {
     display: flex;
     align-items: center;
@@ -997,6 +1027,58 @@ html.light-mode .drawer-theme-row {
 
 html.light-mode .drawer-theme-title {
   color: #0f172a !important;
+}
+
+/* Mobile Navigation Drawer in Light Mode */
+html.light-mode #mobile-nav-drawer {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08) !important;
+}
+
+html.light-mode #mobile-nav-drawer .grid a {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light-mode #mobile-nav-drawer .grid a:hover {
+  border-color: #cbd5e1 !important;
+}
+
+html.light-mode #mobile-nav-drawer .grid a.bg-red-950\/60 {
+  background-color: #fef2f2 !important;
+  border-color: #fecaca !important;
+}
+
+html.light-mode #mobile-nav-drawer .grid a .text-white {
+  color: #0f172a !important;
+}
+
+html.light-mode #mobile-nav-drawer .grid a .text-red-300 {
+  color: #dc2626 !important;
+}
+
+html.light-mode #mobile-nav-drawer .grid a .text-slate-400 {
+  color: #64748b !important;
+}
+
+html.light-mode #mobile-nav-drawer .border-b,
+html.light-mode #mobile-nav-drawer .border-t {
+  border-color: #e2e8f0 !important;
+}
+
+html.light-mode #mobile-nav-drawer a.text-slate-300,
+html.light-mode #mobile-nav-drawer a.text-slate-200 {
+  color: #1e293b !important;
+}
+
+html.light-mode #mobile-nav-drawer a.text-slate-300:hover,
+html.light-mode #mobile-nav-drawer a.text-slate-200:hover {
+  color: #e5192d !important;
+}
+
+html.light-mode #mobile-nav-drawer a.text-red-400 {
+  color: #dc2626 !important;
 }
 
 /* ==========================================================================

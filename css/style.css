@@ -1019,6 +1019,19 @@ html.light-mode footer {
   color: #475569 !important;
 }
 
+html.light-mode footer a.bg-slate-900,
+html.light-mode footer a.bg-slate-900\/90 {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
+}
+
+html.light-mode footer a.bg-slate-900:hover,
+html.light-mode footer a.bg-slate-900\/90:hover {
+  border-color: #e5192d !important;
+  color: #e5192d !important;
+}
+
 /* Drawer Theme Row */
 html.light-mode .drawer-theme-row {
   background-color: #f1f5f9 !important;

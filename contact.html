@@ -50,32 +50,15 @@
         <a href="contact.html" class="text-white hover:text-red-400 transition-colors py-1 border-b-2 border-red-600 font-bold whitespace-nowrap">Contact</a>
       </nav>
 
-      <!-- Header Actions (Theme Toggle & WhatsApp) -->
-      <div class="nav-actions-wrapper flex items-center gap-2.5 shrink-0">
-        <!-- Single Sun / Half-Moon Morphing Theme Button -->
+      <!-- Header Right Controls: Single Theme Toggle & Mobile Hamburger -->
+      <div class="flex items-center gap-2 shrink-0">
+        <!-- Single Theme Button (Shared for Desktop & Mobile) -->
         <button type="button" onclick="toggleTheme()" class="theme-single-btn" title="Toggle Light / Dark Mode" aria-label="Toggle Light / Dark Mode">
           <span class="theme-btn-icon">☀️</span>
         </button>
 
-        <div class="hidden xl:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-xs font-semibold text-slate-300 shadow-sm">
-          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse"></span>
-          <span>WhatsApp Active</span>
-        </div>
-        <a href="https://wa.me/94766322352?text=Hello%20AH%20Lanka!%0A%0AI'd%20like%20to%20get%20in%20touch." target="_blank" class="nav-wa-btn btn-whatsapp h-9 px-4 text-xs font-bold rounded-full flex items-center gap-2 whitespace-nowrap shadow-md">
-          <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-          <span class="nav-wa-long">Chat 076 632 2352</span>
-          <span class="nav-wa-short">Chat</span>
-        </a>
-      </div>
-
-      <!-- Mobile Right Controls (Theme Button + Hamburger) -->
-      <div class="flex items-center gap-2 lg:hidden">
-        <button type="button" onclick="toggleTheme()" class="theme-single-btn" title="Toggle Light / Dark Mode" aria-label="Toggle Light / Dark Mode">
-          <span class="theme-btn-icon">☀️</span>
-        </button>
-
-        <!-- Mobile Hamburger Button -->
-        <button onclick="toggleMobileNav()" class="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 text-slate-300 hover:text-white flex items-center justify-center transition-colors" aria-label="Toggle Navigation Menu">
+        <!-- Mobile Hamburger Button (Only on Mobile) -->
+        <button onclick="toggleMobileNav()" class="lg:hidden w-9 h-9 rounded-full bg-slate-900 border border-slate-800 text-slate-300 hover:text-white flex items-center justify-center transition-colors" aria-label="Toggle Navigation Menu">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
@@ -84,42 +67,15 @@
 
     </div>
 
-    <!-- Mobile Drawer Menu -->
-    <div id="mobile-nav-drawer" class="hidden lg:hidden border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-xl px-6 py-6 space-y-4">
-      <!-- Dedicated Drawer Appearance Mode Control -->
-      <div class="drawer-theme-row flex items-center justify-between p-3.5 rounded-xl bg-slate-900 border border-slate-800">
-        <div>
-          <div class="drawer-theme-title text-xs font-bold text-white">Appearance Mode</div>
-          <div class="text-[10px] text-slate-400 font-medium">Click icon to switch Light / Dark</div>
-        </div>
-        <button type="button" onclick="toggleTheme()" class="theme-single-btn" title="Toggle Light / Dark Mode" aria-label="Toggle Light / Dark Mode">
-          <span class="theme-btn-icon">☀️</span>
-        </button>
-      </div>
-
-      <div class="grid grid-cols-2 gap-2.5 pb-3 border-b border-slate-800">
-        <a href="sales.html" class="p-3 rounded-xl bg-red-950/60 border border-red-600/60 text-center flex flex-col items-center justify-center">
-          <div class="font-extrabold text-xs text-white">Buy a Vehicle</div>
-          <div class="text-[9px] text-red-300 uppercase tracking-wider font-semibold">Car Sales</div>
-        </a>
-        <a href="rentals.html" class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-center flex flex-col items-center justify-center">
-          <div class="font-bold text-xs text-white">Rent a Vehicle</div>
-          <div class="text-[9px] text-slate-400">Rentals & Hires</div>
-        </a>
-      </div>
-      <div class="flex flex-col space-y-3 font-semibold text-sm">
-        <a href="index.html" class="text-slate-300 hover:text-white py-1">Home</a>
-        <a href="sales.html" class="text-slate-200 hover:text-red-400 py-1">Buy a Vehicle</a>
-        <a href="rentals.html" class="text-slate-300 hover:text-white py-1">Rent a Vehicle</a>
-        <a href="about.html" class="text-slate-300 hover:text-white py-1">About AH Lanka</a>
-        <a href="contact.html" class="text-red-400 py-1 font-bold">Contact</a>
-      </div>
-      <div class="pt-4 border-t border-slate-800">
-        <a href="https://wa.me/94766322352" target="_blank" class="w-full btn-whatsapp justify-center py-3 text-xs flex items-center gap-2">
-          <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-          Chat on WhatsApp (076 632 2352)
-        </a>
-      </div>
+    <!-- Mobile Drawer Menu (Only Pages) -->
+    <div id="mobile-nav-drawer" class="hidden lg:hidden border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-xl px-6 py-5">
+      <nav class="flex flex-col space-y-3 font-semibold text-base">
+        <a href="index.html" class="py-2.5 text-slate-200 hover:text-white transition-colors border-b border-slate-800/70">Home</a>
+        <a href="sales.html" class="py-2.5 text-slate-200 hover:text-red-400 transition-colors border-b border-slate-800/70">Buy a Vehicle</a>
+        <a href="rentals.html" class="py-2.5 text-slate-200 hover:text-emerald-400 transition-colors border-b border-slate-800/70">Rent a Vehicle</a>
+        <a href="about.html" class="py-2.5 text-slate-200 hover:text-white transition-colors border-b border-slate-800/70">About AH Lanka</a>
+        <a href="contact.html" class="py-2.5 text-red-500 font-bold">Contact</a>
+      </nav>
     </div>
   </header>
 
@@ -131,8 +87,10 @@
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <div class="relative overflow-hidden glass-panel p-8 sm:p-12 rounded-3xl border-slate-800 bg-gradient-to-r from-slate-950 via-[#131926] to-slate-950">
         <div class="max-w-3xl space-y-4">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-800/60 text-xs font-semibold text-emerald-300">
-            <span class="online-dot"></span> Direct WhatsApp Support (+94 76 632 2352)
+          <div class="inline-flex items-center flex-wrap sm:flex-nowrap gap-1.5 sm:gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-800/60 text-xs font-semibold text-emerald-300 shadow-sm max-w-full">
+            <span class="online-dot shrink-0"></span>
+            <span class="whitespace-nowrap">Direct WhatsApp Support:</span>
+            <a href="https://wa.me/94766322352" target="_blank" class="font-bold font-mono text-emerald-400 whitespace-nowrap hover:underline">+94 76 632 2352</a>
           </div>
           <h1 class="text-3xl sm:text-5xl font-black text-white leading-tight">
             Let's Talk. Fast, Direct & Effortless.
@@ -264,9 +222,10 @@
               <pre id="contact-preview-box" class="text-xs text-emerald-300 font-mono whitespace-pre-wrap leading-relaxed bg-slate-950 p-3 rounded-lg border border-slate-900 min-h-[90px]"></pre>
             </div>
 
-            <a id="contact-submit-btn" href="#" target="_blank" class="w-full btn-whatsapp justify-center py-3.5 text-sm font-bold shadow-lg">
-              <svg class="w-5 h-5 fill-current mr-2" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-              OPEN IN WHATSAPP (+94 76 632 2352)
+            <a id="contact-submit-btn" href="#" target="_blank" class="w-full btn-whatsapp justify-center py-3.5 text-sm font-bold shadow-lg flex items-center text-center flex-wrap gap-1">
+              <svg class="w-5 h-5 fill-current mr-1 shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              <span>OPEN IN WHATSAPP</span>
+              <span class="whitespace-nowrap font-mono text-xs opacity-90">(+94 76 632 2352)</span>
             </a>
           </div>
         </div>
@@ -322,7 +281,7 @@
           </p>
           <div class="space-y-2 pt-2 border-t border-slate-800 text-slate-300">
             <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> <span>Katunayake CMB Arrivals Terminal</span></div>
-            <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> <span>Meet & Greet Hotline: <span class="text-emerald-400 font-bold">+94 76 632 2352</span></span></div>
+            <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> <span>Meet & Greet Hotline: <span class="text-emerald-400 font-bold whitespace-nowrap">+94 76 632 2352</span></span></div>
             <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> <span>Operating Hours: 24 Hours / 7 Days (Flight Scheduled)</span></div>
           </div>
         </div>
@@ -338,7 +297,7 @@
           </p>
           <div class="space-y-2 pt-2 border-t border-slate-800 text-slate-300">
             <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> <span>Colombo & Greater Western Province</span></div>
-            <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> <span>Dispatch: <span class="text-emerald-400 font-bold">+94 76 632 2352</span></span></div>
+            <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> <span>Dispatch: <span class="text-emerald-400 font-bold whitespace-nowrap">+94 76 632 2352</span></span></div>
             <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> <span>Service Hours: 7:00 AM - 10:00 PM</span></div>
           </div>
         </div>

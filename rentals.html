@@ -531,8 +531,9 @@
       const fleet = AHStore.getRentals();
       container.innerHTML = fleet.map(r => {
         const isAvail = r.status !== 'Booked';
-        const statusBadge = isAvail ? 'badge-green' : 'bg-amber-950/80 text-amber-400 border border-amber-800 text-[10px] font-bold px-2 py-0.5 rounded';
-        const statusText = isAvail ? (r.badge || r.category) : 'Currently on Hire';
+        const realStatus = r.status === 'Booked' ? 'Currently on Hire' : 'Available for Hire';
+        const statusColorClass = isAvail ? 'bg-emerald-950/80 border border-emerald-700/60 text-emerald-400' : 'bg-amber-950/80 border border-amber-800 text-amber-400';
+        const statusDotClass = isAvail ? 'bg-emerald-400 animate-pulse shadow-[0_0_6px_rgba(52,211,153,0.8)]' : 'bg-amber-400';
 
         const waMsg = `Hello AH Lanka!\n\nI'm interested in renting:\nVehicle: ${r.name}\nCategory: ${r.category}\n\nPlease let me know availability and rental rates for my travel dates. Thank you!`;
         const waUrl = `https://wa.me/94766322352?text=${encodeURIComponent(waMsg)}`;
@@ -542,7 +543,6 @@
             <div>
               <div class="relative h-48 overflow-hidden bg-slate-900">
                 <img src="${r.img}" alt="${r.name}" class="w-full h-full object-cover" loading="lazy">
-                <div class="absolute top-2 left-2 ${statusBadge} text-[10px]">${statusText}</div>
                 <div class="absolute top-2 right-2 badge-glass text-[10px]">Airport Meet & Greet Included</div>
                 ${(r.images && r.images.length > 1) ? `
                   <div class="absolute bottom-2 left-2 bg-black/85 backdrop-blur-md px-2 py-0.5 rounded-lg text-[10px] font-bold text-white border border-slate-700/80 flex items-center gap-1 shadow">
@@ -551,6 +551,15 @@
                 ` : ''}
               </div>
               <div class="p-5 space-y-3">
+                <!-- Real Status Below Image -->
+                <div class="flex items-center justify-between gap-2">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold shadow-sm ${statusColorClass}">
+                    <span class="w-2 h-2 rounded-full inline-block ${statusDotClass}"></span>
+                    ${realStatus}
+                  </span>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 bg-slate-900/90 border border-slate-800 px-2.5 py-0.5 rounded-md">${(r.category || 'Rental').toUpperCase()}</span>
+                </div>
+
                 <h3 class="font-bold text-white text-lg">${r.name}</h3>
                 <p class="text-xs text-slate-400">${r.tagline || 'Reliable, air-conditioned and certified islandwide fleet.'}</p>
                 

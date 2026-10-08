@@ -602,8 +602,9 @@
       
       container.innerHTML = vehicles.map(v => {
         const isAvailable = v.status !== 'Sold';
-        const badgeClass = isAvailable ? (v.badgeType === 'green' ? 'badge-green' : 'badge-red') : 'bg-red-950/80 text-red-400 border border-red-800 text-[10px] font-bold px-2 py-0.5 rounded';
-        const statusLabel = isAvailable ? v.badge : 'Sold Out';
+        const realStatus = v.status || (isAvailable ? 'Available' : 'Sold Out');
+        const statusColorClass = (realStatus === 'Sold' || realStatus === 'Sold Out') ? 'bg-red-950/80 border border-red-800 text-red-400' : (realStatus === 'Booked' ? 'bg-amber-950/80 border border-amber-800 text-amber-400' : 'bg-emerald-950/80 border border-emerald-700/60 text-emerald-400');
+        const statusDotClass = (realStatus === 'Sold' || realStatus === 'Sold Out') ? 'bg-red-500' : (realStatus === 'Booked' ? 'bg-amber-400' : 'bg-emerald-400 animate-pulse shadow-[0_0_6px_rgba(52,211,153,0.8)]');
         const waMsg = `Hello AH Lanka!\n\nI'm interested in buying this vehicle:\nVehicle: ${v.name} (${v.year})\nPrice: ${v.price}\nRef ID: ${v.id}\n\nPlease send me inspection details and availability. Thank you!`;
         const waUrl = `https://wa.me/94766322352?text=${encodeURIComponent(waMsg)}`;
 
@@ -612,9 +613,6 @@
             <div>
               <div class="relative h-52 w-full overflow-hidden bg-slate-900 cursor-pointer" onclick='openVehicleModal(${JSON.stringify(v)})'>
                 <img src="${v.img}" alt="${v.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
-                <div class="absolute top-3 left-3">
-                  <span class="${badgeClass}">${statusLabel}</span>
-                </div>
                 <div class="absolute top-3 right-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded-xl text-xs font-mono font-bold text-white border border-slate-700 shadow-md">
                   ${v.year}
                 </div>
@@ -626,6 +624,15 @@
               </div>
 
               <div class="p-5 space-y-3">
+                <!-- Real Status Below Image -->
+                <div class="flex items-center justify-between gap-2">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold shadow-sm ${statusColorClass}">
+                    <span class="w-2 h-2 rounded-full inline-block ${statusDotClass}"></span>
+                    ${realStatus}
+                  </span>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 bg-slate-900/90 border border-slate-800 px-2.5 py-0.5 rounded-md">${(v.category || 'Vehicle').toUpperCase()}</span>
+                </div>
+
                 <div>
                   <h3 class="text-lg font-bold text-white hover:text-red-400 transition-colors cursor-pointer" onclick='openVehicleModal(${JSON.stringify(v)})'>
                     ${v.name}

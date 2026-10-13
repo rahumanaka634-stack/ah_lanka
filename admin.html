@@ -164,7 +164,7 @@
       <header class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-900">
         <div>
           <h1 id="page-title" class="text-2xl sm:text-3xl font-black text-white">Dashboard Overview</h1>
-          <p id="page-subtitle" class="text-xs text-slate-400 mt-0.5">Real-time status of your AH Lanka sales inventory & rental fleet.</p>
+          <p id="page-subtitle" class="text-xs text-slate-400 mt-0.5">Real-time status of sales stock, rental fleet, and spare parts.</p>
         </div>
         
         <div class="flex flex-wrap items-center gap-2.5 sm:gap-3">
@@ -378,15 +378,15 @@
       <section id="section-settings" class="hidden space-y-6">
         <div class="glass-panel p-6 sm:p-8 rounded-3xl border-slate-800 max-w-2xl space-y-6">
           <div class="space-y-1">
-            <h2 class="text-xl font-bold text-white">Website & WhatsApp Settings</h2>
-            <p class="text-xs text-slate-400">Updates here immediately apply to all conversion buttons across the website.</p>
+            <h2 class="text-xl font-bold text-white">Platform & WhatsApp Settings</h2>
+            <p class="text-xs text-slate-400">Updates immediately apply to WhatsApp booking links and exchange rates.</p>
           </div>
 
           <form onsubmit="saveGlobalSettings(event)" class="space-y-4">
             <div>
-              <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">WhatsApp International Number (URL format)</label>
-              <input type="text" id="set-phone" placeholder="e.g. 94766322352" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-red-500">
-              <span class="text-[10px] text-slate-500">Used inside wa.me links. Do not include spaces or '+' symbols here.</span>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">WhatsApp International Number</label>
+              <input type="text" id="set-phone" placeholder="94766322352" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-red-500">
+              <span class="text-[10px] text-slate-500">For wa.me link generation (digits only, e.g. 94766322352).</span>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -406,7 +406,7 @@
             </div>
 
             <div class="pt-4 border-t border-slate-800">
-              <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Currency Reference Rates (Against USD = 1.0)</label>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Currency Rates (Base: 1 USD)</label>
               <div class="grid grid-cols-3 gap-3">
                 <div>
                   <span class="text-[10px] text-slate-400 font-mono">1 USD = LKR:</span>
@@ -432,35 +432,27 @@
         </div>
 
         <!-- Cloud Database & CDN Storage -->
-        <div class="glass-panel p-6 sm:p-8 rounded-3xl border-slate-800 max-w-2xl space-y-5">
+        <div class="glass-panel p-6 sm:p-8 rounded-3xl border-slate-800 max-w-2xl space-y-4">
           <div class="flex items-center justify-between border-b border-slate-800 pb-3">
             <div>
               <h3 class="text-base font-bold text-white flex items-center gap-2">
-                <span>☁️</span> Cloud Architecture (Supabase Database & Storage)
+                <span>☁️</span> Cloud Architecture (Supabase)
               </h3>
-              <p class="text-xs text-slate-400">Unified PostgreSQL database and global image CDN hosted in Singapore.</p>
+              <p class="text-xs text-slate-400">PostgreSQL database and global image CDN (Singapore).</p>
             </div>
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-[10px] text-emerald-400 font-bold">
-              <span class="online-dot"></span> 100% Cloud Active
+              <span class="online-dot"></span> Cloud Synced
             </span>
           </div>
 
           <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2 text-xs">
             <div class="flex items-center justify-between">
-              <span class="text-slate-400">PostgreSQL Endpoint:</span>
+              <span class="text-slate-400">PostgreSQL Host:</span>
               <span class="text-emerald-400 font-mono text-[11px]">rbxkcaucuhvolksevjmo.supabase.co</span>
             </div>
             <div class="flex items-center justify-between">
-              <span class="text-slate-400">Database Region:</span>
-              <span class="text-slate-200 font-semibold">Southeast Asia (Singapore - 35ms)</span>
-            </div>
-            <div class="flex items-center justify-between">
-              <span class="text-slate-400">Image Storage Bucket:</span>
-              <span class="text-emerald-400 font-semibold">`vehicles` (Public CDN Active • 1GB Free)</span>
-            </div>
-            <div class="flex items-center justify-between">
-              <span class="text-slate-400">Upload Engine:</span>
-              <span class="text-emerald-400 font-semibold">Direct Supabase Storage (No 3rd party needed)</span>
+              <span class="text-slate-400">Image CDN Bucket:</span>
+              <span class="text-emerald-400 font-semibold">vehicles</span>
             </div>
           </div>
         </div>
@@ -553,9 +545,8 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-bold text-slate-300 mb-1">Price in LKR (Numeric)</label>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Price in LKR</label>
             <input type="number" id="form-sales-price" required placeholder="e.g. 48500000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-red-500">
-            <span class="text-[10px] text-slate-400">e.g. 48500000 becomes "LKR 48,500,000"</span>
           </div>
           <div>
             <label class="block text-xs font-bold text-slate-300 mb-1">Inventory Status</label>
@@ -571,8 +562,8 @@
         <div class="space-y-3 bg-slate-950/60 p-4 rounded-2xl border border-slate-800">
           <div class="flex items-center justify-between">
             <div>
-              <label class="block text-xs font-bold text-white">Vehicle Photo Gallery (Up to 5 Images)</label>
-              <p class="text-[11px] text-slate-400">Slot 1 is the main cover image shown in marketplace search cards.</p>
+              <label class="block text-xs font-bold text-white">Vehicle Photos (Up to 5)</label>
+              <p class="text-[11px] text-slate-400">First photo is used as cover image.</p>
             </div>
             <span id="sales-imgs-count-badge" class="text-[11px] font-mono text-emerald-400 bg-emerald-950/80 border border-emerald-800/60 px-2.5 py-0.5 rounded-full font-bold">0 / 5 Photos</span>
           </div>
@@ -580,8 +571,8 @@
           <!-- Multi-File Upload Dropzone -->
           <label class="border-2 border-dashed border-slate-700 hover:border-red-500 rounded-xl p-3 flex flex-col items-center justify-center cursor-pointer transition-all bg-slate-900/50 hover:bg-slate-900 group">
             <svg class="w-8 h-8 text-slate-400 group-hover:text-red-400 group-hover:scale-110 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            <span class="text-xs font-bold text-slate-200 mt-1">Upload Multiple Images (Up to 5)</span>
-            <span class="text-[10px] text-slate-400">Select 1 to 5 images at once — saves automatically to Supabase Cloud</span>
+            <span class="text-xs font-bold text-slate-200 mt-1">Upload Photos (Up to 5)</span>
+            <span class="text-[10px] text-slate-400">Select images to upload directly to Supabase</span>
             <input type="file" id="form-sales-files" multiple accept="image/png, image/jpeg, image/webp" onchange="handleMultipleImageUpload(event, 'sales')" class="hidden">
           </label>
 
@@ -684,9 +675,9 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-bold text-slate-300 mb-1">Daily Rate in USD ($)</label>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Daily Rate (USD $)</label>
             <input type="number" id="form-rental-rate" required placeholder="e.g. 95" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-emerald-500">
-            <span class="text-[10px] text-slate-400">Converts automatically to LKR, EUR, GBP based on settings</span>
+            <span class="text-[10px] text-slate-400">Converts automatically to LKR, EUR, and GBP</span>
           </div>
           <div>
             <label class="block text-xs font-bold text-slate-300 mb-1">Fleet Status</label>
@@ -701,8 +692,8 @@
         <div class="space-y-3 bg-slate-950/60 p-4 rounded-2xl border border-slate-800">
           <div class="flex items-center justify-between">
             <div>
-              <label class="block text-xs font-bold text-white">Rental Fleet Photo Gallery (Up to 5 Images)</label>
-              <p class="text-[11px] text-slate-400">Slot 1 is the main cover image shown in tourist fleet listings.</p>
+              <label class="block text-xs font-bold text-white">Fleet Photos (Up to 5)</label>
+              <p class="text-[11px] text-slate-400">First photo is used as cover image.</p>
             </div>
             <span id="rental-imgs-count-badge" class="text-[11px] font-mono text-emerald-400 bg-emerald-950/80 border border-emerald-800/60 px-2.5 py-0.5 rounded-full font-bold">0 / 5 Photos</span>
           </div>
@@ -710,8 +701,8 @@
           <!-- Multi-File Upload Dropzone -->
           <label class="border-2 border-dashed border-slate-700 hover:border-emerald-500 rounded-xl p-3 flex flex-col items-center justify-center cursor-pointer transition-all bg-slate-900/50 hover:bg-slate-900 group">
             <svg class="w-8 h-8 text-slate-400 group-hover:text-emerald-400 group-hover:scale-110 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            <span class="text-xs font-bold text-slate-200 mt-1">Upload Multiple Images (Up to 5)</span>
-            <span class="text-[10px] text-slate-400">Select 1 to 5 images at once — saves automatically to Supabase Cloud</span>
+            <span class="text-xs font-bold text-slate-200 mt-1">Upload Photos (Up to 5)</span>
+            <span class="text-[10px] text-slate-400">Select images to upload directly to Supabase</span>
             <input type="file" id="form-rental-files" multiple accept="image/png, image/jpeg, image/webp" onchange="handleMultipleImageUpload(event, 'rental')" class="hidden">
           </label>
 
@@ -908,12 +899,12 @@
       });
 
       const titles = {
-        overview: ["Dashboard Overview", "Real-time status of your AH Lanka sales inventory & rental fleet."],
-        sales: ["Vehicles For Sale Manager", "Add, edit, change pricing, or toggle availability for domestic sales."],
-        rentals: ["Rental Fleet Manager", "Manage cars, luxury vans, and coaches available for tourist hires."],
-        parts: ["Auto Spare Parts Manager", "Add, edit, change pricing, and monitor stock for genuine & reconditioned auto parts."],
-        settings: ["Website & WhatsApp Settings", "Configure WhatsApp numbers, display tags, and currency exchange rates."],
-        backup: ["Backup, Export & Sync", "Export your database as JSON or reset to default showroom stock."]
+        overview: ["Dashboard Overview", "Real-time overview of sales stock, rental fleet, and spare parts."],
+        sales: ["Vehicles For Sale", "Manage showroom inventory, pricing, status, and photos."],
+        rentals: ["Rental Fleet", "Manage rental and chauffeur vehicles, rates, and availability."],
+        parts: ["Auto Spare Parts", "Manage OEM and reconditioned spare parts, pricing, and stock."],
+        settings: ["Platform Settings", "Update WhatsApp hotline, contact info, and currency exchange rates."],
+        backup: ["Backup & Export", "Export full catalog data to JSON or restore default stock."]
       };
 
       document.getElementById('page-title').textContent = titles[tab][0];

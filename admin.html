@@ -800,8 +800,8 @@
           <div>
             <label class="block text-xs font-bold text-slate-300 mb-1">Condition</label>
             <select id="form-part-condition" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
-              <option value="Brand New Genuine OEM">Brand New Genuine OEM</option>
-              <option value="Brand New Japanese OEM">Brand New Japanese OEM (KYB/Denso)</option>
+              <option value="Brand New Genuine Parts">Brand New Genuine Parts</option>
+              <option value="Japanese OEM (KYB / Denso / Aisin)">Japanese OEM (KYB / Denso / Aisin)</option>
               <option value="Japanese Reconditioned">Japanese Reconditioned</option>
               <option value="Premium Aftermarket">Premium Aftermarket</option>
             </select>
@@ -1472,7 +1472,7 @@
       e.preventDefault();
       const priceNum = parseInt(document.getElementById('form-part-price').value) || 0;
       const cond = document.getElementById('form-part-condition').value;
-      const condType = cond.includes('Genuine') ? 'genuine' : (cond.includes('Japanese OEM') ? 'oem' : (cond.includes('Reconditioned') ? 'reconditioned' : 'oem'));
+      const condType = cond.includes('Genuine') ? 'genuine' : (cond.includes('OEM') ? 'oem' : (cond.includes('Reconditioned') ? 'reconditioned' : 'oem'));
 
       const validImages = partImages.filter(Boolean);
       const defaultImg = 'https://images.unsplash.com/photo-1600705722908-bab1e61c0b4d?auto=format&fit=crop&w=800&q=80';

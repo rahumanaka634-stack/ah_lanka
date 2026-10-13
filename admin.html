@@ -263,8 +263,6 @@
 
         </div>
 
-        </div>
-
       </section>
 
       <!-- =====================================================================
@@ -909,6 +907,13 @@
 
       document.getElementById('page-title').textContent = titles[tab][0];
       document.getElementById('page-subtitle').textContent = titles[tab][1];
+
+      // Re-render active tab immediately to guarantee fresh data display
+      if (tab === 'overview') renderOverview();
+      else if (tab === 'sales') renderSalesTable();
+      else if (tab === 'rentals') renderRentalTable();
+      else if (tab === 'parts') renderPartsTable();
+      else if (tab === 'settings') loadSettingsForm();
     }
 
     function showToast(msg) {
@@ -1432,6 +1437,11 @@
       const tbody = document.getElementById('parts-table-body');
       if (!tbody) return;
 
+      if (!list.length) {
+        tbody.innerHTML = `<tr><td colspan="6" class="p-8 text-center text-slate-400">No spare parts found in inventory. Click "+ Add Spare Part" to add one.</td></tr>`;
+        return;
+      }
+
       tbody.innerHTML = list.map(p => {
         const isAvail = p.status === 'In Stock';
         const statusBadge = isAvail ? 'badge-status-available' : (p.status === 'Out of Stock' ? 'badge-status-sold' : 'badge-status-booked');
@@ -1534,6 +1544,13 @@
       );
 
       const tbody = document.getElementById('sales-table-body');
+      if (!tbody) return;
+
+      if (!list.length) {
+        tbody.innerHTML = `<tr><td colspan="6" class="p-8 text-center text-slate-400">No sales vehicles found in inventory. Click "+ Add Sales" to add one.</td></tr>`;
+        return;
+      }
+
       tbody.innerHTML = list.map(v => {
         const statusBadge = v.status === 'Sold' ? 'badge-status-sold' : 'badge-status-available';
         return `
@@ -1571,6 +1588,13 @@
       );
 
       const tbody = document.getElementById('rental-table-body');
+      if (!tbody) return;
+
+      if (!list.length) {
+        tbody.innerHTML = `<tr><td colspan="6" class="p-8 text-center text-slate-400">No rental fleet vehicles found. Click "+ Add Rental" to add one.</td></tr>`;
+        return;
+      }
+
       tbody.innerHTML = list.map(r => {
         const statusBadge = r.status === 'Booked' ? 'badge-status-booked' : 'badge-status-available';
         return `

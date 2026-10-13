@@ -217,7 +217,7 @@ function openVehicleModal(vehicle) {
   document.getElementById('modal-fuel').textContent = vehicle.fuel;
   document.getElementById('modal-trans').textContent = vehicle.trans;
   document.getElementById('modal-engine').textContent = vehicle.engine || 'Standard Spec';
-  document.getElementById('modal-desc').textContent = vehicle.desc || 'Inspected, certified clean condition with complete vehicle history and verifiable service records.';
+  document.getElementById('modal-desc').textContent = vehicle.desc || 'Inspected, clean condition with complete vehicle history and documented service records.';
   
   const waBtn = document.getElementById('modal-wa-btn');
   waBtn.href = getSalesWhatsAppUrl(vehicle.name, vehicle.year, vehicle.price, vehicle.refId || 'AH-SALES');

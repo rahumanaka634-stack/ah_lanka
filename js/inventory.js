@@ -17,7 +17,7 @@ const DEFAULT_SALES_INVENTORY = [
     badge: "Available",
     badgeType: "red",
     engine: "2800cc Turbo Diesel (1GD-FTV)",
-    desc: "Sunroof, 7 leather seats, 360-degree panoramic cameras, Modellista aero kit, original factory condition, 100% accident-free.",
+    desc: "Sunroof, 7 leather seats, 360-degree panoramic cameras, Modellista aero kit, original factory condition, clean documented history.",
     img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=85",
     images: [
       "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=85",
@@ -269,7 +269,7 @@ const DEFAULT_PARTS_INVENTORY = [
     priceNumber: 44000,
     price: "LKR 44,000",
     status: "In Stock",
-    warranty: "1 Year Official Replacement Guarantee",
+    warranty: "1 Year Official Replacement Warranty",
     desc: "Heavy-duty KYB Excel-G nitrogen gas charged shocks designed specifically for Sri Lankan road conditions. Restores ride stability and passenger comfort.",
     img: "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=800&q=80",
     images: [
@@ -329,7 +329,7 @@ const DEFAULT_PARTS_INVENTORY = [
     priceNumber: 165000,
     price: "LKR 165,000",
     status: "In Stock",
-    warranty: "Factory Finish Fitment Guarantee",
+    warranty: "Factory Finish Direct Fitment",
     desc: "High quality flexible polypropylene (PP) Modellista aero body kit with integrated LED DRL front garnishes and dual chrome exhaust tips.",
     img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80",
     images: [
@@ -369,7 +369,7 @@ const DEFAULT_PARTS_INVENTORY = [
     priceNumber: 6500,
     price: "LKR 6,500",
     status: "In Stock",
-    warranty: "100% Genuine Denso Certified",
+    warranty: "Genuine Denso Japanese Quality",
     desc: "High filtration efficiency engine intake filter + activated carbon cabin A/C filter. Eliminates exhaust odor and dust particles inside the cabin.",
     img: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80",
     images: [

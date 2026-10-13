@@ -611,7 +611,7 @@
 
         <div>
           <label class="block text-xs font-bold text-slate-300 mb-1">Description & Features</label>
-          <textarea id="form-sales-desc" rows="2" placeholder="Sunroof, 7 leather seats, 100% accident-free, clean documents..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none"></textarea>
+          <textarea id="form-sales-desc" rows="2" placeholder="Sunroof, 7 leather seats, excellent condition, clean documents..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none"></textarea>
         </div>
 
         <div class="pt-3 flex justify-end gap-3 border-t border-slate-800">
@@ -831,7 +831,7 @@
 
         <div>
           <label class="block text-xs font-bold text-slate-300 mb-1">Warranty / Testing Period</label>
-          <input type="text" id="form-part-warranty" placeholder="e.g. 6 Months Replacement Warranty" value="Verified Testing Warranty" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+          <input type="text" id="form-part-warranty" placeholder="e.g. 6 Months Replacement Warranty" value="Testing Warranty" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
         </div>
 
         <!-- Spare Part 5-Image Gallery Manager -->
@@ -1432,7 +1432,7 @@
     function openAddPartModal() {
       document.getElementById('part-form').reset();
       document.getElementById('form-part-id').value = '';
-      document.getElementById('form-part-warranty').value = 'Verified Testing Warranty';
+      document.getElementById('form-part-warranty').value = 'Testing Warranty';
       document.getElementById('part-modal-title').textContent = 'Add New Auto Spare Part';
       partImages = [];
       renderImageSlots('part');
@@ -1451,7 +1451,7 @@
       document.getElementById('form-part-price').value = p.priceNumber || (parseInt(p.price.replace(/[^0-9]/g, '')) || 0);
       document.getElementById('form-part-status').value = p.status || 'In Stock';
       document.getElementById('form-part-fitment').value = p.fitment || '';
-      document.getElementById('form-part-warranty').value = p.warranty || 'Verified Testing Warranty';
+      document.getElementById('form-part-warranty').value = p.warranty || 'Testing Warranty';
       document.getElementById('form-part-desc').value = p.desc || '';
 
       // Load up to 5 images: from p.images array or split p.img

@@ -563,7 +563,10 @@
               <label class="block text-xs font-bold text-white">Vehicle Photos (Up to 5)</label>
               <p class="text-[11px] text-slate-400">First photo is used as cover image.</p>
             </div>
-            <span id="sales-imgs-count-badge" class="text-[11px] font-mono text-emerald-400 bg-emerald-950/80 border border-emerald-800/60 px-2.5 py-0.5 rounded-full font-bold">0 / 5 Photos</span>
+            <div class="flex items-center gap-2">
+              <span id="sales-imgs-count-badge" class="text-[11px] font-mono text-emerald-400 bg-emerald-950/80 border border-emerald-800/60 px-2.5 py-0.5 rounded-full font-bold">0 / 5 Photos</span>
+              <button type="button" onclick="clearAllImageSlots('sales')" class="text-[10px] text-red-400 hover:text-red-300 underline font-semibold">Clear All</button>
+            </div>
           </div>
 
           <!-- Multi-File Upload Dropzone -->
@@ -693,7 +696,10 @@
               <label class="block text-xs font-bold text-white">Fleet Photos (Up to 5)</label>
               <p class="text-[11px] text-slate-400">First photo is used as cover image.</p>
             </div>
-            <span id="rental-imgs-count-badge" class="text-[11px] font-mono text-emerald-400 bg-emerald-950/80 border border-emerald-800/60 px-2.5 py-0.5 rounded-full font-bold">0 / 5 Photos</span>
+            <div class="flex items-center gap-2">
+              <span id="rental-imgs-count-badge" class="text-[11px] font-mono text-emerald-400 bg-emerald-950/80 border border-emerald-800/60 px-2.5 py-0.5 rounded-full font-bold">0 / 5 Photos</span>
+              <button type="button" onclick="clearAllImageSlots('rental')" class="text-[10px] text-red-400 hover:text-red-300 underline font-semibold">Clear All</button>
+            </div>
           </div>
 
           <!-- Multi-File Upload Dropzone -->
@@ -828,9 +834,52 @@
           <input type="text" id="form-part-warranty" placeholder="e.g. 6 Months Replacement Warranty" value="Verified Testing Warranty" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
         </div>
 
-        <div>
-          <label class="block text-xs font-bold text-slate-300 mb-1">Image URL</label>
-          <input type="text" id="form-part-img" required placeholder="https://..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500">
+        <!-- Spare Part 5-Image Gallery Manager -->
+        <div class="space-y-3 bg-slate-950/60 p-4 rounded-2xl border border-slate-800">
+          <div class="flex items-center justify-between">
+            <div>
+              <label class="block text-xs font-bold text-white">Spare Part Photos (Up to 5)</label>
+              <p class="text-[11px] text-slate-400">First photo is used as catalog cover. Upload up to 5 clear photos.</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <span id="part-imgs-count-badge" class="text-[11px] font-mono text-emerald-400 bg-emerald-950/80 border border-emerald-800/60 px-2.5 py-0.5 rounded-full font-bold">0 / 5 Photos</span>
+              <button type="button" onclick="clearAllImageSlots('part')" class="text-[10px] text-red-400 hover:text-red-300 underline font-semibold">Clear All</button>
+            </div>
+          </div>
+
+          <!-- Multi-File Upload Dropzone -->
+          <label class="border-2 border-dashed border-slate-700 hover:border-red-500 rounded-xl p-3 flex flex-col items-center justify-center cursor-pointer transition-all bg-slate-900/50 hover:bg-slate-900 group">
+            <svg class="w-8 h-8 text-slate-400 group-hover:text-red-400 group-hover:scale-110 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span class="text-xs font-bold text-slate-200 mt-1">Upload Photos (Select up to 5)</span>
+            <span class="text-[10px] text-slate-400">PNG, JPG, or WEBP from phone or desktop</span>
+            <input type="file" id="form-part-files" multiple accept="image/png, image/jpeg, image/webp" onchange="handleMultipleImageUpload(event, 'part')" class="hidden">
+          </label>
+
+          <!-- 5 Visual Preview Slots Grid -->
+          <div id="part-slots-grid" class="grid grid-cols-2 sm:grid-cols-5 gap-2.5 pt-1">
+            <!-- Injected by JavaScript dynamically -->
+          </div>
+
+          <!-- Hidden storage for primary image & legacy compat -->
+          <input type="hidden" id="form-part-img" value="">
+
+          <!-- URL / Preset Quick Input Accordion -->
+          <details class="text-[11px] text-slate-400 pt-1">
+            <summary class="cursor-pointer hover:text-slate-200 font-semibold select-none">Or Paste Image URL / Presets</summary>
+            <div class="mt-2 space-y-2 p-2.5 bg-slate-900/80 rounded-xl border border-slate-800">
+              <div class="flex gap-2">
+                <input type="text" id="form-part-url-input" placeholder="Paste image URL (https://...)" class="flex-1 bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1 text-xs text-white focus:outline-none">
+                <button type="button" onclick="addUrlToSlot('part')" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs font-bold">+ Add</button>
+              </div>
+              <div class="flex flex-wrap gap-2 text-[10px] items-center">
+                <span class="text-slate-500 font-bold">Presets:</span>
+                <button type="button" onclick="setPresetImg('part', 'brakes')" class="underline hover:text-white">Brakes</button>
+                <button type="button" onclick="setPresetImg('part', 'shocks')" class="underline hover:text-white">Shocks</button>
+                <button type="button" onclick="setPresetImg('part', 'battery')" class="underline hover:text-white">Hybrid Battery</button>
+                <button type="button" onclick="setPresetImg('part', 'filter')" class="underline hover:text-white">Filters</button>
+              </div>
+            </div>
+          </details>
         </div>
 
         <div>
@@ -930,17 +979,35 @@
     }
 
     // -------------------------------------------------------------
-    // MULTI-IMAGE GALLERY ENGINE (Up to 5 Images per Vehicle)
+    // MULTI-IMAGE GALLERY ENGINE (Up to 5 Images: Sales, Rental, Parts)
     // -------------------------------------------------------------
     let salesImages = [];
     let rentalImages = [];
+    let partImages = [];
+
+    function getImagesArray(type) {
+      if (type === 'sales') return salesImages;
+      if (type === 'rental') return rentalImages;
+      return partImages;
+    }
+
+    function setImagesArray(type, arr) {
+      if (type === 'sales') salesImages = arr;
+      else if (type === 'rental') rentalImages = arr;
+      else partImages = arr;
+    }
+
+    function clearAllImageSlots(type) {
+      setImagesArray(type, []);
+      renderImageSlots(type);
+      showToast("✓ All photo slots cleared. Ready for new uploads.");
+    }
 
     function renderImageSlots(type) {
-      const isSales = type === 'sales';
-      const images = isSales ? salesImages : rentalImages;
-      const grid = document.getElementById(isSales ? 'sales-slots-grid' : 'rental-slots-grid');
-      const countBadge = document.getElementById(isSales ? 'sales-imgs-count-badge' : 'rental-imgs-count-badge');
-      const hiddenInput = document.getElementById(isSales ? 'form-sales-img' : 'form-rental-img');
+      const images = getImagesArray(type);
+      const grid = document.getElementById(`${type}-slots-grid`);
+      const countBadge = document.getElementById(`${type}-imgs-count-badge`);
+      const hiddenInput = document.getElementById(`form-${type}-img`);
 
       if (!grid) return;
 
@@ -1002,17 +1069,14 @@
     }
 
     function removeImageSlot(type, index) {
-      if (type === 'sales') {
-        salesImages.splice(index, 1);
-      } else {
-        rentalImages.splice(index, 1);
-      }
+      const arr = getImagesArray(type);
+      arr.splice(index, 1);
       renderImageSlots(type);
       showToast("Photo removed from slot");
     }
 
     function setAsCoverImage(type, index) {
-      const arr = type === 'sales' ? salesImages : rentalImages;
+      const arr = getImagesArray(type);
       if (index > 0 && index < arr.length) {
         const item = arr.splice(index, 1)[0];
         arr.unshift(item);
@@ -1022,17 +1086,17 @@
     }
 
     function addUrlToSlot(type) {
-      const input = document.getElementById(type === 'sales' ? 'form-sales-url-input' : 'form-rental-url-input');
+      const input = document.getElementById(`form-${type}-url-input`);
       const url = input ? input.value.trim() : '';
       if (!url) return;
 
-      const arr = type === 'sales' ? salesImages : rentalImages;
+      const arr = getImagesArray(type);
       if (arr.length >= 5) {
         showToast("⚠️ All 5 photo slots are full. Remove one first.");
         return;
       }
       arr.push(url);
-      input.value = '';
+      if (input) input.value = '';
       renderImageSlots(type);
       showToast("✓ Image URL added to gallery!");
     }
@@ -1043,17 +1107,21 @@
         kdh: "https://images.unsplash.com/photo-1559297434-fae8a1916a79?auto=format&fit=crop&w=800&q=80",
         sedan: "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80",
         compact: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80",
-        bus: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80"
+        bus: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80",
+        brakes: "https://images.unsplash.com/photo-1600705722908-bab1e61c0b4d?auto=format&fit=crop&w=800&q=80",
+        shocks: "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=800&q=80",
+        battery: "https://images.unsplash.com/photo-1558441719-8b489c63f7d1?auto=format&fit=crop&w=800&q=80",
+        filter: "https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=800&q=80"
       };
       const url = urls[model] || urls.prado;
-      const arr = type === 'sales' ? salesImages : rentalImages;
+      const arr = getImagesArray(type);
       if (arr.length >= 5) {
         arr[0] = url; // replace cover
       } else {
         arr.push(url);
       }
       renderImageSlots(type);
-      showToast(`✓ Added ${model.toUpperCase()} preset photo!`);
+      showToast(`✓ Added ${model.toUpperCase()} photo!`);
     }
 
     async function uploadSingleFileToStorage(file) {
@@ -1065,13 +1133,13 @@
           console.warn("[Supabase Storage] Upload error, falling back to local canvas optimization:", err);
         }
       }
-      // Fallback: local compressed canvas data url
+      // Fallback: local compressed canvas data url (optimized 800px max, JPEG 0.82)
       return new Promise((resolve) => {
         const reader = new FileReader();
         reader.onload = function(e) {
           const img = new Image();
           img.onload = function() {
-            const maxDim = 1000;
+            const maxDim = 800;
             let width = img.width;
             let height = img.height;
             if (width > maxDim || height > maxDim) {
@@ -1088,8 +1156,7 @@
             canvas.height = height;
             const ctx = canvas.getContext('2d');
             ctx.drawImage(img, 0, 0, width, height);
-            const isPng = file.type === 'image/png';
-            resolve(isPng ? canvas.toDataURL('image/png') : canvas.toDataURL('image/jpeg', 0.88));
+            resolve(canvas.toDataURL('image/jpeg', 0.82));
           };
           img.src = e.target.result;
         };
@@ -1101,17 +1168,29 @@
       const files = Array.from(event.target.files || []);
       if (!files.length) return;
 
-      const arr = type === 'sales' ? salesImages : rentalImages;
-      const remainingSlots = 5 - arr.length;
+      let arr = getImagesArray(type);
 
+      // If array has only 1 demo image or placeholder, replace it when user uploads their real files
+      const isPlaceholder = arr.length === 1 && (arr[0].includes('unsplash.com') || arr[0].includes('demo') || !arr[0]);
+      if (isPlaceholder) {
+        arr = [];
+        setImagesArray(type, arr);
+      }
+
+      let remainingSlots = 5 - arr.length;
       if (remainingSlots <= 0) {
-        showToast("⚠️ All 5 slots are already full. Remove one before uploading.");
-        event.target.value = '';
-        return;
+        if (confirm("All 5 photo slots are full. Would you like to clear them and upload the selected photos?")) {
+          arr = [];
+          setImagesArray(type, arr);
+          remainingSlots = 5;
+        } else {
+          event.target.value = '';
+          return;
+        }
       }
 
       const filesToUpload = files.slice(0, remainingSlots);
-      showToast(`⏳ Uploading ${filesToUpload.length} image(s) to Supabase Storage...`);
+      showToast(`⏳ Uploading ${filesToUpload.length} image(s)...`);
 
       for (let i = 0; i < filesToUpload.length; i++) {
         const file = filesToUpload[i];
@@ -1127,21 +1206,21 @@
       }
 
       event.target.value = '';
-      showToast(`✓ ${filesToUpload.length} photo(s) added to gallery!`);
+      showToast(`✓ ${filesToUpload.length} photo(s) added! (${arr.length}/5)`);
     }
 
     async function uploadIndividualSlot(event, type, slotIndex) {
       const file = event.target.files && event.target.files[0];
       if (!file) return;
 
-      showToast(`⏳ Uploading "${file.name}" to Supabase...`);
+      showToast(`⏳ Uploading "${file.name}"...`);
       try {
         const uploadedUrl = await uploadSingleFileToStorage(file);
         if (uploadedUrl) {
-          const arr = type === 'sales' ? salesImages : rentalImages;
+          const arr = getImagesArray(type);
           arr[slotIndex] = uploadedUrl;
           renderImageSlots(type);
-          showToast(`✓ Slot ${slotIndex + 1} updated!`);
+          showToast(`✓ Photo ${slotIndex + 1} updated!`);
         }
       } catch (err) {
         console.error("Individual slot upload error:", err);
@@ -1154,8 +1233,7 @@
       document.getElementById('sales-form').reset();
       document.getElementById('form-sales-id').value = '';
       document.getElementById('sales-modal-title').textContent = 'Add Vehicle For Sale';
-      const defaultImg = 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80';
-      salesImages = [defaultImg];
+      salesImages = [];
       renderImageSlots('sales');
       document.getElementById('sales-modal').classList.add('active');
     }
@@ -1176,13 +1254,13 @@
       document.getElementById('form-sales-engine').value = v.engine || '';
       document.getElementById('form-sales-desc').value = v.desc || '';
 
-      // Load 5 images: from v.images array or split v.img
+      // Load up to 5 images: from v.images array or split v.img
       if (Array.isArray(v.images) && v.images.length) {
         salesImages = [...v.images].slice(0, 5);
       } else if (v.img) {
         salesImages = v.img.split(',').map(s => s.trim()).filter(Boolean).slice(0, 5);
       } else {
-        salesImages = ['https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80'];
+        salesImages = [];
       }
       renderImageSlots('sales');
 
@@ -1194,8 +1272,7 @@
       document.getElementById('rental-form').reset();
       document.getElementById('form-rental-id').value = '';
       document.getElementById('rental-modal-title').textContent = 'Add Rental Fleet Vehicle';
-      const defaultImg = 'https://images.unsplash.com/photo-1594502184342-2e12f877aa73?auto=format&fit=crop&w=1000&q=80';
-      rentalImages = [defaultImg];
+      rentalImages = [];
       renderImageSlots('rental');
       document.getElementById('rental-modal').classList.add('active');
     }
@@ -1215,13 +1292,13 @@
       document.getElementById('form-rental-status').value = r.status || 'Available';
       document.getElementById('form-rental-tagline').value = r.tagline || '';
 
-      // Load 5 images: from r.images array or split r.img
+      // Load up to 5 images: from r.images array or split r.img
       if (Array.isArray(r.images) && r.images.length) {
         rentalImages = [...r.images].slice(0, 5);
       } else if (r.img) {
         rentalImages = r.img.split(',').map(s => s.trim()).filter(Boolean).slice(0, 5);
       } else {
-        rentalImages = ['https://images.unsplash.com/photo-1594502184342-2e12f877aa73?auto=format&fit=crop&w=1000&q=80'];
+        rentalImages = [];
       }
       renderImageSlots('rental');
 
@@ -1357,6 +1434,8 @@
       document.getElementById('form-part-id').value = '';
       document.getElementById('form-part-warranty').value = 'Verified Testing Warranty';
       document.getElementById('part-modal-title').textContent = 'Add New Auto Spare Part';
+      partImages = [];
+      renderImageSlots('part');
       document.getElementById('part-modal').classList.add('active');
     }
 
@@ -1373,8 +1452,17 @@
       document.getElementById('form-part-status').value = p.status || 'In Stock';
       document.getElementById('form-part-fitment').value = p.fitment || '';
       document.getElementById('form-part-warranty').value = p.warranty || 'Verified Testing Warranty';
-      document.getElementById('form-part-img').value = p.img || '';
       document.getElementById('form-part-desc').value = p.desc || '';
+
+      // Load up to 5 images: from p.images array or split p.img
+      if (Array.isArray(p.images) && p.images.length) {
+        partImages = [...p.images].slice(0, 5);
+      } else if (p.img) {
+        partImages = p.img.split(',').map(s => s.trim()).filter(Boolean).slice(0, 5);
+      } else {
+        partImages = [];
+      }
+      renderImageSlots('part');
 
       document.getElementById('part-modal-title').textContent = `Edit Part: ${p.name}`;
       document.getElementById('part-modal').classList.add('active');
@@ -1385,6 +1473,10 @@
       const priceNum = parseInt(document.getElementById('form-part-price').value) || 0;
       const cond = document.getElementById('form-part-condition').value;
       const condType = cond.includes('Genuine') ? 'genuine' : (cond.includes('Japanese OEM') ? 'oem' : (cond.includes('Reconditioned') ? 'reconditioned' : 'oem'));
+
+      const validImages = partImages.filter(Boolean);
+      const defaultImg = 'https://images.unsplash.com/photo-1600705722908-bab1e61c0b4d?auto=format&fit=crop&w=800&q=80';
+      const mainImg = validImages[0] || defaultImg;
 
       const part = {
         id: document.getElementById('form-part-id').value || null,
@@ -1400,15 +1492,15 @@
         status: document.getElementById('form-part-status').value,
         fitment: document.getElementById('form-part-fitment').value.trim(),
         warranty: document.getElementById('form-part-warranty').value.trim(),
-        img: document.getElementById('form-part-img').value.trim(),
-        images: [document.getElementById('form-part-img').value.trim()],
+        img: mainImg,
+        images: validImages.length ? validImages : [mainImg],
         desc: document.getElementById('form-part-desc').value.trim()
       };
 
       AHStore.savePart(part);
       closeModal('part-modal');
       refreshAll();
-      showToast("✓ Auto Spare Part Saved Successfully!");
+      showToast("✓ Auto Spare Part Saved Successfully with Photo Gallery!");
     }
 
     function deletePart(id) {

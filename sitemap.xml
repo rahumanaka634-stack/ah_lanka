@@ -39,6 +39,18 @@
     </image:image>
   </url>
 
+  <!-- Auto Spare Parts (Genuine OEM & Reconditioned) -->
+  <url>
+    <loc>https://ahlanka.vercel.app/parts</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://ahlanka.vercel.app/images/logo-circle.png</image:loc>
+      <image:title>Genuine Auto Spare Parts & Accessories Sri Lanka</image:title>
+    </image:image>
+  </url>
+
   <!-- About AH Lanka -->
   <url>
     <loc>https://ahlanka.vercel.app/about</loc>

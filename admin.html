@@ -116,6 +116,11 @@
             Rental Fleet (<span id="sidebar-rental-count">0</span>)
           </button>
           
+          <button onclick="switchAdminTab('parts')" id="tab-parts" class="admin-nav-item w-full flex items-center gap-3 px-3.5 py-3 rounded-xl border border-transparent text-slate-300 hover:text-white transition-all text-left">
+            <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Auto Spare Parts (<span id="sidebar-parts-count">0</span>)
+          </button>
+          
           <button onclick="switchAdminTab('settings')" id="tab-settings" class="admin-nav-item w-full flex items-center gap-3 px-3.5 py-3 rounded-xl border border-transparent text-slate-300 hover:text-white transition-all text-left">
             <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             Website & WhatsApp
@@ -168,11 +173,14 @@
             <span class="theme-btn-icon">☀️</span>
           </button>
 
-          <button onclick="openAddSalesModal()" class="btn-primary-red text-xs py-2 px-3.5 whitespace-nowrap">
-            + Add Sales Vehicle
+          <button onclick="openAddSalesModal()" class="btn-primary-red text-xs py-2 px-3 whitespace-nowrap">
+            + Add Sales
           </button>
-          <button onclick="openAddRentalModal()" class="btn-whatsapp text-xs py-2 px-3.5 whitespace-nowrap">
-            + Add Rental Fleet
+          <button onclick="openAddRentalModal()" class="btn-whatsapp text-xs py-2 px-3 whitespace-nowrap">
+            + Add Rental
+          </button>
+          <button onclick="openAddPartModal()" class="btn-primary-red text-xs py-2 px-3 whitespace-nowrap">
+            + Add Spare Part
           </button>
         </div>
       </header>
@@ -183,36 +191,42 @@
       <section id="section-overview" class="space-y-8">
         
         <!-- Metric Cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           <div class="glass-panel p-5 rounded-2xl border-slate-800 space-y-1">
-            <div class="text-slate-400 text-xs font-semibold">Total Vehicles For Sale</div>
+            <div class="text-slate-400 text-xs font-semibold">Vehicles For Sale</div>
             <div id="stat-sales-total" class="text-3xl font-black text-white">0</div>
-            <div class="text-[11px] text-red-400 font-medium">Sri Lankan Domestic Market</div>
+            <div class="text-[11px] text-red-400 font-medium">Domestic Market</div>
           </div>
 
           <div class="glass-panel p-5 rounded-2xl border-slate-800 space-y-1">
             <div class="text-slate-400 text-xs font-semibold">Active Rental Fleet</div>
             <div id="stat-rental-total" class="text-3xl font-black text-emerald-400">0</div>
-            <div class="text-[11px] text-slate-400 font-medium">Cars, SUVs, Vans & Coaches</div>
+            <div class="text-[11px] text-slate-400 font-medium">Cars, SUVs & Vans</div>
+          </div>
+
+          <div class="glass-panel p-5 rounded-2xl border-slate-800 space-y-1">
+            <div class="text-slate-400 text-xs font-semibold">Spare Parts Catalog</div>
+            <div id="stat-parts-total" class="text-3xl font-black text-amber-400">0</div>
+            <div class="text-[11px] text-slate-400 font-medium">OEM & Reconditioned</div>
+          </div>
+
+          <div class="glass-panel p-5 rounded-2xl border-slate-800 space-y-1">
+            <div class="text-slate-400 text-xs font-semibold">Vehicles Stock Value</div>
+            <div id="stat-sales-value" class="text-2xl font-black text-red-500 font-mono">LKR 0M</div>
+            <div class="text-[11px] text-slate-400 font-medium">Combined inventory</div>
           </div>
 
           <div class="glass-panel p-5 rounded-2xl border-slate-800 space-y-1">
             <div class="text-slate-400 text-xs font-semibold">WhatsApp Gateway</div>
-            <div id="stat-whatsapp" class="text-xl font-black text-white font-mono">+94 76 632 2352</div>
+            <div id="stat-whatsapp" class="text-base font-black text-white font-mono truncate">+94 76 632 2352</div>
             <div class="text-[11px] text-emerald-400 font-medium flex items-center gap-1">
-              <span class="online-dot"></span> Live Deep-Link Active
+              <span class="online-dot"></span> Live Deep-Link
             </div>
-          </div>
-
-          <div class="glass-panel p-5 rounded-2xl border-slate-800 space-y-1">
-            <div class="text-slate-400 text-xs font-semibold">Total Sales Value</div>
-            <div id="stat-sales-value" class="text-2xl font-black text-red-500 font-mono">LKR 0M</div>
-            <div class="text-[11px] text-slate-400 font-medium">Combined inventory value</div>
           </div>
         </div>
 
         <!-- Quick Summary Lists -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
           
           <!-- Recent Sales Vehicles -->
           <div class="glass-panel p-6 rounded-2xl border-slate-800 space-y-4">
@@ -235,6 +249,19 @@
               <!-- Injected dynamically -->
             </div>
           </div>
+
+          <!-- Recent Spare Parts -->
+          <div class="glass-panel p-6 rounded-2xl border-slate-800 space-y-4">
+            <div class="flex items-center justify-between">
+              <h2 class="font-bold text-white text-base">Spare Parts Catalog</h2>
+              <button onclick="switchAdminTab('parts')" class="text-xs text-amber-400 hover:underline">Manage All →</button>
+            </div>
+            <div id="overview-parts-list" class="space-y-3">
+              <!-- Injected dynamically -->
+            </div>
+          </div>
+
+        </div>
 
         </div>
 
@@ -303,6 +330,41 @@
                 </tr>
               </thead>
               <tbody id="rental-table-body" class="divide-y divide-slate-800/60">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           TAB: SPARE PARTS INVENTORY MANAGER
+           ===================================================================== -->
+      <section id="section-parts" class="hidden space-y-6">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="relative w-full sm:w-80">
+            <input type="text" id="admin-parts-search" oninput="renderPartsTable()" placeholder="Search spare parts by name, OEM, or model..." class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none focus:border-red-500">
+          </div>
+          <button onclick="openAddPartModal()" class="btn-primary-red text-xs py-2 px-4 whitespace-nowrap">
+            + Add New Spare Part
+          </button>
+        </div>
+
+        <!-- Spare Parts Table Container -->
+        <div class="glass-panel rounded-2xl border-slate-800 overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-900/80 text-slate-400 uppercase font-bold text-[10px] tracking-wider border-b border-slate-800">
+                <tr>
+                  <th class="p-4">Spare Part</th>
+                  <th class="p-4">OEM Part #</th>
+                  <th class="p-4">Category & Brand</th>
+                  <th class="p-4">Price (LKR)</th>
+                  <th class="p-4">Stock Status</th>
+                  <th class="p-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="parts-table-body" class="divide-y divide-slate-800/60">
                 <!-- Dynamically populated -->
               </tbody>
             </table>
@@ -693,6 +755,108 @@
     </div>
   </div>
 
+  <!-- =========================================================================
+       MODAL: ADD / EDIT SPARE PART
+       ========================================================================= -->
+  <div id="part-modal" class="modal-backdrop">
+    <div class="modal-content p-6 sm:p-8 space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h2 id="part-modal-title" class="text-lg font-bold text-white">Add Spare Part</h2>
+        <button onclick="closeModal('part-modal')" class="text-slate-400 hover:text-white font-bold text-base">✕</button>
+      </div>
+
+      <form id="part-form" onsubmit="handlePartFormSubmit(event)" class="space-y-4">
+        <input type="hidden" id="form-part-id">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Spare Part Name</label>
+            <input type="text" id="form-part-name" required placeholder="e.g. Toyota Prado 150 Front Brake Pad Set" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">OEM Part Number</label>
+            <input type="text" id="form-part-oem" required placeholder="e.g. 04465-60320" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-red-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Vehicle Make / Brand</label>
+            <select id="form-part-brand" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+              <option value="Toyota">Toyota</option>
+              <option value="Suzuki">Suzuki</option>
+              <option value="Honda">Honda</option>
+              <option value="Nissan">Nissan</option>
+              <option value="Mitsubishi">Mitsubishi</option>
+              <option value="Universal">Universal / Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Category</label>
+            <select id="form-part-cat" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+              <option value="brakes">Brakes & Suspension</option>
+              <option value="suspension">Suspension & Shocks</option>
+              <option value="engine">Engine & Cooling</option>
+              <option value="hybrid">Hybrid & Electrical</option>
+              <option value="body">Body Kits & Lighting</option>
+              <option value="filters">Filters & Maintenance</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Condition</label>
+            <select id="form-part-condition" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+              <option value="Brand New Genuine OEM">Brand New Genuine OEM</option>
+              <option value="Brand New Japanese OEM">Brand New Japanese OEM (KYB/Denso)</option>
+              <option value="Japanese Reconditioned">Japanese Reconditioned</option>
+              <option value="Premium Aftermarket">Premium Aftermarket</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Price in LKR</label>
+            <input type="number" id="form-part-price" required placeholder="e.g. 18500" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-red-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Stock Availability</label>
+            <select id="form-part-status" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+              <option value="In Stock">In Stock</option>
+              <option value="Low Stock">Low Stock</option>
+              <option value="Pre-Order">Pre-Order / On Request</option>
+              <option value="Out of Stock">Out of Stock</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1">Compatible Vehicle Models (Fitment)</label>
+          <input type="text" id="form-part-fitment" required placeholder="e.g. Toyota Land Cruiser Prado 150 / 120 (2009–2023), Lexus GX460" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1">Warranty / Testing Period</label>
+          <input type="text" id="form-part-warranty" placeholder="e.g. 6 Months Replacement Warranty" value="Verified Testing Warranty" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1">Image URL</label>
+          <input type="text" id="form-part-img" required placeholder="https://..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1">Detailed Description & Specifications</label>
+          <textarea id="form-part-desc" rows="2" placeholder="Original Japanese component, high friction ceramic compound, anti-squeal shims included..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none"></textarea>
+        </div>
+
+        <div class="pt-3 flex justify-end gap-3 border-t border-slate-800">
+          <button type="button" onclick="closeModal('part-modal')" class="btn-ghost text-xs py-2 px-4">Cancel</button>
+          <button type="submit" class="btn-primary-red text-xs py-2 px-5 font-bold">Save Spare Part</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- Toast Notification Container -->
   <div id="admin-toast" class="fixed top-5 right-5 z-50 transform translate-x-96 transition-transform duration-300 pointer-events-none">
     <div class="glass-panel px-4 py-3 rounded-xl border border-emerald-500/50 bg-slate-950 text-emerald-400 text-xs font-bold flex items-center gap-2 shadow-2xl">
@@ -730,7 +894,7 @@
 
     // Tab Switching
     function switchAdminTab(tab) {
-      const tabs = ['overview', 'sales', 'rentals', 'settings', 'backup'];
+      const tabs = ['overview', 'sales', 'rentals', 'parts', 'settings', 'backup'];
       tabs.forEach(t => {
         const sec = document.getElementById(`section-${t}`);
         const btn = document.getElementById(`tab-${t}`);
@@ -747,6 +911,7 @@
         overview: ["Dashboard Overview", "Real-time status of your AH Lanka sales inventory & rental fleet."],
         sales: ["Vehicles For Sale Manager", "Add, edit, change pricing, or toggle availability for domestic sales."],
         rentals: ["Rental Fleet Manager", "Manage cars, luxury vans, and coaches available for tourist hires."],
+        parts: ["Auto Spare Parts Manager", "Add, edit, change pricing, and monitor stock for genuine & reconditioned auto parts."],
         settings: ["Website & WhatsApp Settings", "Configure WhatsApp numbers, display tags, and currency exchange rates."],
         backup: ["Backup, Export & Sync", "Export your database as JSON or reset to default showroom stock."]
       };
@@ -1190,17 +1355,140 @@
       showToast(`✓ Marked as ${r.status} (Cloud Synced)`);
     }
 
+    // Spare Parts Modals & CRUD
+    function openAddPartModal() {
+      document.getElementById('part-form').reset();
+      document.getElementById('form-part-id').value = '';
+      document.getElementById('form-part-warranty').value = 'Verified Testing Warranty';
+      document.getElementById('part-modal-title').textContent = 'Add New Auto Spare Part';
+      document.getElementById('part-modal').classList.add('active');
+    }
+
+    function openEditPartModal(id) {
+      const p = AHStore.getParts().find(x => x.id === id);
+      if (!p) return;
+      document.getElementById('form-part-id').value = p.id;
+      document.getElementById('form-part-name').value = p.name;
+      document.getElementById('form-part-oem').value = p.partNumber;
+      document.getElementById('form-part-brand').value = p.brand || 'Toyota';
+      document.getElementById('form-part-cat').value = p.category || 'brakes';
+      document.getElementById('form-part-condition').value = p.condition || 'Brand New Genuine OEM';
+      document.getElementById('form-part-price').value = p.priceNumber || (parseInt(p.price.replace(/[^0-9]/g, '')) || 0);
+      document.getElementById('form-part-status').value = p.status || 'In Stock';
+      document.getElementById('form-part-fitment').value = p.fitment || '';
+      document.getElementById('form-part-warranty').value = p.warranty || 'Verified Testing Warranty';
+      document.getElementById('form-part-img').value = p.img || '';
+      document.getElementById('form-part-desc').value = p.desc || '';
+
+      document.getElementById('part-modal-title').textContent = `Edit Part: ${p.name}`;
+      document.getElementById('part-modal').classList.add('active');
+    }
+
+    function handlePartFormSubmit(e) {
+      e.preventDefault();
+      const priceNum = parseInt(document.getElementById('form-part-price').value) || 0;
+      const cond = document.getElementById('form-part-condition').value;
+      const condType = cond.includes('Genuine') ? 'genuine' : (cond.includes('Japanese OEM') ? 'oem' : (cond.includes('Reconditioned') ? 'reconditioned' : 'oem'));
+
+      const part = {
+        id: document.getElementById('form-part-id').value || null,
+        name: document.getElementById('form-part-name').value.trim(),
+        partNumber: document.getElementById('form-part-oem').value.trim(),
+        brand: document.getElementById('form-part-brand').value,
+        category: document.getElementById('form-part-cat').value,
+        categoryLabel: document.getElementById('form-part-cat').options[document.getElementById('form-part-cat').selectedIndex].text,
+        condition: cond,
+        conditionType: condType,
+        priceNumber: priceNum,
+        price: `LKR ${priceNum.toLocaleString()}`,
+        status: document.getElementById('form-part-status').value,
+        fitment: document.getElementById('form-part-fitment').value.trim(),
+        warranty: document.getElementById('form-part-warranty').value.trim(),
+        img: document.getElementById('form-part-img').value.trim(),
+        images: [document.getElementById('form-part-img').value.trim()],
+        desc: document.getElementById('form-part-desc').value.trim()
+      };
+
+      AHStore.savePart(part);
+      closeModal('part-modal');
+      refreshAll();
+      showToast("✓ Auto Spare Part Saved Successfully!");
+    }
+
+    function deletePart(id) {
+      if (confirm("Are you sure you want to delete this spare part?")) {
+        AHStore.deletePart(id);
+        refreshAll();
+        showToast("✓ Spare Part Removed from Inventory");
+      }
+    }
+
+    function togglePartStatus(id) {
+      const p = AHStore.getParts().find(x => x.id === id);
+      if (!p) return;
+      p.status = p.status === 'In Stock' ? 'Out of Stock' : 'In Stock';
+      AHStore.savePart(p);
+      refreshAll();
+      showToast(`✓ Marked as ${p.status}`);
+    }
+
+    function renderPartsTable() {
+      const query = (document.getElementById('admin-parts-search')?.value || '').toLowerCase();
+      const list = AHStore.getParts().filter(p => 
+        !query || p.name.toLowerCase().includes(query) || p.partNumber.toLowerCase().includes(query) || (p.fitment && p.fitment.toLowerCase().includes(query)) || p.brand.toLowerCase().includes(query)
+      );
+
+      const tbody = document.getElementById('parts-table-body');
+      if (!tbody) return;
+
+      tbody.innerHTML = list.map(p => {
+        const isAvail = p.status === 'In Stock';
+        const statusBadge = isAvail ? 'badge-status-available' : (p.status === 'Out of Stock' ? 'badge-status-sold' : 'badge-status-booked');
+        return `
+          <tr class="hover:bg-slate-900/40 transition-colors">
+            <td class="p-4 flex items-center gap-3">
+              <img src="${p.img}" class="w-12 h-10 rounded-lg object-cover border border-slate-800" loading="lazy">
+              <div>
+                <div class="font-bold text-white text-xs line-clamp-1">${p.name}</div>
+                <div class="text-[10px] text-slate-500 font-mono">${p.id}</div>
+              </div>
+            </td>
+            <td class="p-4 font-mono font-bold text-red-400 text-xs">
+              ${p.partNumber}
+            </td>
+            <td class="p-4">
+              <div class="font-semibold text-slate-200 text-xs">${p.brand}</div>
+              <div class="text-[10px] text-slate-400 uppercase">${p.category}</div>
+            </td>
+            <td class="p-4 font-bold text-white font-mono">${p.price}</td>
+            <td class="p-4">
+              <button onclick="togglePartStatus('${p.id}')" title="Click to toggle status" class="text-[10px] px-2 py-0.5 rounded font-bold ${statusBadge}">
+                ${p.status || 'In Stock'}
+              </button>
+            </td>
+            <td class="p-4 text-right space-x-2">
+              <button onclick="openEditPartModal('${p.id}')" class="text-xs text-slate-300 hover:text-white px-2 py-1 bg-slate-800 rounded">Edit</button>
+              <button onclick="deletePart('${p.id}')" class="text-xs text-red-400 hover:text-red-300 px-2 py-1 bg-red-950/60 rounded">Delete</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
     // Renderers
     function renderOverview() {
       const sales = AHStore.getSales();
       const rentals = AHStore.getRentals();
+      const parts = AHStore.getParts();
       const settings = AHStore.getSettings();
 
       // Counts
       document.getElementById('stat-sales-total').textContent = sales.length;
       document.getElementById('stat-rental-total').textContent = rentals.length;
+      document.getElementById('stat-parts-total').textContent = parts.length;
       document.getElementById('sidebar-sales-count').textContent = sales.length;
       document.getElementById('sidebar-rental-count').textContent = rentals.length;
+      document.getElementById('sidebar-parts-count').textContent = parts.length;
       document.getElementById('stat-whatsapp').textContent = settings.displayPhone;
 
       // Total Value
@@ -1231,6 +1519,19 @@
             </div>
           </div>
           <span class="text-[10px] px-2 py-0.5 rounded font-bold ${r.status === 'Booked' ? 'badge-status-booked' : 'badge-status-available'}">${r.status || 'Available'}</span>
+        </div>
+      `).join('');
+
+      document.getElementById('overview-parts-list').innerHTML = parts.slice(0, 4).map(p => `
+        <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/60 border border-slate-800">
+          <div class="flex items-center gap-3">
+            <img src="${p.img}" class="w-10 h-10 rounded-lg object-cover">
+            <div>
+              <div class="font-bold text-white text-xs line-clamp-1">${p.name}</div>
+              <div class="text-[10px] text-slate-400">${p.partNumber} • ${p.price}</div>
+            </div>
+          </div>
+          <span class="text-[10px] px-2 py-0.5 rounded font-bold ${p.status === 'Out of Stock' ? 'badge-status-sold' : 'badge-status-available'}">${p.status || 'In Stock'}</span>
         </div>
       `).join('');
     }
@@ -1350,6 +1651,7 @@
       const data = {
         sales: AHStore.getSales(),
         rentals: AHStore.getRentals(),
+        parts: AHStore.getParts(),
         settings: AHStore.getSettings(),
         exportedAt: new Date().toISOString()
       };
@@ -1376,6 +1678,7 @@
       renderOverview();
       renderSalesTable();
       renderRentalTable();
+      renderPartsTable();
       loadSettingsForm();
     }
 

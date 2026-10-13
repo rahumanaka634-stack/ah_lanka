@@ -234,6 +234,170 @@ const DEFAULT_RENTAL_INVENTORY = [
   }
 ];
 
+const DEFAULT_PARTS_INVENTORY = [
+  {
+    id: "AH-PART-301",
+    name: "Toyota Land Cruiser Prado 150 Front Brake Pad Set",
+    partNumber: "04465-60320",
+    brand: "Toyota",
+    category: "brakes",
+    categoryLabel: "Brakes & Suspension",
+    fitment: "Toyota Land Cruiser Prado 150 / 120 (2009–2023), Lexus GX460, Hilux Revo",
+    condition: "Brand New Genuine OEM",
+    conditionType: "genuine",
+    priceNumber: 18500,
+    price: "LKR 18,500",
+    status: "In Stock",
+    warranty: "6 Months / 10,000 km Warranty",
+    desc: "Original Japanese Toyota / Advics ceramic brake pads. Low brake dust, anti-squeal shims included, maximum stopping power under heavy loads.",
+    img: "https://images.unsplash.com/photo-1600705722908-bab1e61c0b4d?auto=format&fit=crop&w=800&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1600705722908-bab1e61c0b4d?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=800&q=80"
+    ]
+  },
+  {
+    id: "AH-PART-302",
+    name: "Toyota HiAce KDH 200/201 Heavy Duty KYB Gas Shock Absorber Set (Front Pair)",
+    partNumber: "48511-26610",
+    brand: "Toyota",
+    category: "suspension",
+    categoryLabel: "Brakes & Suspension",
+    fitment: "Toyota HiAce KDH 200, 201, 206, 214, 221 Super GL & Commuter (2005–2021)",
+    condition: "Brand New Japanese OEM (KYB)",
+    conditionType: "oem",
+    priceNumber: 44000,
+    price: "LKR 44,000",
+    status: "In Stock",
+    warranty: "1 Year Official Replacement Guarantee",
+    desc: "Heavy-duty KYB Excel-G nitrogen gas charged shocks designed specifically for Sri Lankan road conditions. Restores ride stability and passenger comfort.",
+    img: "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=800&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=800&q=80"
+    ]
+  },
+  {
+    id: "AH-PART-303",
+    name: "Toyota Axio / Fielder / Aqua Hybrid Traction Battery Pack (Matched Panasonic Cells)",
+    partNumber: "G9510-52031",
+    brand: "Toyota",
+    category: "hybrid",
+    categoryLabel: "Hybrid & Electrical",
+    fitment: "Toyota Corolla Axio Hybrid (NKE165), Fielder Hybrid, Aqua / Prius c (NHP10)",
+    condition: "Japanese Reconditioned (High IR / Grade A)",
+    conditionType: "reconditioned",
+    priceNumber: 245000,
+    price: "LKR 245,000",
+    status: "In Stock",
+    warranty: "1 Year / 20,000 km Warranty with Free Diagnostics",
+    desc: "Professionally balanced Grade-A Panasonic Ni-MH hybrid battery module pack. Includes busbars and thermistor harness. Complete health diagnostic report provided.",
+    img: "https://images.unsplash.com/photo-1558441719-8b489c63f7d1?auto=format&fit=crop&w=800&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1558441719-8b489c63f7d1?auto=format&fit=crop&w=800&q=80"
+    ]
+  },
+  {
+    id: "AH-PART-304",
+    name: "Toyota Prius 30 / Prius Alpha Inverter Electric Water Pump",
+    partNumber: "G9020-47031",
+    brand: "Toyota",
+    category: "engine",
+    categoryLabel: "Engine & Cooling",
+    fitment: "Toyota Prius 30 (ZVW30), Prius v / Alpha (ZVW40/41), Lexus CT200h (2010–2016)",
+    condition: "Brand New Genuine OEM (Aisin)",
+    conditionType: "genuine",
+    priceNumber: 28500,
+    price: "LKR 28,500",
+    status: "In Stock",
+    warranty: "6 Months Replacement Warranty",
+    desc: "Original Aisin Japan electric inverter auxiliary coolant pump. Prevents inverter overheat error codes (P0A93). Direct plug and play.",
+    img: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=800&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=800&q=80"
+    ]
+  },
+  {
+    id: "AH-PART-305",
+    name: "Toyota Land Cruiser Prado 150 Modellista Aero Body Kit (Front & Rear Skirt)",
+    partNumber: "MS341-60001",
+    brand: "Toyota",
+    category: "body",
+    categoryLabel: "Body & Lighting",
+    fitment: "Toyota Land Cruiser Prado 150 Facelift (2018–2023 TX/TZ-G)",
+    condition: "Brand New Premium Grade (PP Material)",
+    conditionType: "genuine",
+    priceNumber: 165000,
+    price: "LKR 165,000",
+    status: "In Stock",
+    warranty: "Factory Finish Fitment Guarantee",
+    desc: "High quality flexible polypropylene (PP) Modellista aero body kit with integrated LED DRL front garnishes and dual chrome exhaust tips.",
+    img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"
+    ]
+  },
+  {
+    id: "AH-PART-306",
+    name: "Toyota HiAce KDH 201 Super GL Dark Prime Smoked LED Headlamp (Pair)",
+    partNumber: "81110-26570",
+    brand: "Toyota",
+    category: "body",
+    categoryLabel: "Body & Lighting",
+    fitment: "Toyota HiAce KDH 200/201/206 4th & 5th Generation Facelift (2014–2022)",
+    condition: "Japanese Reconditioned (Original Koito)",
+    conditionType: "reconditioned",
+    priceNumber: 78000,
+    price: "LKR 78,000",
+    status: "In Stock",
+    warranty: "7 Days Testing Warranty on LED Modules",
+    desc: "Original Koito Japan Dark Prime smoked edition factory LED projector headlamp pair. Clear non-yellowed lenses, intact mounting clips and brackets.",
+    img: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80"
+    ]
+  },
+  {
+    id: "AH-PART-307",
+    name: "Denso Carbon Air Filter & Engine Filter Service Pack",
+    partNumber: "17801-21050",
+    brand: "Toyota",
+    category: "filters",
+    categoryLabel: "Filters & Maintenance",
+    fitment: "Toyota Axio, Premio 260, Allion 260, Prius 30, Fielder, Aqua, Vitz",
+    condition: "Brand New Genuine (Denso Japan)",
+    conditionType: "genuine",
+    priceNumber: 6500,
+    price: "LKR 6,500",
+    status: "In Stock",
+    warranty: "100% Genuine Denso Certified",
+    desc: "High filtration efficiency engine intake filter + activated carbon cabin A/C filter. Eliminates exhaust odor and dust particles inside the cabin.",
+    img: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80"
+    ]
+  },
+  {
+    id: "AH-PART-308",
+    name: "Suzuki Wagon R Stingray / Spacia Turbo Intercooler & Air Duct Assembly",
+    partNumber: "13620-72M00",
+    brand: "Suzuki",
+    category: "engine",
+    categoryLabel: "Engine & Cooling",
+    fitment: "Suzuki Wagon R Stingray Turbo (MH34S/MH44S/MH55S), Spacia Custom Turbo (MK42S/MK53S)",
+    condition: "Japanese Reconditioned (Direct Import)",
+    conditionType: "reconditioned",
+    priceNumber: 36000,
+    price: "LKR 36,000",
+    status: "In Stock",
+    warranty: "Pressure Tested with 14 Days Warranty",
+    desc: "Original Suzuki Japan R06A turbo aluminum intercooler. Pressure tested to 2.0 bar with zero leaks. Direct bolt-on replacement.",
+    img: "https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=800&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=800&q=80"
+    ]
+  }
+];
+
 const DEFAULT_SETTINGS = {
   phone: "94766322352",
   displayPhone: "+94 76 632 2352",
@@ -337,6 +501,57 @@ const AHStore = {
     this.setRentals(list);
   },
 
+  // Spare Parts
+  getParts: function() {
+    const raw = localStorage.getItem('ah_parts_inventory');
+    if (!raw) {
+      this.setParts(DEFAULT_PARTS_INVENTORY);
+      return DEFAULT_PARTS_INVENTORY;
+    }
+    try {
+      let list = JSON.parse(raw);
+      let updated = false;
+      list = list.map(p => {
+        if (!p.images || !p.images.length) {
+          const def = DEFAULT_PARTS_INVENTORY.find(d => d.id === p.id);
+          if (def && def.images) {
+            p.images = def.images;
+            updated = true;
+          } else if (p.img) {
+            p.images = [p.img];
+          }
+        }
+        return p;
+      });
+      if (updated) {
+        localStorage.setItem('ah_parts_inventory', JSON.stringify(list));
+      }
+      return list;
+    } catch(e) {
+      return DEFAULT_PARTS_INVENTORY;
+    }
+  },
+  setParts: function(items) {
+    localStorage.setItem('ah_parts_inventory', JSON.stringify(items));
+    window.dispatchEvent(new Event('ah_parts_updated'));
+  },
+  savePart: function(part) {
+    const list = this.getParts();
+    const idx = list.findIndex(p => p.id === part.id);
+    if (idx >= 0) {
+      list[idx] = part;
+    } else {
+      if (!part.id) part.id = "AH-PART-" + (Date.now() % 10000);
+      list.unshift(part);
+    }
+    this.setParts(list);
+    return part;
+  },
+  deletePart: function(id) {
+    const list = this.getParts().filter(p => p.id !== id);
+    this.setParts(list);
+  },
+
   // Settings
   getSettings: function() {
     const raw = localStorage.getItem('ah_settings');
@@ -359,6 +574,8 @@ const AHStore = {
   resetAll: function() {
     this.setSales(DEFAULT_SALES_INVENTORY);
     this.setRentals(DEFAULT_RENTAL_INVENTORY);
+    this.setParts(DEFAULT_PARTS_INVENTORY);
     this.setSettings(DEFAULT_SETTINGS);
   }
 };
+

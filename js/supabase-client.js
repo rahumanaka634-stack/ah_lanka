@@ -28,9 +28,17 @@ const AHSupabase = {
       const data = await res.json();
       
       if (Array.isArray(data) && data.length > 0) {
+        const localImgMap = {
+          'AH-SALES-1303': 'images/vehicles/roomy-black.jpg',
+          'AH-SALES-4588': 'images/vehicles/roomy-white.jpg',
+          'car-003': 'images/vehicles/spacia-red.jpg',
+          'car-002': 'images/vehicles/roomy-red.jpg',
+          'car-001': 'images/vehicles/hiace-gdh.jpg'
+        };
+
         const mapped = data.map(row => {
           const imgList = (row.img || '').split(',').map(s => s.trim()).filter(Boolean);
-          const mainImg = imgList[0] || 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80';
+          const mainImg = localImgMap[row.id] || imgList[0] || 'images/vehicles/roomy-black.jpg';
           return {
             id: row.id,
             name: row.name,

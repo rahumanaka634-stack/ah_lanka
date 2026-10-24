@@ -5,32 +5,68 @@
   <!-- Home Page -->
   <url>
     <loc>https://ahlanka.vercel.app/</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://ahlanka.vercel.app/images/logo-circle.png</image:loc>
       <image:title>AH LANKA — Sri Lanka's Trusted Automotive Marketplace</image:title>
       <image:caption>Official AH LANKA 3D Showroom Emblem</image:caption>
     </image:image>
+    <image:image>
+      <image:loc>https://ahlanka.vercel.app/images/vehicles/roomy-black.jpg</image:loc>
+      <image:title>Black Toyota Roomy Custom G 2023 Modellista for sale in Sri Lanka</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://ahlanka.vercel.app/images/vehicles/roomy-white.jpg</image:loc>
+      <image:title>White Toyota Roomy Custom G 2023 Modellista for sale in Sri Lanka</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://ahlanka.vercel.app/images/vehicles/spacia-red.jpg</image:loc>
+      <image:title>Suzuki Spacia Custom Hybrid XS Turbo 2025 for sale in Sri Lanka</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://ahlanka.vercel.app/images/vehicles/roomy-red.jpg</image:loc>
+      <image:title>Red Toyota Roomy Custom G 2025 Modellista for sale in Sri Lanka</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://ahlanka.vercel.app/images/vehicles/hiace-gdh.jpg</image:loc>
+      <image:title>Toyota HiAce GDH 223 High Roof 2026 for sale in Sri Lanka</image:title>
+    </image:image>
   </url>
 
   <!-- Buy a Vehicle (Car Sales Inventory) -->
   <url>
     <loc>https://ahlanka.vercel.app/sales</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://ahlanka.vercel.app/images/logo-circle.png</image:loc>
-      <image:title>Verified Cars, SUVs, and Vans For Sale in Sri Lanka</image:title>
+      <image:loc>https://ahlanka.vercel.app/images/vehicles/roomy-black.jpg</image:loc>
+      <image:title>Black Toyota Roomy Custom G 2023 Modellista For Sale</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://ahlanka.vercel.app/images/vehicles/roomy-white.jpg</image:loc>
+      <image:title>White Toyota Roomy Custom G 2023 Modellista Kit For Sale</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://ahlanka.vercel.app/images/vehicles/spacia-red.jpg</image:loc>
+      <image:title>Suzuki Spacia Custom Hybrid XS Turbo 2025 For Sale</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://ahlanka.vercel.app/images/vehicles/roomy-red.jpg</image:loc>
+      <image:title>Red Toyota Roomy Custom G 2025 Modellista Kit For Sale</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://ahlanka.vercel.app/images/vehicles/hiace-gdh.jpg</image:loc>
+      <image:title>Toyota KDH GDH 223 High Roof 2026 For Sale</image:title>
     </image:image>
   </url>
 
   <!-- Rent a Vehicle (Rentals & Chauffeur Hires) -->
   <url>
     <loc>https://ahlanka.vercel.app/rentals</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -42,19 +78,19 @@
   <!-- Auto Spare Parts (Genuine OEM & Reconditioned) -->
   <url>
     <loc>https://ahlanka.vercel.app/parts</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://ahlanka.vercel.app/images/logo-circle.png</image:loc>
-      <image:title>Genuine Auto Spare Parts & Accessories Sri Lanka</image:title>
+      <image:title>Genuine Auto Spare Parts &amp; Accessories Sri Lanka</image:title>
     </image:image>
   </url>
 
   <!-- About AH Lanka -->
   <url>
     <loc>https://ahlanka.vercel.app/about</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -66,7 +102,7 @@
   <!-- Contact Us -->
   <url>
     <loc>https://ahlanka.vercel.app/contact</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>

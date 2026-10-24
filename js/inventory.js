@@ -18,8 +18,9 @@ const DEFAULT_SALES_INVENTORY = [
     badgeType: "green",
     engine: "1,000 cc Petrol Engine",
     desc: "Toyota Roomy Custom G 2023 – Modellista Bodykit • Custom G with Premium Modellista Package • Dual Power Sliding Doors with Soft-Close Assist • Keyless Entry & Push-to-Start • Reverse Camera & Integrated Sensors.",
-    img: "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792816589486_Gemini_Generated_Image_szpmpns.jpg",
+    img: "images/vehicles/roomy-black.jpg",
     images: [
+      "images/vehicles/roomy-black.jpg",
       "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792816589486_Gemini_Generated_Image_szpmpns.jpg",
       "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792816595501_image__6_.jpg",
       "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792816599407_WhatsApp_Image_2026-10-24_at_1.jpeg"
@@ -40,8 +41,9 @@ const DEFAULT_SALES_INVENTORY = [
     badgeType: "green",
     engine: "1,000 cc Petrol Engine",
     desc: "Toyota Roomy Custom G 2023 – Full Modellista Styling Package • Sporty Alloy Wheels • Dual Power Electric Sliding Doors • Smart Key Entry & Push Start • Reverse Camera with Multi-View Assist • Digital Climate Control.",
-    img: "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792815523563_Gemini_Generated_Image_3xqreb3.jpg",
+    img: "images/vehicles/roomy-white.jpg",
     images: [
+      "images/vehicles/roomy-white.jpg",
       "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792815523563_Gemini_Generated_Image_3xqreb3.jpg",
       "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792815535566_f762bc99-670b-4178-9765-bca609.jpg",
       "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792815542221_WhatsApp_Image_2026-10-24_at_9.jpeg",
@@ -64,8 +66,9 @@ const DEFAULT_SALES_INVENTORY = [
     badgeType: "green",
     engine: "660 cc Turbocharged Petrol + Mild Hybrid (ISG System)",
     desc: "Hybrid XS Turbo (Top-Tier Full Option) • Premium Red & Black Two-Tone • 360-degree multi-view reverse camera • Dual Power Sliding Doors • Ottoman-style adjustable rear seats • Full LED headlamps & DRLs.",
-    img: "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814360694_Gemini_Generated_Image_6uk68c6.jpg",
+    img: "images/vehicles/spacia-red.jpg",
     images: [
+      "images/vehicles/spacia-red.jpg",
       "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814360694_Gemini_Generated_Image_6uk68c6.jpg",
       "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814365713_Gemini_Generated_Image_m9qun1m.jpg",
       "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814371953_image__2_.jpg",
@@ -88,8 +91,9 @@ const DEFAULT_SALES_INVENTORY = [
     badgeType: "green",
     engine: "1,000 cc Petrol Engine",
     desc: "Toyota Roomy Custom G 2025 – Modellista Bodykit • Factory Modellista Aero Package • Custom Chrome Grille • Dual Power Sliding Doors • Smart Assist Safety Suite • Touchscreen Reverse Camera.",
-    img: "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814699222_Gemini_Generated_Image_5k5qa65.jpg",
+    img: "images/vehicles/roomy-red.jpg",
     images: [
+      "images/vehicles/roomy-red.jpg",
       "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814699222_Gemini_Generated_Image_5k5qa65.jpg",
       "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814703545_Gemini_Generated_Image_v9m3gqv.jpg",
       "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814710775_image__3_.jpg",
@@ -112,8 +116,9 @@ const DEFAULT_SALES_INVENTORY = [
     badgeType: "green",
     engine: "2800CC Original Turbo Diesel (GDH Engine)",
     desc: "Toyota HiAce GDH 223 High Roof (2026) • Highest Specification High Roof • Pearl White (Color Code 089) • Original 4-Way Camera & Center Mirror Camera System • Factory 5 Alloy Wheels • Maximum Passenger & Cargo Space.",
-    img: "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814113375_Gemini_Generated_Image_onsityo.jpg",
+    img: "images/vehicles/hiace-gdh.jpg",
     images: [
+      "images/vehicles/hiace-gdh.jpg",
       "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814113375_Gemini_Generated_Image_onsityo.jpg",
       "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814184390_Gemini_Generated_Image_w26oiow.jpg"
     ],

@@ -250,10 +250,9 @@ const DEFAULT_PARTS_INVENTORY = [
     status: "In Stock",
     warranty: "6 Months / 10,000 km Warranty",
     desc: "Original Japanese Toyota / Advics ceramic brake pads. Low brake dust, anti-squeal shims included, maximum stopping power under heavy loads.",
-    img: "https://images.unsplash.com/photo-1600705722908-bab1e61c0b4d?auto=format&fit=crop&w=800&q=80",
+    img: "images/parts/prado-brake-pads.jpg",
     images: [
-      "https://images.unsplash.com/photo-1600705722908-bab1e61c0b4d?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=800&q=80"
+      "images/parts/prado-brake-pads.jpg"
     ]
   },
   {
@@ -271,9 +270,9 @@ const DEFAULT_PARTS_INVENTORY = [
     status: "In Stock",
     warranty: "1 Year Official Replacement Warranty",
     desc: "Heavy-duty KYB Excel-G nitrogen gas charged shocks designed specifically for Sri Lankan road conditions. Restores ride stability and passenger comfort.",
-    img: "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=800&q=80",
+    img: "images/parts/hiace-kyb-shocks.jpg",
     images: [
-      "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=800&q=80"
+      "images/parts/hiace-kyb-shocks.jpg"
     ]
   },
   {
@@ -291,9 +290,9 @@ const DEFAULT_PARTS_INVENTORY = [
     status: "In Stock",
     warranty: "1 Year / 20,000 km Warranty with Free Diagnostics",
     desc: "Professionally balanced Grade-A Panasonic Ni-MH hybrid battery module pack. Includes busbars and thermistor harness. Complete health diagnostic report provided.",
-    img: "https://images.unsplash.com/photo-1558441719-8b489c63f7d1?auto=format&fit=crop&w=800&q=80",
+    img: "images/parts/hybrid-battery-pack.jpg",
     images: [
-      "https://images.unsplash.com/photo-1558441719-8b489c63f7d1?auto=format&fit=crop&w=800&q=80"
+      "images/parts/hybrid-battery-pack.jpg"
     ]
   },
   {
@@ -351,9 +350,9 @@ const DEFAULT_PARTS_INVENTORY = [
     status: "In Stock",
     warranty: "7 Days Testing Warranty on LED Modules",
     desc: "Original Koito Japan Dark Prime smoked edition factory LED projector headlamp pair. Clear non-yellowed lenses, intact mounting clips and brackets.",
-    img: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80",
+    img: "images/parts/car-headlamp-koito.jpg",
     images: [
-      "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80"
+      "images/parts/car-headlamp-koito.jpg"
     ]
   },
   {
@@ -371,9 +370,9 @@ const DEFAULT_PARTS_INVENTORY = [
     status: "In Stock",
     warranty: "Genuine Denso Japanese Quality",
     desc: "High filtration efficiency engine intake filter + activated carbon cabin A/C filter. Eliminates exhaust odor and dust particles inside the cabin.",
-    img: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80",
+    img: "images/parts/air-filter-denso.jpg",
     images: [
-      "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80"
+      "images/parts/air-filter-denso.jpg"
     ]
   },
   {
@@ -512,8 +511,16 @@ const AHStore = {
       let list = JSON.parse(raw);
       let updated = false;
       list = list.map(p => {
+        const def = DEFAULT_PARTS_INVENTORY.find(d => d.id === p.id);
+        if (def) {
+          // If part has outdated unsplash image that was replaced
+          if (p.img && (p.img.includes('1600705722908') || p.img.includes('1517524008697') || p.img.includes('1558441719') || p.img.includes('1511919884226') || p.img.includes('1619642751034'))) {
+            p.img = def.img;
+            p.images = def.images;
+            updated = true;
+          }
+        }
         if (!p.images || !p.images.length) {
-          const def = DEFAULT_PARTS_INVENTORY.find(d => d.id === p.id);
           if (def && def.images) {
             p.images = def.images;
             updated = true;

@@ -216,6 +216,106 @@ const AHSupabase = {
   },
 
   // -------------------------------------------------------------
+  // AUTO SPARE PARTS (PostgreSQL table: vehicles_parts)
+  // -------------------------------------------------------------
+  fetchParts: async function() {
+    try {
+      const res = await fetch(`${this.url}/rest/v1/vehicles_parts?select=*&order=created_at.desc`, {
+        method: "GET",
+        headers: this.headers()
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      
+      if (Array.isArray(data) && data.length > 0) {
+        const mapped = data.map(row => {
+          const imgList = (row.img || '').split(',').map(s => s.trim()).filter(Boolean);
+          const mainImg = imgList[0] || 'images/parts/prado-brake-pads.jpg';
+          return {
+            id: row.id,
+            name: row.name,
+            partNumber: row.part_number || row.partNumber || '',
+            brand: row.brand || 'Toyota',
+            category: (row.category || 'brakes').toLowerCase(),
+            categoryLabel: row.category_label || row.categoryLabel || 'Brakes & Suspension',
+            fitment: row.fitment || '',
+            condition: row.condition || 'Japanese OEM',
+            conditionType: row.condition_type || row.conditionType || 'oem',
+            priceNumber: parseInt(row.price_number || 0),
+            price: row.price || `LKR ${(row.price_number || 0).toLocaleString()}`,
+            status: row.status || 'In Stock',
+            warranty: row.warranty || '',
+            desc: row.desc || '',
+            img: mainImg,
+            images: imgList.length ? imgList : [mainImg]
+          };
+        });
+        
+        // Cache to localStorage for instant offline access
+        localStorage.setItem('ah_parts_inventory', JSON.stringify(mapped));
+        window.dispatchEvent(new Event('ah_parts_updated'));
+        return mapped;
+      }
+      return null;
+    } catch (err) {
+      console.warn("[AH Supabase] Using offline/cached parts data:", err.message);
+      return null;
+    }
+  },
+
+  savePart: async function(part) {
+    const imgList = Array.isArray(part.images) && part.images.length 
+      ? part.images.filter(Boolean) 
+      : (part.img ? [part.img] : []);
+
+    const payload = {
+      id: part.id || ("AH-PART-" + Math.floor(1000 + Math.random() * 9000)),
+      name: part.name,
+      part_number: part.partNumber || "",
+      brand: part.brand || "Toyota",
+      category: part.category || "brakes",
+      category_label: part.categoryLabel || "Brakes & Suspension",
+      fitment: part.fitment || "",
+      condition: part.condition || "Japanese OEM",
+      condition_type: part.conditionType || "oem",
+      price: part.price || `LKR ${(part.priceNumber || 0).toLocaleString()}`,
+      price_number: parseInt(part.priceNumber) || 0,
+      status: part.status || "In Stock",
+      warranty: part.warranty || "",
+      desc: part.desc || "",
+      img: imgList.join(',')
+    };
+
+    try {
+      const res = await fetch(`${this.url}/rest/v1/vehicles_parts`, {
+        method: "POST",
+        headers: {
+          ...this.headers(),
+          "Prefer": "resolution=merge-duplicates"
+        },
+        body: JSON.stringify(payload)
+      });
+      return res.ok;
+    } catch (err) {
+      console.error("[AH Supabase] Save part error:", err);
+      return false;
+    }
+  },
+
+  deletePart: async function(id) {
+    try {
+      const res = await fetch(`${this.url}/rest/v1/vehicles_parts?id=eq.${encodeURIComponent(id)}`, {
+        method: "DELETE",
+        headers: this.headers()
+      });
+      return res.ok;
+    } catch (err) {
+      console.error("[AH Supabase] Delete part error:", err);
+      return false;
+    }
+  },
+
+  // -------------------------------------------------------------
   // SUPABASE STORAGE: Direct Vehicle Image Uploads
   // -------------------------------------------------------------
   uploadImage: async function(file, customFilename) {
@@ -250,6 +350,7 @@ const AHSupabase = {
   initSync: function() {
     this.fetchSales();
     this.fetchRentals();
+    this.fetchParts();
   }
 };
 

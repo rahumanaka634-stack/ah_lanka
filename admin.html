@@ -1498,6 +1498,11 @@
       };
 
       AHStore.savePart(part);
+      if (typeof AHSupabase !== 'undefined') {
+        AHSupabase.savePart(part).then(ok => {
+          if (ok) showToast("✓ Saved & Synced to Supabase Cloud!");
+        });
+      }
       closeModal('part-modal');
       refreshAll();
       showToast("✓ Auto Spare Part Saved Successfully with Photo Gallery!");
@@ -1506,6 +1511,9 @@
     function deletePart(id) {
       if (confirm("Are you sure you want to delete this spare part?")) {
         AHStore.deletePart(id);
+        if (typeof AHSupabase !== 'undefined') {
+          AHSupabase.deletePart(id);
+        }
         refreshAll();
         showToast("✓ Spare Part Removed from Inventory");
       }
@@ -1516,6 +1524,9 @@
       if (!p) return;
       p.status = p.status === 'In Stock' ? 'Out of Stock' : 'In Stock';
       AHStore.savePart(p);
+      if (typeof AHSupabase !== 'undefined') {
+        AHSupabase.savePart(p);
+      }
       refreshAll();
       showToast(`✓ Marked as ${p.status}`);
     }

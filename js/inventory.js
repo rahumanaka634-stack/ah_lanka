@@ -5,137 +5,117 @@
 
 const DEFAULT_SALES_INVENTORY = [
   {
-    id: "AH-SALES-101",
-    name: "Toyota Land Cruiser Prado TX",
-    category: "suv",
-    year: 2021,
-    mileage: "42,000 km",
-    fuel: "Diesel",
-    trans: "Automatic",
-    priceNumber: 48500000,
-    price: "LKR 48,500,000",
-    badge: "Available",
-    badgeType: "red",
-    engine: "2800cc Turbo Diesel (1GD-FTV)",
-    desc: "Sunroof, 7 leather seats, 360-degree panoramic cameras, Modellista aero kit, original factory condition, clean documented history.",
-    img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=85",
-    images: [
-      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=85",
-      "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=85",
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=85",
-      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=85"
-    ],
-    status: "Available"
-  },
-  {
-    id: "AH-SALES-102",
-    name: "Toyota HiAce KDH 201 Super GL",
-    category: "van",
-    year: 2018,
-    mileage: "68,000 km",
-    fuel: "Diesel",
-    trans: "Automatic",
-    priceNumber: 21800000,
-    price: "LKR 21,800,000",
-    badge: "First Owner",
-    badgeType: "green",
-    engine: "3000cc Turbo Diesel (1KD-FTV)",
-    desc: "Dark Prime edition, dual air conditioning, velvet executive seats, push start, original metallic black finish.",
-    img: "https://images.unsplash.com/photo-1559297434-fae8a1916a79?auto=format&fit=crop&w=1200&q=85",
-    images: [
-      "https://images.unsplash.com/photo-1559297434-fae8a1916a79?auto=format&fit=crop&w=1200&q=85",
-      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=85",
-      "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1200&q=85",
-      "https://images.unsplash.com/photo-1520050206274-a1ae44613e6d?auto=format&fit=crop&w=1200&q=85"
-    ],
-    status: "Available"
-  },
-  {
-    id: "AH-SALES-103",
-    name: "Toyota Corolla Axio Hybrid WxB",
-    category: "sedan",
-    year: 2019,
-    mileage: "54,000 km",
-    fuel: "Hybrid",
-    trans: "Automatic",
-    priceNumber: 14200000,
-    price: "LKR 14,200,000",
-    badge: "Top Fuel Economy",
-    badgeType: "red",
-    engine: "1500cc Synergy Drive Hybrid",
-    desc: "WxB full option with leather-trimmed seats, Toyota Safety Sense, lane departure assist, pristine battery health report.",
-    img: "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1200&q=85",
-    images: [
-      "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1200&q=85",
-      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=85",
-      "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=85",
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=85"
-    ],
-    status: "Available"
-  },
-  {
-    id: "AH-SALES-104",
-    name: "Honda Vezel Z Sensing",
-    category: "suv",
-    year: 2017,
-    mileage: "62,000 km",
-    fuel: "Hybrid",
-    trans: "Automatic",
-    priceNumber: 13900000,
-    price: "LKR 13,900,000",
-    badge: "Clean Documents",
-    badgeType: "green",
-    engine: "1500cc i-DCD Hybrid",
-    desc: "Orange interior trim package, adaptive cruise control, LED headlights, brand new tires fitted, verifiable agency records.",
-    img: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=85",
-    images: [
-      "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=85",
-      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=85",
-      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=85"
-    ],
-    status: "Available"
-  },
-  {
-    id: "AH-SALES-105",
-    name: "Toyota Premio 1.5 F EX Package",
-    category: "sedan",
-    year: 2018,
-    mileage: "49,000 km",
+    id: "AH-SALES-1303",
+    name: "Black Toyota Roomy Custom G (2023 - Modellista)",
+    category: "hatchback",
+    year: 2023,
+    mileage: "10 km",
     fuel: "Petrol",
     trans: "Automatic",
-    priceNumber: 18500000,
-    price: "LKR 18,500,000",
-    badge: "Luxury Saloon",
-    badgeType: "red",
-    engine: "1500cc VVT-i (1NZ-FE)",
-    desc: "Teak interior finish, electric driver seat, intelligent clearance sonar, Pearl White metallic, immaculate condition.",
-    img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=85",
+    priceNumber: 10475000,
+    price: "LKR 10,475,000",
+    badge: "Available",
+    badgeType: "green",
+    engine: "1,000 cc Petrol Engine",
+    desc: "Toyota Roomy Custom G 2023 – Modellista Bodykit • Custom G with Premium Modellista Package • Dual Power Sliding Doors with Soft-Close Assist • Keyless Entry & Push-to-Start • Reverse Camera & Integrated Sensors.",
+    img: "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792816589486_Gemini_Generated_Image_szpmpns.jpg",
     images: [
-      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=85",
-      "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1200&q=85",
-      "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=85"
+      "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792816589486_Gemini_Generated_Image_szpmpns.jpg",
+      "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792816595501_image__6_.jpg",
+      "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792816599407_WhatsApp_Image_2026-10-24_at_1.jpeg"
     ],
     status: "Available"
   },
   {
-    id: "AH-SALES-106",
-    name: "Suzuki Wagon R Stingray Hybrid",
+    id: "AH-SALES-4588",
+    name: "White Toyota Roomy Custom G (2023 - Modellista Kit)",
     category: "hatchback",
-    year: 2019,
-    mileage: "38,000 km",
+    year: 2023,
+    mileage: "10 km",
+    fuel: "Petrol",
+    trans: "Automatic",
+    priceNumber: 10785000,
+    price: "LKR 10,785,000",
+    badge: "Available",
+    badgeType: "green",
+    engine: "1,000 cc Petrol Engine",
+    desc: "Toyota Roomy Custom G 2023 – Full Modellista Styling Package • Sporty Alloy Wheels • Dual Power Electric Sliding Doors • Smart Key Entry & Push Start • Reverse Camera with Multi-View Assist • Digital Climate Control.",
+    img: "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792815523563_Gemini_Generated_Image_3xqreb3.jpg",
+    images: [
+      "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792815523563_Gemini_Generated_Image_3xqreb3.jpg",
+      "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792815535566_f762bc99-670b-4178-9765-bca609.jpg",
+      "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792815542221_WhatsApp_Image_2026-10-24_at_9.jpeg",
+      "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792815546804_WhatsApp_Image_2026-10-24_at_9.jpeg",
+      "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792815550670_WhatsApp_Image_2026-10-24_at_9.jpeg"
+    ],
+    status: "Available"
+  },
+  {
+    id: "car-003",
+    name: "Suzuki Spacia Custom Hybrid XS Turbo (2025)",
+    category: "hatchback",
+    year: 2025,
+    mileage: "5,000 km",
     fuel: "Hybrid",
     trans: "Automatic",
-    priceNumber: 7400000,
-    price: "LKR 7,400,000",
-    badge: "City Commuter",
+    priceNumber: 9250000,
+    price: "LKR 9,250,000",
+    badge: "Available",
     badgeType: "green",
-    engine: "660cc Mild Hybrid Turbo",
-    desc: "Head-up display, paddle shifters, heated seats, keyless push start, exceptional 24+ km/L fuel efficiency in city driving.",
-    img: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=85",
+    engine: "660 cc Turbocharged Petrol + Mild Hybrid (ISG System)",
+    desc: "Hybrid XS Turbo (Top-Tier Full Option) • Premium Red & Black Two-Tone • 360-degree multi-view reverse camera • Dual Power Sliding Doors • Ottoman-style adjustable rear seats • Full LED headlamps & DRLs.",
+    img: "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814360694_Gemini_Generated_Image_6uk68c6.jpg",
     images: [
-      "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=85",
-      "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=85",
-      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=85"
+      "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814360694_Gemini_Generated_Image_6uk68c6.jpg",
+      "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814365713_Gemini_Generated_Image_m9qun1m.jpg",
+      "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814371953_image__2_.jpg",
+      "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814387994_image__1_.jpg",
+      "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814394984_Gemini_Generated_Image_9on8ud9.jpg"
+    ],
+    status: "Available"
+  },
+  {
+    id: "car-002",
+    name: "Red Toyota Roomy Custom G (2025 - Modellista Kit)",
+    category: "hatchback",
+    year: 2025,
+    mileage: "10 km",
+    fuel: "Petrol",
+    trans: "Automatic",
+    priceNumber: 11175000,
+    price: "LKR 11,175,000",
+    badge: "Available",
+    badgeType: "green",
+    engine: "1,000 cc Petrol Engine",
+    desc: "Toyota Roomy Custom G 2025 – Modellista Bodykit • Factory Modellista Aero Package • Custom Chrome Grille • Dual Power Sliding Doors • Smart Assist Safety Suite • Touchscreen Reverse Camera.",
+    img: "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814699222_Gemini_Generated_Image_5k5qa65.jpg",
+    images: [
+      "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814699222_Gemini_Generated_Image_5k5qa65.jpg",
+      "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814703545_Gemini_Generated_Image_v9m3gqv.jpg",
+      "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814710775_image__3_.jpg",
+      "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814744882_image__5_.jpg",
+      "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814749456_Gemini_Generated_Image_r890hbr.jpg"
+    ],
+    status: "Available"
+  },
+  {
+    id: "car-001",
+    name: "Toyota KDH GDH 223 2026",
+    category: "van",
+    year: 2026,
+    mileage: "0 km",
+    fuel: "Diesel",
+    trans: "Automatic",
+    priceNumber: 28985000,
+    price: "LKR 28,985,000",
+    badge: "Available",
+    badgeType: "green",
+    engine: "2800CC Original Turbo Diesel (GDH Engine)",
+    desc: "Toyota HiAce GDH 223 High Roof (2026) • Highest Specification High Roof • Pearl White (Color Code 089) • Original 4-Way Camera & Center Mirror Camera System • Factory 5 Alloy Wheels • Maximum Passenger & Cargo Space.",
+    img: "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814113375_Gemini_Generated_Image_onsityo.jpg",
+    images: [
+      "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814113375_Gemini_Generated_Image_onsityo.jpg",
+      "https://rbxkcaucuhvolksevjmo.supabase.co/storage/v1/object/public/vehicles/1792814184390_Gemini_Generated_Image_w26oiow.jpg"
     ],
     status: "Available"
   }
@@ -423,6 +403,12 @@ const AHStore = {
     }
     try {
       let list = JSON.parse(raw);
+      // If list only contains old demo dummy cars (e.g. AH-SALES-101 with Prado 2021), migrate to real showroom stock
+      const hasOldDemo = list.some(v => v.id === 'AH-SALES-101' || v.id === 'AH-SALES-102');
+      if (hasOldDemo && !list.some(v => v.id === 'AH-SALES-1303' || v.id === 'AH-SALES-4588')) {
+        this.setSales(DEFAULT_SALES_INVENTORY);
+        return DEFAULT_SALES_INVENTORY;
+      }
       // Ensure each vehicle has an images array for multi-photo gallery
       let updated = false;
       list = list.map(v => {
